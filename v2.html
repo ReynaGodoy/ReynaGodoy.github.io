@@ -114,6 +114,18 @@
   .stagger-photo { overflow: hidden; aspect-ratio: 4/3; background: #2a2620; }
   .stagger-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
   .stagger-photo:hover img { transform: scale(1.03); }
+  /* CASE STUDY SLIDER (Chivas) */
+  .cs-slider { position: relative; width: 100%; height: 100%; outline: none; }
+  .stagger-photo .cs-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease, transform 0.6s ease; }
+  .stagger-photo .cs-slide.is-active { opacity: 1; }
+  .cs-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 40px; height: 40px; border: 0; border-radius: 50%; background: rgba(250,247,242,0.88); color: var(--ink); font-family: var(--serif); font-size: 26px; line-height: 38px; text-align: center; cursor: pointer; opacity: 0; transition: opacity 0.3s ease; }
+  .cs-prev { left: 16px; }
+  .cs-next { right: 16px; }
+  .cs-slider:hover .cs-arrow, .cs-slider:focus-within .cs-arrow { opacity: 1; }
+  .cs-dots { position: absolute; bottom: 16px; left: 0; right: 0; z-index: 2; display: flex; justify-content: center; gap: 8px; }
+  .cs-dot { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: rgba(250,247,242,0.5); cursor: pointer; transition: background 0.3s ease, transform 0.3s ease; }
+  .cs-dot.is-active { background: #FAF7F2; transform: scale(1.3); }
+  @media (hover: none) { .cs-arrow { opacity: 1; } }
   .client-roster { margin-top: 56px; padding-top: 32px; border-top: 0.5px solid var(--border); max-width: 1200px; }
   .client-roster-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--tan); margin-bottom: 14px; }
   .client-roster-names { font-size: 14px; line-height: 1.8; color: var(--ink-soft); font-weight: 300; }
@@ -432,12 +444,20 @@
 
     <!-- ROW 6: photo left / text right -->
     <div class="stagger-photo reveal">
-      <img src="images/1108_unreasonable_06.jpeg" alt="1108_unreasonable_06.jpeg" style="object-position: center 60%;">
+      <div class="cs-slider" aria-roledescription="carousel" aria-label="Chivas The Venture photos" tabindex="0">
+        <img class="cs-slide is-active" src="images/ChivasTheVenture-219_copy.jpg" alt="Guests exploring the finalist exhibition at Chivas The Venture">
+        <img class="cs-slide" src="images/ChivasTheVenture-23_copy.jpeg" alt="Four-sided pitch stage with tiered seating">
+        <img class="cs-slide" src="images/ChivasTheVenture-324_copy.jpg" alt="Lounge and concert stage for the closing performance">
+        <img class="cs-slide" src="images/Herbst_Pavilion.jpg" alt="Herbst Pavilion empty before the buildout">
+        <button class="cs-arrow cs-prev" type="button" aria-label="Previous photo">&#8249;</button>
+        <button class="cs-arrow cs-next" type="button" aria-label="Next photo">&#8250;</button>
+        <div class="cs-dots"></div>
+      </div>
     </div>
     <div class="stagger-text alt reveal reveal-delay-1">
-      <span class="stagger-tag">Employee Experience · 3 days</span>
-      <h3 class="stagger-title">UpTogether</h3>
-      <p class="stagger-desc">End-to-end delivery of a 3-day off-site for a distributed nonprofit team. The experience shifted relationships from, in their words, "transactional to transformational."</p>
+      <span class="stagger-tag">Brand Experience · Global Final · 400 guests</span>
+      <h3 class="stagger-title">Chivas The Venture</h3>
+      <p class="stagger-desc">I oversaw the global final of Chivas Regal's $1M search for social entrepreneurs, in the competition's inaugural year. I managed a $1.2M buildout that turned an empty 30,000 sq ft pier warehouse into three branded spaces: an exhibition of 16 global finalists, a four-sided stage where five pitched live to judges including Pernod Ricard CEO Alexandre Ricard, and a lounge for Aloe Blacc's closing set. Hosted by James Corden, the night brought the campaign's "Win the Right Way" message to life. Produced with The Projects*.</p>
     </div>
 
   </div>
@@ -635,6 +655,39 @@
       }
     });
   })();
+  document.querySelectorAll('.cs-slider').forEach(function (slider) {
+    const slides = slider.querySelectorAll('.cs-slide');
+    const dotsWrap = slider.querySelector('.cs-dots');
+    let current = 0;
+    slides.forEach(function (s, i) {
+      const d = document.createElement('button');
+      d.type = 'button'; d.className = 'cs-dot';
+      d.setAttribute('aria-label', 'Photo ' + (i + 1) + ' of ' + slides.length);
+      d.addEventListener('click', function () { go(i); });
+      dotsWrap.appendChild(d);
+    });
+    const dots = dotsWrap.querySelectorAll('.cs-dot');
+    function go(i) {
+      current = (i + slides.length) % slides.length;
+      slides.forEach(function (s, n) { s.classList.toggle('is-active', n === current); });
+      dots.forEach(function (d, n) { d.classList.toggle('is-active', n === current); });
+    }
+    slider.querySelector('.cs-prev').addEventListener('click', function () { go(current - 1); });
+    slider.querySelector('.cs-next').addEventListener('click', function () { go(current + 1); });
+    slider.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') go(current - 1);
+      if (e.key === 'ArrowRight') go(current + 1);
+    });
+    let startX = null;
+    slider.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', function (e) {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(current + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+    go(0);
+  });
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
