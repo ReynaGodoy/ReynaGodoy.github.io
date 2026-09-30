@@ -203,7 +203,9 @@
   .reveal-delay-3 { transition-delay: 0.3s; }
   .mobile-teaser-gallery { display: none; }
   .m-copy { display: none; }
+  .m-br { display: none; }
   .work-text p.d-copy { margin-bottom: 0; }
+  #bioMine p.d-copy:nth-last-child(5) { margin-bottom: 0; }
   .mobile-testimonial-section { display: none; }
 
   /* RESPONSIVE */
@@ -254,7 +256,12 @@
     .d-copy { display: none; }
     .m-copy { display: block; }
     .work-text p.m-copy { margin-bottom: 0; }
-    .who-card-text.m-copy { max-width: none; }
+    .who-card-text.m-copy { max-width: none; white-space: nowrap; font-size: clamp(11px, 3.3vw, 15px); }
+    .who-card { padding: 40px 24px; }
+    .m-br { display: inline; }
+    .d-sep { display: none; }
+    .hero-open { white-space: nowrap; font-size: clamp(11px, 3.2vw, 13px); }
+    .hero .hero-content { padding: 0 0 72px; }
     /* MOBILE ORDER: proof before process */
     body { display: flex; flex-direction: column; }
     .hero { order: 1; }
@@ -420,7 +427,7 @@
 
     <!-- ROW 1: text left / photo right -->
     <div class="stagger-text reveal">
-      <span class="stagger-tag">Community &amp; Brand Experience · 30+ programs</span>
+      <span class="stagger-tag">Community &amp; Brand Experience<span class="d-sep"> ·</span><br class="m-br"> 30+ programs</span>
       <h3 class="stagger-title">Unreasonable × Barclays, Accenture &amp; Pearson</h3>
       <p class="stagger-desc d-copy">Over seven years, I built and led the in-person and community experience for one of the world's most ambitious impact accelerator programs, convening entrepreneurs, investors and institutions to scale solutions to global challenges.</p>
       <p class="stagger-desc d-copy" style="margin-top:16px;">I managed an eight-figure annual budget and a team of full-time staff and consultants, directing vendors across 6 countries. I created the playbook that kept 30+ programs on four continents consistent, from a manor house in England to a farm in upstate New York. NPS: 88.</p>
@@ -435,7 +442,7 @@
       <img src="images/UNReasonable_2885.jpeg" alt="UNReasonable_2885.jpeg">
     </div>
     <div class="stagger-text alt reveal reveal-delay-1">
-      <span class="stagger-tag">Employee Experience · Multi-year · US and Europe</span>
+      <span class="stagger-tag">Employee Experience · Multi-year<span class="d-sep"> ·</span><br class="m-br"> US and Europe</span>
       <h3 class="stagger-title">Global Pharmaceutical Company × IDEO</h3>
       <p class="stagger-desc d-copy">Partnered with IDEO to design a scalable senior leadership program activated across the US and Europe, a multi-year engagement bringing C-suite leaders together at a global scale.</p>
       <p class="stagger-desc m-copy">Partnered with IDEO to design a scalable senior leadership program activated across the US and Europe, bringing C-suite leaders together at a global scale.</p>
@@ -514,11 +521,15 @@
       <h2 class="about-hello">Hi, I'm Reyna</h2>
       <div class="bio-viewport" id="bioViewport">
         <div class="bio-panel" id="bioMine">
-        <p>I've always been a host, fascinated by what makes experiences great and obsessed with the details.</p>
-        <p>I deepened my love of hospitality in New York's top restaurants and nightclubs, where excellence was the baseline. I built an eco-tourism company in Mexico, designing tours you couldn't find anywhere else. And I've gathered founders and investors from around the world on a private island in Malaysia to take on pressing global challenges. The ingredients have always been the same: care about people, nail the details and make it memorable.</p>
-        <p>My background spans program leadership, employee experience design, brand and creative direction, space design and production. I've set the standards that agencies and vendors across six countries delivered to, and balanced a program's identity with global partners like Barclays, Accenture and Pearson. I think of myself equally as a creative and a doer, and this work sits exactly at that intersection.</p>
-        <p>The through-line across all of it is the same: a belief that great experiences are never the product of one big gesture. They're the accumulation of many small, deliberate ones, and that accumulation is what I'm here to build.</p>
-        <p>Let's build something together.</p>
+        <p class="d-copy">I've always been a host, fascinated by what makes experiences great and obsessed with the details.</p>
+        <p class="d-copy">I deepened my love of hospitality in New York's top restaurants and nightclubs, where excellence was the baseline. I built an eco-tourism company in Mexico, designing tours you couldn't find anywhere else. And I've gathered founders and investors from around the world on a private island in Malaysia to take on pressing global challenges. The ingredients have always been the same: care about people, nail the details and make it memorable.</p>
+        <p class="d-copy">My background spans program leadership, employee experience design, brand and creative direction, space design and production. I've set the standards that agencies and vendors across six countries delivered to, and balanced a program's identity with global partners like Barclays, Accenture and Pearson. I think of myself equally as a creative and a doer, and this work sits exactly at that intersection.</p>
+        <p class="d-copy">The through-line across all of it is the same: a belief that great experiences are never the product of one big gesture. They're the accumulation of many small, deliberate ones, and that accumulation is what I'm here to build.</p>
+        <p class="d-copy">Let's build something together.</p>
+        <p class="m-copy">I've always been a host, fascinated by what makes experiences great and obsessed with the details.</p>
+        <p class="m-copy">From New York's top restaurants and nightclubs to an eco-tourism company I built in Mexico and a gathering of founders and investors on a private island in Malaysia, the ingredients have always been the same: care about people, nail the details and make it memorable.</p>
+        <p class="m-copy">My background spans program leadership, employee experience design, brand and creative direction, space design and production.</p>
+        <p class="m-copy">Great experiences are never one big gesture. They're the accumulation of many small, deliberate ones, and that's what I'm here to build.</p>
         </div>
         <div class="bio-panel off-right" id="bioMom" aria-hidden="true" inert>
         <p>My first glimpse behind a production of a memorable event was at the age of 19 when I was a PA at a Rolling Stones’ concert in Madison Square Garden in New York City.</p>
