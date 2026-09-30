@@ -202,6 +202,9 @@
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
   .mobile-teaser-gallery { display: none; }
+  .m-copy { display: none; }
+  .work-text p.d-copy { margin-bottom: 0; }
+  .mobile-testimonial-section { display: none; }
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
@@ -247,6 +250,26 @@
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .about-img { aspect-ratio: 3/2; object-position: center 25%; }
     footer { flex-direction: column; gap: 8px; text-align: center; }
+    /* MOBILE COPY SWAPS */
+    .d-copy { display: none; }
+    .m-copy { display: block; }
+    .work-text p.m-copy { margin-bottom: 0; }
+    .who-card-text.m-copy { max-width: none; }
+    /* MOBILE ORDER: proof before process */
+    body { display: flex; flex-direction: column; }
+    .hero { order: 1; }
+    #the-work { order: 2; }
+    #what-i-design { order: 3; }
+    .mobile-teaser-gallery { order: 4; }
+    #portfolio { order: 5; }
+    .testimonials-section.mobile-testimonial-section { order: 6; display: block; padding-top: 0; background: var(--cream); }
+    #how-we-work { order: 7; }
+    #about { order: 8; }
+    .gallery-section { order: 9; }
+    .testimonials-section { order: 10; }
+    .testimonial.m-dup { display: none; }
+    .contact-section { order: 11; }
+    footer { order: 12; }
   }
   @media (max-width: 600px) {
     .how-steps { grid-template-columns: 1fr; }
@@ -300,7 +323,8 @@
     <div class="work-text reveal">
       <p class="section-label section-label-nowrap">Human connection has never mattered more.</p>
       <p>The difference between a forgettable experience and one that moves people? A clear purpose, thoughtful design, and someone holding the thread from start to finish.</p>
-      <p>I'm Reyna, and that's what I do. For 15+ years, I've designed and led programs, events and experiences for organizations around the world, holding the vision while managing every detail that makes it real. Whether I'm leading in-house or partnering on a project, I set the standard, bring in the right partners, and keep everything moving toward outcomes that matter: deeper connection, sharper alignment, and moments that stay with people.</p>
+      <p class="d-copy">I'm Reyna, and that's what I do. For 15+ years, I've designed and led programs, events and experiences for organizations around the world, holding the vision while managing every detail that makes it real. Whether I'm leading in-house or partnering on a project, I set the standard, bring in the right partners, and keep everything moving toward outcomes that matter: deeper connection, sharper alignment, and moments that stay with people.</p>
+      <p class="m-copy">I'm Reyna, and that's what I do. For 15+ years, I've designed and led programs, events and experiences for organizations around the world, holding the vision and every detail that makes it real.</p>
     </div>
     <div class="reveal reveal-delay-2">
       <img class="work-img" src="images/IMG_1344.JPG" alt="IMG_1344.JPG">
@@ -314,15 +338,18 @@
   <div class="who-grid">
     <div class="who-card reveal">
       <div class="who-card-title"><span class="who-card-lead">Employee</span> <span class="who-card-shared">Experience</span></div>
-      <p class="who-card-text">Off-sites, all-hands and leadership development programs designed to help teams connect, align and do their best work together, from the first brief through production and delivery.</p>
+      <p class="who-card-text d-copy">Off-sites, all-hands and leadership development programs designed to help teams connect, align and do their best work together, from the first brief through production and delivery.</p>
+      <p class="who-card-text m-copy">Off-sites · All-hands · Leadership programs</p>
     </div>
     <div class="who-card reveal reveal-delay-1">
       <div class="who-card-title"><span class="who-card-lead">Community</span> <span class="who-card-shared">Experience</span></div>
-      <p class="who-card-text">Fellowships, accelerators and founder networks that bring entrepreneurs, investors and institutions together, forging relationships that outlast the program and become the foundation for impact to scale.</p>
+      <p class="who-card-text d-copy">Fellowships, accelerators and founder networks that bring entrepreneurs, investors and institutions together, forging relationships that outlast the program and become the foundation for impact to scale.</p>
+      <p class="who-card-text m-copy">Fellowships · Accelerators · Founder networks</p>
     </div>
     <div class="who-card reveal reveal-delay-2">
       <div class="who-card-title"><span class="who-card-lead">Brand</span> <span class="who-card-shared">Experience</span></div>
-      <p class="who-card-text">Building brand equity and resonance through space, visuals, journey and language, so every gathering feels like the brand behind it. Setting the course, briefing partners and protecting consistency throughout.</p>
+      <p class="who-card-text d-copy">Building brand equity and resonance through space, visuals, journey and language, so every gathering feels like the brand behind it. Setting the course, briefing partners and protecting consistency throughout.</p>
+      <p class="who-card-text m-copy">Activations · Branded spaces · Partner events</p>
     </div>
   </div>
 </section>
@@ -395,8 +422,9 @@
     <div class="stagger-text reveal">
       <span class="stagger-tag">Community &amp; Brand Experience · 30+ programs</span>
       <h3 class="stagger-title">Unreasonable × Barclays, Accenture &amp; Pearson</h3>
-      <p class="stagger-desc">Over seven years, I built and led the in-person and community experience for one of the world's most ambitious impact accelerator programs, convening entrepreneurs, investors and institutions to scale solutions to global challenges.</p>
-      <p class="stagger-desc" style="margin-top:16px;">I managed an eight-figure annual budget and a team of full-time staff and consultants, directing vendors across 6 countries. I created the playbook that kept 30+ programs on four continents consistent, from a manor house in England to a farm in upstate New York. NPS: 88.</p>
+      <p class="stagger-desc d-copy">Over seven years, I built and led the in-person and community experience for one of the world's most ambitious impact accelerator programs, convening entrepreneurs, investors and institutions to scale solutions to global challenges.</p>
+      <p class="stagger-desc d-copy" style="margin-top:16px;">I managed an eight-figure annual budget and a team of full-time staff and consultants, directing vendors across 6 countries. I created the playbook that kept 30+ programs on four continents consistent, from a manor house in England to a farm in upstate New York. NPS: 88.</p>
+      <p class="stagger-desc m-copy">Built and led the in-person, virtual and community experience for a global impact accelerator over seven years. 30+ programs on four continents, an eight-figure annual budget, a team of staff and consultants, and vendors in six countries. Guest NPS: 88.</p>
     </div>
     <div class="stagger-photo reveal reveal-delay-1">
       <img src="images/1107_unreasonable_35.png" alt="1107_unreasonable_35.png">
@@ -409,14 +437,16 @@
     <div class="stagger-text alt reveal reveal-delay-1">
       <span class="stagger-tag">Employee Experience · Multi-year · US and Europe</span>
       <h3 class="stagger-title">Global Pharmaceutical Company × IDEO</h3>
-      <p class="stagger-desc">Partnered with IDEO to design a scalable senior leadership program activated across the US and Europe, a multi-year engagement bringing C-suite leaders together at a global scale.</p>
+      <p class="stagger-desc d-copy">Partnered with IDEO to design a scalable senior leadership program activated across the US and Europe, a multi-year engagement bringing C-suite leaders together at a global scale.</p>
+      <p class="stagger-desc m-copy">Partnered with IDEO to design a scalable senior leadership program activated across the US and Europe, bringing C-suite leaders together at a global scale.</p>
     </div>
 
     <!-- ROW 3: text left / photo right -->
     <div class="stagger-text reveal">
       <span class="stagger-tag">Employee Experience · 3 offices · 3 days</span>
       <h3 class="stagger-title">ADC Group</h3>
-      <p class="stagger-desc">End-to-end design and production of a company off-site for ADC Group, bringing a distributed team together from 3 international offices for a 3-day experience designed to deepen relationships, sharpen strategy, and strengthen culture.</p>
+      <p class="stagger-desc d-copy">End-to-end design and production of a company off-site for ADC Group, bringing a distributed team together from 3 international offices for a 3-day experience designed to deepen relationships, sharpen strategy, and strengthen culture.</p>
+      <p class="stagger-desc m-copy">Led end-to-end design and production of a 3-day off-site uniting a team from 3 international offices to strengthen relationships, strategy and culture.</p>
     </div>
     <div class="stagger-photo reveal reveal-delay-1">
       <img src="images/UK22_84-5K.jpeg" alt="UK22_84-5K.jpeg">
@@ -429,14 +459,16 @@
     <div class="stagger-text alt reveal reveal-delay-1">
       <span class="stagger-tag">Community Experience · Multi-day</span>
       <h3 class="stagger-title">Summit Outside</h3>
-      <p class="stagger-desc">Designed and produced an immersive multi-day gathering at Powder Mountain, Utah for Summit Series, bringing together entrepreneurs, artists, and thought leaders for talks, outdoor activities, and communal experiences, most notably a quarter-mile-long shared dinner table set against the mountain landscape.</p>
+      <p class="stagger-desc d-copy">Designed and produced an immersive multi-day gathering at Powder Mountain, Utah for Summit Series, bringing together entrepreneurs, artists, and thought leaders for talks, outdoor activities, and communal experiences, most notably a quarter-mile-long shared dinner table set against the mountain landscape.</p>
+      <p class="stagger-desc m-copy">Designed and produced an immersive multi-day gathering at Powder Mountain, Utah for Summit Series, anchored by a quarter-mile-long shared dinner table on the mountain.</p>
     </div>
 
     <!-- ROW 5: text left / photo right -->
     <div class="stagger-text reveal">
       <span class="stagger-tag">Employee Experience · 1,400+ educators · 5 years</span>
       <h3 class="stagger-title">Alliance College-Ready Public Schools</h3>
-      <p class="stagger-desc">For five consecutive years, designed and delivered the annual gathering for 1,400+ education professionals across 26 schools in Los Angeles, in both in-person and virtual formats.</p>
+      <p class="stagger-desc d-copy">For five consecutive years, designed and delivered the annual gathering for 1,400+ education professionals across 26 schools in Los Angeles, in both in-person and virtual formats.</p>
+      <p class="stagger-desc m-copy">Designed and delivered the annual gathering for 1,400+ educators across 26 Los Angeles schools for five consecutive years, in person and virtual.</p>
     </div>
     <div class="stagger-photo reveal reveal-delay-1">
       <img src="images/120318_unreasonable_07.jpeg" alt="120318_unreasonable_07.jpeg">
@@ -457,9 +489,18 @@
     <div class="stagger-text alt reveal reveal-delay-1">
       <span class="stagger-tag">Brand Experience · Global Final · 400 guests</span>
       <h3 class="stagger-title">Chivas The Venture</h3>
-      <p class="stagger-desc">I oversaw the global final of Chivas Regal's $1M search for social entrepreneurs, in the competition's inaugural year. I managed a $1.2M buildout that turned an empty 30,000 sq ft pier warehouse into three branded spaces: an exhibition of 16 global finalists, a four-sided stage where five pitched live to judges including Pernod Ricard CEO Alexandre Ricard, and a lounge for Aloe Blacc's closing set. Hosted by James Corden, the night brought the campaign's "Win the Right Way" message to life. Produced with The Projects*.</p>
+      <p class="stagger-desc d-copy">I oversaw the global final of Chivas Regal's $1M search for social entrepreneurs, in the competition's inaugural year. I managed a $1.2M buildout that turned an empty 30,000 sq ft pier warehouse into three branded spaces: an exhibition of 16 global finalists, a four-sided stage where five pitched live to judges including Pernod Ricard CEO Alexandre Ricard, and a lounge for Aloe Blacc's closing set. Hosted by James Corden, the night brought the campaign's "Win the Right Way" message to life. Produced with The Projects*.</p>
+      <p class="stagger-desc m-copy">Oversaw the global final of Chivas Regal's $1M search for social entrepreneurs. Led a $1.2M buildout that turned an empty 30,000 sq ft pier into three branded spaces for 400 guests, hosted by James Corden.</p>
     </div>
 
+  </div>
+</section>
+
+<!-- MOBILE-ONLY TESTIMONIAL (after proof) -->
+<section class="testimonials-section mobile-testimonial-section">
+  <div class="testimonial">
+    <p class="testimonial-text">"Reyna is one of those unique people who has incredible creative and design vision and can also ensure that every detail of her vision is executed flawlessly. Her superpower is making a space, event, or program turn into an unforgettable and impactful experience for all involved."</p>
+    <span class="testimonial-attr">- Trish Kennelly, former <strong>Chief Operating Officer</strong>, <strong>On Deck</strong></span>
   </div>
 </section>
 
@@ -553,7 +594,7 @@
 <section class="testimonials-section">
   <p class="section-label reveal">What people say</p>
   <div class="testimonials-grid">
-    <div class="testimonial reveal">
+    <div class="testimonial reveal m-dup">
       <p class="testimonial-text">"Reyna is one of those unique people who has incredible creative and design vision and can also ensure that every detail of her vision is executed flawlessly. Her superpower is making a space, event, or program turn into an unforgettable and impactful experience for all involved."</p>
       <span class="testimonial-attr">- Trish Kennelly, former <strong>Chief Operating Officer</strong>, <strong>On Deck</strong></span>
     </div>
