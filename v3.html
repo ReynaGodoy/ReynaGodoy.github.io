@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reyna Godoy | Experience Design & Program Leadership</title>
+<meta name="description" content="Experience design, events and program leadership for teams, communities and brands">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #FAF7F2;
+    --ink: #1A1814;
+    --ink-soft: #3D3830;
+    --ink-muted: #7A7268;
+    --tan: #8B6F47;
+    --tan-light: #C4A882;
+    --border: rgba(26,24,20,0.1);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Jost', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--cream); color: var(--ink); font-family: var(--sans); font-weight: 300; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 22px 48px; background: rgba(250,247,242,0.92); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border); transition: padding 0.3s ease; }
+  nav.scrolled { padding: 14px 48px; }
+  .nav-logo { font-family: var(--sans); font-size: 12px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; align-items: center; gap: 28px; }
+  .nav-link { font-size: 11px; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
+  .nav-link:hover { color: var(--ink); }
+  .nav-cta { font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink); text-decoration: none; border-bottom: 0.5px solid var(--ink); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
+  .nav-cta:hover { color: var(--tan); border-color: var(--tan); }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .nav-hamburger span { display: block; width: 22px; height: 0.5px; background: var(--ink); transition: all 0.3s ease; }
+  .nav-mobile-menu { display: none; position: fixed; inset: 0; background: rgba(250,247,242,0.98); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
+  .nav-mobile-menu.open { display: flex; }
+  .nav-mobile-link { font-family: var(--serif); font-size: 28px; font-weight: 400; color: var(--ink); text-decoration: none; transition: color 0.2s; }
+  .nav-mobile-link:hover { color: var(--tan); }
+  .nav-mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--ink); line-height: 1; }
+
+  /* SECTIONS — tightened from 100px to 64px */
+  section { padding: 64px 48px; }
+  .section-label { font-size: 10px; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; color: var(--tan); margin-bottom: 40px; }
+  .mobile-only { display: none; }
+  .section-label-nowrap { white-space: nowrap; letter-spacing: 0.12em; }
+
+  /* HERO */
+  .hero { position: relative; height: 100vh; min-height: 600px; overflow: hidden; display: flex; align-items: flex-end; }
+  .hero-img { position: absolute; inset: 0; background-image: url('images/14-mile-dinner.jpeg'); background-size: cover; background-position: center 30%; transform: scale(1.04); animation: heroZoom 12s ease-out forwards; }
+  @keyframes heroZoom { from { transform: scale(1.04); } to { transform: scale(1); } }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(16,13,10,0.88) 0%, rgba(16,13,10,0.55) 40%, rgba(16,13,10,0.25) 70%, rgba(16,13,10,0.1) 100%); }
+  .hero-content { position: relative; z-index: 2; padding: 0 48px 80px; max-width: 820px; opacity: 0; transform: translateY(20px); animation: fadeUp 1s ease 0.4s forwards; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .hero-headline { font-family: var(--serif); font-size: clamp(48px, 7vw, 88px); font-weight: 400; line-height: 1.05; color: #FAF7F2; margin-bottom: 24px; letter-spacing: -0.01em; }
+  .hero-sub { font-size: 14px; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,247,242,0.92); margin-bottom: 36px; text-shadow: 0 1px 8px rgba(0,0,0,0.4); }
+  .hero-btn { display: inline-block; font-size: 11px; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream); text-decoration: none; border: 0.5px solid rgba(250,247,242,0.6); padding: 14px 28px; transition: background 0.25s, border-color 0.25s; }
+  .hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .hero-open { font-size: 13px; font-weight: 300; line-height: 1.5; color: rgba(250,247,242,0.88); text-shadow: 0 1px 8px rgba(0,0,0,0.4); }
+  .hero-open-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--tan-light); margin-right: 8px; vertical-align: 1px; }
+  .hero-btn:hover { background: rgba(250,247,242,0.12); border-color: rgba(250,247,242,0.9); }
+
+  /* WHAT I DO */
+  .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; max-width: 1200px; }
+  .work-text p { font-size: 17px; line-height: 1.85; color: var(--ink-soft); margin-bottom: 20px; }
+  .work-text p:last-child { margin-bottom: 0; }
+  .work-text em { font-style: italic; color: var(--ink); }
+  .work-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: center; }
+
+  /* CATEGORIES */
+  .who-section { background: var(--ink); }
+  .who-headline { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 42px); font-weight: 400; color: #FAF7F2; margin-bottom: 48px; }
+  .who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(250,247,242,0.08); max-width: 1200px; margin-top: 20px; }
+  .who-card { background: var(--ink); padding: 48px 40px; border: 0.5px solid rgba(250,247,242,0.08); }
+  .who-card-num { font-family: var(--serif); font-size: 44px; font-weight: 500; font-style: italic; color: #C4A882; opacity: 1; margin-bottom: 20px; line-height: 1; }
+  .who-card-title { font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: 0; text-transform: none; color: #FAF7F2; margin-bottom: 16px; line-height: 1.2; }
+  .who-card-lead { font-weight: 500; color: #FAF7F2; }
+  .who-card-shared { font-style: normal; font-weight: 400; color: #C4A882; }
+  .who-card-kw { color: #C4A882; font-weight: 400; }
+  @media (min-width: 901px) { .who-card-title { white-space: nowrap; } }
+  @media (min-width: 901px) and (max-width: 1180px) {
+    .who-card { padding: 44px 28px; }
+    .who-card-title { font-size: clamp(18px, 1.95vw, 24px); }
+  }
+  .who-card-text { font-size: 15px; line-height: 1.75; color: rgba(250,247,242,0.55); font-weight: 300; max-width: 28ch; }
+
+  /* INTERLUDE */
+  .interlude { padding: 0; height: 52vh; min-height: 320px; overflow: hidden; position: relative; }
+  .interlude img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block; }
+  .interlude-dark { padding: 0; height: 60vh; min-height: 400px; overflow: hidden; position: relative; }
+  .interlude-dark img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
+
+  /* HOW IT WORKS / THE PROCESS */
+  .how-inner { max-width: 1200px; }
+  .how-headline { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 42px); font-weight: 400; color: var(--ink); margin-bottom: 20px; }
+  .how-intro { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.6; color: var(--ink-muted); margin: -8px 0 16px; }
+  .how-squiggle { display: block; margin-bottom: 0; opacity: 0.8; }
+  .how-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; margin-top: 0; }
+  .how-step { padding-top: 28px; }
+  .how-step-title { font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); margin-bottom: 12px; }
+  .how-step-text { font-size: 15px; line-height: 1.75; color: var(--ink-muted); }
+
+  /* PORTFOLIO */
+  .selected-work-section { padding: 32px 48px 64px; }
+  .stagger-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; max-width: 1200px; }
+  .stagger-text { background: var(--ink); padding: 56px 52px; display: flex; flex-direction: column; justify-content: center; aspect-ratio: 4/3; }
+  .stagger-text.alt { background: #E0D5C4; }
+  .stagger-text.alt .stagger-tag { color: #8B6F47; font-weight: 500; }
+  .stagger-text.alt .stagger-title { color: #1A1814; font-weight: 500; }
+  .stagger-text.alt .stagger-desc { color: #3D3830; }
+  .stagger-tag { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--tan-light); margin-bottom: 16px; }
+  .stagger-title { font-family: var(--serif); font-size: 26px; font-weight: 400; color: #FAF7F2; line-height: 1.2; margin-bottom: 20px; }
+  .stagger-desc { font-size: 14px; line-height: 1.75; color: rgba(250,247,242,0.6); font-weight: 300; }
+  .stagger-photo { overflow: hidden; aspect-ratio: 4/3; background: #2a2620; }
+  .stagger-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+  .stagger-photo:hover img { transform: scale(1.03); }
+  /* CASE STUDY SLIDER (Chivas) */
+  .cs-slider { position: relative; width: 100%; height: 100%; outline: none; }
+  .stagger-photo .cs-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease, transform 0.6s ease; }
+  .stagger-photo .cs-slide.is-active { opacity: 1; }
+  .cs-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 40px; height: 40px; border: 0; border-radius: 50%; background: rgba(250,247,242,0.88); color: var(--ink); font-family: var(--serif); font-size: 26px; line-height: 38px; text-align: center; cursor: pointer; opacity: 0; transition: opacity 0.3s ease; }
+  .cs-prev { left: 16px; }
+  .cs-next { right: 16px; }
+  .cs-slider:hover .cs-arrow, .cs-slider:focus-within .cs-arrow { opacity: 1; }
+  .cs-dots { position: absolute; bottom: 16px; left: 0; right: 0; z-index: 2; display: flex; justify-content: center; gap: 8px; }
+  .cs-dot { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: rgba(250,247,242,0.5); cursor: pointer; transition: background 0.3s ease, transform 0.3s ease; }
+  .cs-dot.is-active { background: #FAF7F2; transform: scale(1.3); }
+  @media (hover: none) { .cs-arrow { opacity: 1; } }
+  .client-roster { margin-top: 56px; padding-top: 32px; border-top: 0.5px solid var(--border); max-width: 1200px; }
+  .client-roster-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--tan); margin-bottom: 14px; }
+  .client-roster-names { font-size: 14px; line-height: 1.8; color: var(--ink-soft); font-weight: 300; }
+
+  /* GALLERY */
+  .gallery-section { padding: 0; background: var(--cream); }
+  .gallery-title-wrap { padding: 32px 48px 20px; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 12px; }
+  .gallery-item { overflow: hidden; aspect-ratio: 1; background: #2a2620; }
+  .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.5s ease; }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-item.blank-cream { background: #E0D5C4; }
+  .photo-credit { padding: 12px 48px 16px; background: var(--cream); border-top: 0.5px solid var(--border); }
+  .photo-credit p { font-size: 10px; font-weight: 300; letter-spacing: 0.04em; color: var(--ink-muted); text-align: right; }
+  .photo-credit a { color: var(--tan); text-decoration: none; border-bottom: 0.5px solid var(--tan-light); padding-bottom: 1px; }
+  .photo-credit a:hover { color: var(--ink); }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: 1200px; }
+  .about-img-wrap { position: relative; overflow: hidden; }
+  .about-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center 15%; display: block; }
+  .about-text { padding-top: 8px; }
+  .about-hello { font-family: 'Nothing You Could Do', cursive; font-size: 34px; font-weight: 400; line-height: 1.3; color: var(--tan); margin-bottom: 28px; }
+  .about-text p { font-size: 17px; line-height: 1.85; color: var(--ink-soft); margin-bottom: 24px; }
+  .about-text p:last-child { margin-bottom: 0; }
+  .bio-viewport { position: relative; overflow: hidden; transition: height 0.6s ease; }
+  .bio-panel p { text-wrap: pretty; }
+  .bio-panel { transition: transform 0.6s ease, opacity 0.6s ease; }
+  .bio-panel.off-left, .bio-panel.off-right { position: absolute; top: 0; left: 0; width: 100%; opacity: 0; pointer-events: none; }
+  .bio-panel.off-left { transform: translateX(-105%); }
+  .bio-panel.off-right { transform: translateX(105%); }
+  .bio-strike { position: relative; display: inline-block; white-space: nowrap; }
+  .bio-strike svg { position: absolute; left: -3px; top: 0; width: calc(100% + 6px); height: 100%; overflow: visible; pointer-events: none; }
+  .bio-correct { font-family: 'Nothing You Could Do', cursive; font-size: 17px; color: var(--tan); display: inline-block; transform: rotate(-2deg); margin-left: 4px; }
+  .bio-credit { font-family: var(--serif); font-style: italic; color: var(--tan) !important; }
+  .bio-toggle { margin-top: 32px; background: none; border: 0; border-bottom: 0.5px solid var(--tan); padding: 0 0 3px; font-family: var(--sans); font-size: 12px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tan); cursor: pointer; transition: color 0.2s, border-color 0.2s; }
+  .bio-toggle:hover { color: var(--ink); border-color: var(--ink); }
+  .bio-toggle:focus-visible { outline: 1px solid var(--tan); outline-offset: 4px; }
+  @media (prefers-reduced-motion: reduce) {
+    .bio-viewport { transition: none; }
+    .bio-panel { transition: opacity 0.3s ease; }
+    .bio-panel.off-left, .bio-panel.off-right { transform: none; }
+  }
+
+  /* TESTIMONIALS */
+  .testimonials-section { background: #F0EBE3; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; max-width: 1200px; margin-top: 20px; }
+  .testimonial { padding: 40px; background: var(--cream); border-left: 2px solid var(--tan-light); }
+  .testimonial-text { font-family: var(--serif); font-size: 18px; font-style: normal; line-height: 1.65; color: var(--ink-soft); margin-bottom: 24px; }
+  .testimonial-attr { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tan); line-height: 1.7; }
+  .testimonial-attr strong { font-weight: 500; color: var(--ink); }
+
+  /* CONTACT */
+  .contact-section { background: var(--ink); text-align: center; padding: 100px 48px; }
+  .contact-headline { font-family: var(--serif); font-size: clamp(28px, 4vw, 52px); font-weight: 400; color: #FAF7F2; line-height: 1.2; margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .contact-sub { font-size: 15px; color: rgba(250,247,242,0.5); font-weight: 300; margin-bottom: 40px; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+  .contact-email { display: inline-block; font-size: 13px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tan-light); text-decoration: none; border-bottom: 0.5px solid var(--tan-light); padding-bottom: 3px; transition: color 0.2s, border-color 0.2s; }
+  .contact-doors { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; max-width: 900px; margin: 48px auto 0; }
+  .contact-door { border-top: 0.5px solid rgba(250,247,242,0.15); padding-top: 32px; }
+  .contact-door-title { font-family: var(--serif); font-size: 24px; font-weight: 400; color: #FAF7F2; margin-bottom: 16px; line-height: 1.2; }
+  .contact-door .contact-sub { margin-bottom: 28px; }
+  .contact-email:hover { color: #FAF7F2; border-color: #FAF7F2; }
+
+  /* FOOTER */
+  footer { background: var(--ink); border-top: 0.5px solid rgba(250,247,242,0.08); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-name { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(250,247,242,0.3); }
+  .footer-copy { font-size: 11px; color: rgba(250,247,242,0.2); }
+
+  /* REVEALS */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .mobile-teaser-gallery { display: none; }
+  .m-copy { display: none; }
+  .m-br { display: none; }
+  .work-text p.d-copy { margin-bottom: 0; }
+  #bioMine p.d-copy:nth-last-child(5) { margin-bottom: 0; }
+  .mobile-testimonial-section { display: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 18px 24px; }
+    nav.scrolled { padding: 14px 24px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    section { padding: 48px 24px; }
+    .selected-work-section { padding: 48px 24px; }
+    .hero-content { padding: 0 24px 72px; }
+    .hero { align-items: flex-end; }
+    .hero-headline { font-size: clamp(32px, 7vw, 56px); letter-spacing: -0.02em; }
+    .hero-overlay { background: linear-gradient(to top, rgba(10,8,6,0.95) 0%, rgba(10,8,6,0.6) 45%, rgba(10,8,6,0.15) 100%); }
+    .work-grid { grid-template-columns: 1fr; gap: 40px; }
+    .work-img { aspect-ratio: 16/9; }
+    .who-grid { grid-template-columns: 1fr; }
+    .who-card-title { font-size: 22px; }
+    .who-card-shared { display: block; }
+    .hero-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .about-hello { font-size: 30px; margin-bottom: 20px; }
+    .how-steps { grid-template-columns: 1fr 1fr; gap: 28px; }
+    /* PORTFOLIO: text only on mobile, no photos */
+    .stagger-grid { grid-template-columns: 1fr; }
+    .stagger-photo { display: none; }
+    .stagger-text { aspect-ratio: unset; min-height: unset; padding: 36px 28px; }
+    .mobile-hide { display: none; }
+    .mobile-teaser-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+    .mobile-teaser-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+    .stagger-text.alt .stagger-tag { color: #8B6F47; font-weight: 500; }
+    .stagger-text.alt .stagger-title { color: #1A1814; font-weight: 500; }
+    .stagger-text.alt .stagger-desc { color: #3D3830; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .contact-section { padding: 72px 24px; }
+    .contact-doors { grid-template-columns: 1fr; gap: 40px; }
+    /* GALLERY — no spacers on mobile */
+    .gallery-title-wrap { padding: 40px 16px 16px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 8px; grid-auto-flow: dense; }
+    .section-label-nowrap { white-space: normal; }
+    .gallery-item.mobile-only { display: block; }
+    .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
+    .gallery-item.blank-cream { display: none; }
+    .interlude-mobile-only { display: block; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .about-img { aspect-ratio: 3/2; object-position: center 25%; }
+    footer { flex-direction: column; gap: 8px; text-align: center; }
+    /* MOBILE COPY SWAPS */
+    .d-copy { display: none; }
+    .m-copy { display: block; }
+    .work-text p.m-copy { margin-bottom: 0; }
+    .who-card-text.m-copy { max-width: none; white-space: nowrap; font-size: clamp(11px, 3.3vw, 15px); }
+    .who-card { padding: 40px 24px; }
+    .m-br { display: inline; }
+    .d-sep { display: none; }
+    .hero-open { white-space: nowrap; font-size: clamp(11px, 3.2vw, 13px); }
+    /* MOBILE ORDER: proof before process */
+    body { display: flex; flex-direction: column; }
+    .hero { order: 1; }
+    #the-work { order: 2; }
+    #what-i-design { order: 3; }
+    .mobile-teaser-gallery { order: 4; }
+    #portfolio { order: 5; }
+    .testimonials-section.mobile-testimonial-section { order: 6; display: block; padding-top: 0; background: var(--cream); }
+    #how-we-work { order: 7; }
+    #about { order: 8; }
+    .gallery-section { order: 9; }
+    .testimonials-section { order: 10; }
+    .testimonial.m-dup { display: none; }
+    .contact-section { order: 11; }
+    footer { order: 12; }
+  }
+  @media (max-width: 600px) {
+    .how-steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Reyna Godoy</a>
+  <div class="nav-links">
+    <a href="#what-i-design" class="nav-link">Expertise</a>
+    <a href="#how-we-work" class="nav-link">How I Work</a>
+    <a href="#portfolio" class="nav-link">Selected Work</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#contact" class="nav-cta">Let's Talk</a>
+  </div>
+  <button class="nav-hamburger" onclick="openMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="nav-mobile-menu" id="mobileMenu">
+  <button class="nav-mobile-close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
+  <a href="#what-i-design" class="nav-mobile-link" onclick="closeMenu()">Expertise</a>
+  <a href="#how-we-work" class="nav-mobile-link" onclick="closeMenu()">How I Work</a>
+  <a href="#portfolio" class="nav-mobile-link" onclick="closeMenu()">Selected Work</a>
+  <a href="#about" class="nav-mobile-link" onclick="closeMenu()">About</a>
+  <a href="#contact" class="nav-mobile-link" onclick="closeMenu()">Let's Talk</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-headline">Better Gatherings.<br>Real Outcomes.</h1>
+    <p class="hero-sub">Experience design and program leadership for teams, communities and brands.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="hero-btn">Let's Talk</a>
+      <p class="hero-open"><span class="hero-open-dot" aria-hidden="true"></span>Open to in-house leadership roles and project work</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT I DO -->
+<section id="the-work">
+  <div class="work-grid">
+    <div class="work-text reveal">
+      <p class="section-label section-label-nowrap">Human connection has never mattered more.</p>
+      <p>The difference between a mediocre experience and an exceptional one? A&nbsp;clear purpose, thoughtful design, and someone holding the thread from start to finish.</p>
+      <p class="d-copy">I'm Reyna, and that's what I do. For 15+ years, I've designed and led programs, events and experiences for organizations around the world, holding the vision while managing every detail that makes it real. Whether I'm leading in-house or partnering on a project, I set the standard, build the right team, and keep everything moving toward outcomes that matter: deeper connection, sharper alignment, and moments that stay with people.</p>
+      <p class="m-copy">I'm Reyna, and that's what I do. For 15+ years, I've designed and led programs, events and experiences for organizations around the world, holding the vision and every detail that makes it real.</p>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <img class="work-img" src="images/IMG_1344.JPG" alt="IMG_1344.JPG">
+    </div>
+  </div>
+</section>
+
+<!-- WHAT I DESIGN -->
+<section class="who-section" id="what-i-design">
+  <h2 class="who-headline reveal">Three areas. One approach.</h2>
+  <div class="who-grid">
+    <div class="who-card reveal">
+      <div class="who-card-title"><span class="who-card-lead">Employee</span> <span class="who-card-shared">Experience</span></div>
+      <p class="who-card-text d-copy"><span class="who-card-kw">Off-sites</span>, <span class="who-card-kw">all-hands</span> and <span class="who-card-kw">leadership development programs</span> designed to help teams connect, align and do their best work together, from the first brief through production and delivery.</p>
+      <p class="who-card-text m-copy">Off-sites · All-hands · Leadership programs</p>
+    </div>
+    <div class="who-card reveal reveal-delay-1">
+      <div class="who-card-title"><span class="who-card-lead">Community</span> <span class="who-card-shared">Experience</span></div>
+      <p class="who-card-text d-copy"><span class="who-card-kw">Fellowships</span>, <span class="who-card-kw">accelerators</span> and <span class="who-card-kw">founder networks</span> that bring entrepreneurs, investors and institutions together, forging relationships that outlast the program and become the foundation for impact to scale.</p>
+      <p class="who-card-text m-copy">Fellowships · Accelerators · Founder networks</p>
+    </div>
+    <div class="who-card reveal reveal-delay-2">
+      <div class="who-card-title"><span class="who-card-lead">Brand</span> <span class="who-card-shared">Experience</span></div>
+      <p class="who-card-text d-copy"><span class="who-card-kw">Activations</span>, <span class="who-card-kw">branded spaces</span> and <span class="who-card-kw">partner events</span> that build brand equity and resonance, so every gathering feels like the brand behind it. Directing creative and production teams for consistency throughout.</p>
+      <p class="who-card-text m-copy">Activations · Branded spaces · Partner events</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROCESS -->
+<section id="how-we-work">
+  <div class="how-inner">
+    <h2 class="how-headline reveal">How I Work.</h2>
+    <p class="how-intro reveal">The same four steps, whether it's a three-day off-site or a seven-year program.</p>
+    <svg class="how-squiggle reveal" width="100%" viewBox="0 0 880 36" preserveAspectRatio="none">
+      <defs>
+        <marker id="arr-sq" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="#C4A882" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+      <path id="squiggle-path" d="M 10,18 C 50,6 70,30 110,18 C 150,6 170,30 210,18 C 250,6 270,30 310,18 C 350,6 370,30 410,18 C 450,6 470,30 510,18 C 550,6 570,30 610,18 C 650,6 670,30 710,18 C 750,6 770,30 810,18 C 830,10 840,22 855,18"
+            fill="none" stroke="#C4A882" stroke-width="1.2" opacity="0.6" marker-end="url(#arr-sq)"
+            style="stroke-dasharray: 1200; stroke-dashoffset: 1200;"/>
+    </svg>
+    <style>
+      @keyframes drawSquiggle {
+        to { stroke-dashoffset: 0; }
+      }
+      #squiggle-path.animated {
+        animation: drawSquiggle 1.6s ease-out forwards;
+      }
+    </style>
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="who-card-num" style="font-size:44px;font-weight:500;font-style:italic;color:#C4A882;line-height:1;margin-bottom:20px;">01</div>
+        <div class="how-step-title">Define the ambition</div>
+        <p class="how-step-text">Purpose, goals and what success looks like, agreed up front and measurable. I ask the questions that get past what's already known to what sits a few layers deep.</p>
+      </div>
+      <div class="how-step reveal reveal-delay-1">
+        <div class="who-card-num" style="font-size:44px;font-weight:500;font-style:italic;color:#C4A882;line-height:1;margin-bottom:20px;">02</div>
+        <div class="how-step-title">Design the experience</div>
+        <p class="how-step-text">Strategy, flow and every touchpoint, designed around how we want people to feel and what they should leave with. Budget, venues, vendors and the thousand details in between.</p>
+      </div>
+      <div class="how-step reveal reveal-delay-2">
+        <div class="who-card-num" style="font-size:44px;font-weight:500;font-style:italic;color:#C4A882;line-height:1;margin-bottom:20px;">03</div>
+        <div class="how-step-title">Lead end-to-end</div>
+        <p class="how-step-text">From the first brief to the final goodbye, I own the day and everything leading to it: creative, logistics and every guest moment. Stakeholders stay informed, not overwhelmed, and the investment pays off.</p>
+      </div>
+      <div class="how-step reveal reveal-delay-3">
+        <div class="who-card-num" style="font-size:44px;font-weight:500;font-style:italic;color:#C4A882;line-height:1;margin-bottom:20px;">04</div>
+        <div class="how-step-title">Learn + evolve</div>
+        <p class="how-step-text">Outcomes assessed against the original goals, a structured retrospective, and lessons carried forward so every program builds on the last.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOBILE TEASER GALLERY -->
+<div class="mobile-teaser-gallery">
+  <img src="images/1107_unreasonable_35.png" alt="">
+  <img src="images/HOSTING_IanMatteson_0155.jpeg" alt="">
+  <img src="images/UNReasonable_2885.jpeg" alt="">
+  <img src="images/UK22_84-5K.jpeg" alt="">
+  <img src="images/120318_unreasonable_07.jpeg" alt="">
+  <img src="images/ChivasTheVenture-219_copy.jpg" alt="" style="object-position: center bottom;">
+</div>
+
+<!-- PORTFOLIO / CLIENTS -->
+<section class="selected-work-section" id="portfolio">
+  <p class="section-label reveal">Selected Work</p>
+
+  <div class="stagger-grid">
+
+    <!-- ROW 1: text left / photo right -->
+    <div class="stagger-text reveal">
+      <span class="stagger-tag">Community &amp; Brand Experience<span class="d-sep"> ·</span><br class="m-br"> 30+ programs</span>
+      <h3 class="stagger-title">Unreasonable × Barclays, Accenture &amp; Pearson</h3>
+      <p class="stagger-desc d-copy">Over seven years, I built and led the in-person and community experience for one of the world's most ambitious impact accelerator programs, convening entrepreneurs, investors and institutions to scale solutions to global challenges.</p>
+      <p class="stagger-desc d-copy" style="margin-top:16px;">I managed an eight-figure annual budget and a team of full-time staff and consultants, directing vendors across 6 countries. I created the playbook that kept 30+ programs on four continents consistent, from a manor house in England to a farm in upstate New York. NPS: 88.</p>
+      <p class="stagger-desc m-copy">Built and led the in-person, virtual and community experience for a global impact accelerator over seven years. 30+ programs on four continents, an eight-figure annual budget, a team of staff and consultants, and vendors in six countries. Guest NPS: 88.</p>
+    </div>
+    <div class="stagger-photo reveal reveal-delay-1">
+      <img src="images/1107_unreasonable_35.png" alt="1107_unreasonable_35.png">
+    </div>
+
+    <!-- ROW 2: photo left / text right -->
+    <div class="stagger-photo reveal">
+      <img src="images/UNReasonable_2885.jpeg" alt="UNReasonable_2885.jpeg">
+    </div>
+    <div class="stagger-text alt reveal reveal-delay-1">
+      <span class="stagger-tag">Employee Experience · Multi-year<span class="d-sep"> ·</span><br class="m-br"> US and Europe</span>
+      <h3 class="stagger-title">Global Pharmaceutical Company × IDEO</h3>
+      <p class="stagger-desc d-copy">Partnered with IDEO to design a scalable senior leadership program activated across the US and Europe, a multi-year engagement bringing C-suite leaders together at a global scale.</p>
+      <p class="stagger-desc m-copy">Partnered with IDEO to design a scalable senior leadership program activated across the US and Europe, bringing C-suite leaders together at a global scale.</p>
+    </div>
+
+    <!-- ROW 3: text left / photo right -->
+    <div class="stagger-text reveal">
+      <span class="stagger-tag">Employee Experience · 3 offices · 3 days</span>
+      <h3 class="stagger-title">ADC Group</h3>
+      <p class="stagger-desc d-copy">End-to-end design and production of a company off-site for ADC Group, bringing a distributed team together from 3 international offices for a 3-day experience designed to deepen relationships, sharpen strategy, and strengthen culture.</p>
+      <p class="stagger-desc m-copy">Led end-to-end design and production of a 3-day off-site uniting a team from 3 international offices to strengthen relationships, strategy and culture.</p>
+    </div>
+    <div class="stagger-photo reveal reveal-delay-1">
+      <img src="images/UK22_84-5K.jpeg" alt="UK22_84-5K.jpeg">
+    </div>
+
+    <!-- ROW 4: photo left / text right -->
+    <div class="stagger-photo reveal">
+      <img src="images/HOSTING_IanMatteson_0155.jpeg" alt="HOSTING_IanMatteson_0155.jpeg">
+    </div>
+    <div class="stagger-text alt reveal reveal-delay-1">
+      <span class="stagger-tag">Community Experience · Multi-day</span>
+      <h3 class="stagger-title">Summit Outside</h3>
+      <p class="stagger-desc d-copy">Designed and produced an immersive multi-day gathering at Powder Mountain, Utah for Summit Series, bringing together entrepreneurs, artists, and thought leaders for talks, outdoor activities, and communal experiences, most notably a quarter-mile-long shared dinner table set against the mountain landscape.</p>
+      <p class="stagger-desc m-copy">Designed and produced an immersive multi-day gathering at Powder Mountain, Utah for Summit Series, anchored by a quarter-mile-long shared dinner table on the mountain.</p>
+    </div>
+
+    <!-- ROW 5: text left / photo right -->
+    <div class="stagger-text reveal">
+      <span class="stagger-tag">Employee Experience · 1,400+ educators · 5 years</span>
+      <h3 class="stagger-title">Alliance College-Ready Public Schools</h3>
+      <p class="stagger-desc d-copy">For five consecutive years, designed and delivered the annual gathering for 1,400+ education professionals across 26 schools in Los Angeles, in both in-person and virtual formats.</p>
+      <p class="stagger-desc m-copy">Designed and delivered the annual gathering for 1,400+ educators across 26 Los Angeles schools for five consecutive years, in person and virtual.</p>
+    </div>
+    <div class="stagger-photo reveal reveal-delay-1">
+      <img src="images/120318_unreasonable_07.jpeg" alt="120318_unreasonable_07.jpeg">
+    </div>
+
+    <!-- ROW 6: photo left / text right -->
+    <div class="stagger-photo reveal">
+      <div class="cs-slider" aria-roledescription="carousel" aria-label="Chivas The Venture photos" tabindex="0">
+        <img class="cs-slide is-active" src="images/ChivasTheVenture-219_copy.jpg" alt="Guests exploring the finalist exhibition at Chivas The Venture">
+        <img class="cs-slide" src="images/ChivasTheVenture-23_copy.jpeg" alt="Four-sided pitch stage with tiered seating">
+        <img class="cs-slide" src="images/ChivasTheVenture-324_copy.jpg" alt="Lounge and concert stage for the closing performance">
+        <img class="cs-slide" src="images/Herbst_Pavilion.jpg" alt="Herbst Pavilion empty before the buildout">
+        <button class="cs-arrow cs-prev" type="button" aria-label="Previous photo">&#8249;</button>
+        <button class="cs-arrow cs-next" type="button" aria-label="Next photo">&#8250;</button>
+        <div class="cs-dots"></div>
+      </div>
+    </div>
+    <div class="stagger-text alt reveal reveal-delay-1">
+      <span class="stagger-tag">Brand Experience · Global Final · 400 guests</span>
+      <h3 class="stagger-title">Chivas The Venture</h3>
+      <p class="stagger-desc d-copy">I oversaw the global final of Chivas Regal's $1M search for social entrepreneurs, in the competition's inaugural year. I managed a $1.2M buildout that turned an empty 30,000 sq ft pier warehouse into three branded spaces: an exhibition of 16 global finalists, a four-sided stage where five pitched live to judges including Pernod Ricard CEO Alexandre Ricard, and a lounge for Aloe Blacc's closing set. Hosted by James Corden, the night brought the campaign's "Win the Right Way" message to life. Produced with The Projects*.</p>
+      <p class="stagger-desc m-copy">Oversaw the global final of Chivas Regal's $1M search for social entrepreneurs. Led a $1.2M buildout that turned an empty 30,000 sq ft pier into three branded spaces for 400 guests, hosted by James Corden.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- MOBILE-ONLY TESTIMONIAL (after proof) -->
+<section class="testimonials-section mobile-testimonial-section">
+  <div class="testimonial">
+    <p class="testimonial-text">"Reyna is one of those unique people who has incredible creative and design vision and can also ensure that every detail of her vision is executed flawlessly. Her superpower is making a space, event, or program turn into an unforgettable and impactful experience for all involved."</p>
+    <span class="testimonial-attr">- Trish Kennelly, former <strong>Chief Operating Officer</strong>, <strong>On Deck</strong></span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap reveal">
+      <img class="about-img" src="images/Reyna.jpeg" alt="Reyna.jpeg" style="object-position: center 45%;">
+    </div>
+    <div class="about-text reveal reveal-delay-2">
+      <h2 class="about-hello">Hi, I'm Reyna</h2>
+      <div class="bio-viewport" id="bioViewport">
+        <div class="bio-panel" id="bioMine">
+        <p class="d-copy">I've always been a host, fascinated by what makes experiences great and obsessed with the details.</p>
+        <p class="d-copy">I deepened my love of hospitality in New York's top restaurants and nightclubs, where excellence was the baseline. I built an eco-tourism company in Mexico, designing tours you couldn't find anywhere else. And I've gathered founders and investors from around the world on a private island in Malaysia to take on pressing global challenges. The ingredients have always been the same: care about people, nail the details and make it memorable.</p>
+        <p class="d-copy">My background spans program leadership, employee experience design, brand and creative direction, space design and end-to-end production. I've set the direction for programs across four continents and been on the ground delivering them, balancing a program's identity with global partners like Barclays, Accenture and Pearson. I think of myself equally as a creative and a doer, and this work sits exactly at that intersection.</p>
+        <p class="d-copy">The through-line across all of it is the same: a belief that great experiences are never the product of one big gesture. They're the accumulation of many small, deliberate ones, and that accumulation is what I'm here to build.</p>
+        <p class="d-copy">Let's build something together.</p>
+        <p class="m-copy">I've always been a host, fascinated by what makes experiences great and obsessed with the details.</p>
+        <p class="m-copy">From New York's top restaurants and nightclubs to an eco-tourism company I built in Mexico and a gathering of founders and investors on a private island in Malaysia, the ingredients have always been the same: care about people, nail the details and make it memorable.</p>
+        <p class="m-copy">My background spans program leadership, employee experience design, brand and creative direction, space design and end-to-end production. I've set the direction for programs across four continents and been on the ground delivering them.</p>
+        <p class="m-copy">Great experiences are never one big gesture. They're the accumulation of many small, deliberate ones, and that's what I'm here to build.</p>
+        </div>
+        <div class="bio-panel off-right" id="bioMom" aria-hidden="true" inert>
+        <p>My first glimpse behind a production of a memorable event was at the age of 19 when I was a PA at a Rolling Stones’ concert in Madison Square Garden in New York City.</p>
+        <p>I knew immediately that I wanted to produce events that created memories worth repeating in stories told years later.</p>
+        <p>With my communication skills honed at New York University and the City itself creating in me a deep appreciation of diverse people, style, culture, art and how connectivity builds community, I have built a career producing extraordinary events worldwide that reflect what I have learned and what I love doing.</p>
+        <p>My experience spans 15 years across 4 continents with events staged on remote islands in <span class="bio-strike" aria-hidden="true">Indonesia<svg viewBox="0 0 100 24" preserveAspectRatio="none"><path d="M2 14 Q 50 10, 98 13" fill="none" stroke="#B5452F" stroke-width="2.4" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></span><span class="bio-correct">Malaysia</span> to 1,000 people on a mountainside eating dinner at one long, continuous table.</p>
+        <p>Whether staged in extraordinary surroundings or a more intimate event in London’s eastside, the goal is always connection and stretching the relationships beyond the last meal, activity or meeting.</p>
+        <p>Each new event is a challenge to make it even more memorable than the last one, and I love a challenge!</p>
+        <p class="bio-credit">Written by my mom, Lauren, who is not at all biased.</p>
+        </div>
+      </div>
+      <button type="button" class="bio-toggle" id="bioToggle" aria-controls="bioViewport">Read the bio my mom wrote →</button>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery-section" id="gallery">
+  <div class="gallery-grid">
+
+    <!-- Row 1: wide toast + two portraits -->
+    <div class="gallery-item wide"><img src="images/UK22_62.jpeg" alt="UK22_62.jpeg"></div>
+    <div class="gallery-item"><img src="images/DSC06904.jpg" alt="DSC06904.jpg"></div>
+    <div class="gallery-item"><img src="images/UNReasonable_2765.jpeg" alt="UNReasonable_2765.jpeg"></div>
+
+    <!-- Row 2: UK59 + 110518 + cream spacer col3 + aerial + mobile-only screenshot pair -->
+    <div class="gallery-item"><img src="images/UK22_59.jpeg" alt="UK22_59.jpeg"></div>
+    <div class="gallery-item"><img src="images/110518_unreasonable_05.jpeg" alt="110518_unreasonable_05.jpeg"></div>
+    <div class="gallery-item blank-cream sp1"></div>
+    <div class="gallery-item"><img src="images/20161116_UnreasonableImpact_CK2_2390.jpeg" alt="20161116_UnreasonableImpact_CK2_2390.jpeg"></div>
+    <div class="gallery-item mobile-only"><img src="images/Screenshot_2023-08-21_at_7_33_58_PM.jpg" alt="Screenshot_2023-08-21_at_7_33_58_PM.jpg"></div>
+
+    <!-- Row 3: portrait + cream spacer col2 + wide clifftop -->
+    <div class="gallery-item mobile-hide"><img src="images/20161105_UnreasonableImpact_CK2_9794.jpeg" alt="20161105_UnreasonableImpact_CK2_9794.jpeg"></div>
+    <div class="gallery-item blank-cream sp2"></div>
+    <div class="gallery-item wide"><img src="images/DSC06713.jpeg" alt="DSC06713.jpeg"></div>
+
+    <!-- Row 4: four squares -->
+    <div class="gallery-item mobile-hide"><img src="images/UNReasonable_21805.jpeg" alt="UNReasonable_21805.jpeg"></div>
+    <div class="gallery-item"><img src="images/ChivasTheVenture-23_copy.jpeg" alt="ChivasTheVenture-23_copy.jpeg"></div>
+    <div class="gallery-item"><img src="images/1108_unreasonable_10.jpeg" alt="1108_unreasonable_10.jpeg"></div>
+    <div class="gallery-item"><img src="images/EventportPJ-9221-1d2b4682.jpeg" alt="EventportPJ-9221-1d2b4682.jpeg"></div>
+
+    <!-- Row 5: PJ bar + cream spacer col2 + mountain dinner wide -->
+    <div class="gallery-item"><img src="images/PJ_Bar.jpeg" alt="PJ_Bar.jpeg"></div>
+    <div class="gallery-item blank-cream sp3"></div>
+    <div class="gallery-item wide"><img src="images/Summit_02.jpeg" alt="Summit_02.jpeg"></div>
+
+    <!-- Row 6: trust walk + 2704 + hijab + cream spacer col4 -->
+    <div class="gallery-item mobile-hide"><img src="images/UNReasonable_1524.jpeg" alt="UNReasonable_1524.jpeg"></div>
+    <div class="gallery-item mobile-hide" style="overflow:hidden;"><img src="images/WhatsApp_Image_2026-04-22_at_15_25_56.jpeg" alt="WhatsApp_Image_2026-04-22_at_15_25_56.jpeg" style="object-position: center 80%;"></div>
+    <div class="gallery-item"><img src="images/20160711_ProjectLiteracyLab_CaitlinKleiboer_CVK_7527.jpeg" alt="20160711_ProjectLiteracyLab_CaitlinKleiboer_CVK_7527.jpeg"></div>
+    <div class="gallery-item blank-cream sp4"></div>
+
+    <!-- Row 7: wide firelit barn + small group + 20161106 -->
+    <div class="gallery-item wide"><img src="images/1022_unreasonable_12.jpeg" alt="1022_unreasonable_12.jpeg"></div>
+    <div class="gallery-item"><img src="images/Copy_of_UNReasonable_4053.jpeg" alt="Copy_of_UNReasonable_4053.jpeg"></div>
+    <div class="gallery-item"><img src="images/20161106_UnreasonableImpact_CK2_0037.jpeg" alt="20161106_UnreasonableImpact_CK2_0037.jpeg"></div>
+
+    <!-- Row 8: live band + cream spacer col2 + UK wide -->
+    <div class="gallery-item"><img src="images/ChivasTheVenture-472_copy.jpeg" alt="ChivasTheVenture-472_copy.jpeg"></div>
+    <div class="gallery-item blank-cream sp5"></div>
+    <div class="gallery-item wide"><img src="images/UK22_50.jpeg" alt="UK22_50.jpeg"></div>
+
+
+  </div>
+  <div class="photo-credit">
+    <p>Majority of these beautiful images by <a href="https://chetstrange.com/" target="_blank" rel="noopener">Strange Visuals</a></p>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <p class="section-label reveal">What people say</p>
+  <div class="testimonials-grid">
+    <div class="testimonial reveal m-dup">
+      <p class="testimonial-text">"Reyna is one of those unique people who has incredible creative and design vision and can also ensure that every detail of her vision is executed flawlessly. Her superpower is making a space, event, or program turn into an unforgettable and impactful experience for all involved."</p>
+      <span class="testimonial-attr">- Trish Kennelly, former <strong>Chief Operating Officer</strong>, <strong>On Deck</strong></span>
+    </div>
+    <div class="testimonial reveal reveal-delay-1">
+      <p class="testimonial-text">"Reyna is an outstanding strategist and experience designer. She worked with us to help plan our first org-wide retreat and brought empathy, intention, and thought-provoking questions to the table that we would never have found ourselves. Could not recommend her more highly."</p>
+      <span class="testimonial-attr">- Alexandra Clare, <strong>Founder</strong>, <strong>Re:Coded</strong></span>
+    </div>
+    <div class="testimonial reveal reveal-delay-2">
+      <p class="testimonial-text">"Reyna brings a unique combination of creativity, meticulousness, and passion to everything she touches. The experiences she designs and creates go beyond anything I have seen anywhere else."</p>
+      <span class="testimonial-attr">- Wayne Suiter Matamoros, <strong>Adjunct Professor</strong>, <strong>NYU</strong> &amp; former <strong>Chief Strategy Officer</strong>, <strong>Unreasonable</strong></span>
+    </div>
+    <div class="testimonial reveal reveal-delay-3">
+      <p class="testimonial-text">"An amazing collective week, as professional an event as I've seen in my career."</p>
+      <span class="testimonial-attr">- <strong>ADC Group</strong>, 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <h2 class="contact-headline reveal">Let's build something worth showing up for.</h2>
+  <div class="contact-doors">
+    <div class="contact-door reveal reveal-delay-1">
+      <h3 class="contact-door-title">Hiring for a full-time role?</h3>
+      <p class="contact-sub">I'm open to in-house leadership roles across employee, community and brand experience. I'd love to hear what you're building.</p>
+      <a href="https://www.linkedin.com/in/reynagodoy/" target="_blank" rel="noopener" class="contact-email">Connect on LinkedIn</a>
+    </div>
+    <div class="contact-door reveal reveal-delay-2">
+      <h3 class="contact-door-title">Planning a project?</h3>
+      <p class="contact-sub">I become an extension of your team, with a singular focus on getting it right. Tell me about your off-site, program or community.</p>
+      <a href="mailto:studio@reynagodoy.com" class="contact-email">studio@reynagodoy.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name">Reyna Godoy</span>
+  <span class="footer-copy">&copy; 2026</span>
+</footer>
+
+<script>
+  function openMenu() {
+    const menu = document.getElementById('mobileMenu');
+    if (menu.classList.contains('open')) {
+      menu.classList.remove('open');
+      document.body.style.overflow = '';
+    } else {
+      menu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        if (e.target.classList.contains('how-squiggle')) {
+          setTimeout(() => {
+            const path = document.getElementById('squiggle-path');
+            if (path) path.classList.add('animated');
+          }, 200);
+        }
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+  (function () {
+    const vp = document.getElementById('bioViewport');
+    const mine = document.getElementById('bioMine');
+    const mom = document.getElementById('bioMom');
+    const btn = document.getElementById('bioToggle');
+    let showingMom = false;
+    function swap(show, hide, hideClass) {
+      vp.style.height = vp.offsetHeight + 'px';
+      hide.classList.add(hideClass);
+      hide.setAttribute('aria-hidden', 'true');
+      hide.inert = true;
+      show.classList.remove('off-left', 'off-right');
+      show.removeAttribute('aria-hidden');
+      show.inert = false;
+      requestAnimationFrame(() => {
+        vp.style.height = show.offsetHeight + 'px';
+        setTimeout(() => { vp.style.height = ''; }, 650);
+      });
+    }
+    btn.addEventListener('click', () => {
+      showingMom = !showingMom;
+      if (showingMom) {
+        swap(mom, mine, 'off-left');
+        btn.textContent = '← Back to my version';
+      } else {
+        swap(mine, mom, 'off-right');
+        btn.textContent = 'Read the bio my mom wrote →';
+      }
+    });
+  })();
+  document.querySelectorAll('.cs-slider').forEach(function (slider) {
+    const slides = slider.querySelectorAll('.cs-slide');
+    const dotsWrap = slider.querySelector('.cs-dots');
+    let current = 0;
+    slides.forEach(function (s, i) {
+      const d = document.createElement('button');
+      d.type = 'button'; d.className = 'cs-dot';
+      d.setAttribute('aria-label', 'Photo ' + (i + 1) + ' of ' + slides.length);
+      d.addEventListener('click', function () { go(i); });
+      dotsWrap.appendChild(d);
+    });
+    const dots = dotsWrap.querySelectorAll('.cs-dot');
+    function go(i) {
+      current = (i + slides.length) % slides.length;
+      slides.forEach(function (s, n) { s.classList.toggle('is-active', n === current); });
+      dots.forEach(function (d, n) { d.classList.toggle('is-active', n === current); });
+    }
+    slider.querySelector('.cs-prev').addEventListener('click', function () { go(current - 1); });
+    slider.querySelector('.cs-next').addEventListener('click', function () { go(current + 1); });
+    slider.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') go(current - 1);
+      if (e.key === 'ArrowRight') go(current + 1);
+    });
+    let startX = null;
+    slider.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', function (e) {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(current + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+    go(0);
+  });
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+</script>
+</body>
+</html>
