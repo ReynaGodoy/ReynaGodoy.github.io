@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tre-mentions · Tremendous offsite</title>
-<meta name="description" content="Little moments. Big shoutouts. Nominate a teammate for a Tre-mention at the Tremendous offsite.">
+<title>TRE-mentions · Tremendous offsite</title>
+<meta name="description" content="Little moments. Big shoutouts. Nominate a teammate for a TRE-mention at the Tremendous offsite.">
 <meta name="theme-color" content="#FAF8F5">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -422,8 +422,26 @@ main { position: relative; }
 .btn[disabled] { opacity: .7; cursor: progress; }
 @media (min-width: 640px) { .btn.auto { width: auto; } }
 .submit-row { display: grid; gap: 12px; }
-.fineprint { font-size: 13px; line-height: 18px; color: var(--color-ink-muted); text-align: center; display: flex; justify-content: center; gap: 6px; align-items: center; }
+.fineprint {
+  font-size: 13px; line-height: 18px; color: var(--color-ink-muted); display: flex; justify-content: center; gap: 6px; align-items: center;
+  background: none; border: 0; min-height: 40px; padding: 0 8px; margin: 0 auto; border-radius: var(--radius-md); cursor: pointer; transition: color .15s, background .15s;
+}
+.fineprint:hover { color: var(--color-ink); background: var(--color-panel); }
 .fineprint svg { width: 14px; height: 14px; flex: none; }
+.pill-btn { cursor: pointer; transition: background .15s, border-color .15s; padding-right: 8px; }
+.pill-btn:hover { background: var(--color-panel); border-color: var(--color-border-strong); }
+.pill-btn[aria-expanded="true"] { background: var(--color-panel); border-color: var(--color-ink-line); }
+.pill-btn .chev, .fineprint .chev { width: 16px; height: 16px; transition: transform .25s var(--ease-out); }
+[aria-expanded="true"] > .chev { transform: rotate(180deg); }
+.anon-panel {
+  margin-top: 12px; max-width: 520px; padding: 14px 16px; border-radius: var(--radius-md);
+  background: var(--color-panel); border-left: 3px solid var(--color-blue);
+  font-size: 14px; line-height: 21px; color: var(--color-ink-muted);
+  animation: panel-in .3s var(--ease-out);
+}
+.anon-panel strong { color: var(--color-ink); font-weight: 600; }
+.anon-panel.in-form { margin: 0 auto; text-align: left; }
+@keyframes panel-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 .form-alert {
   display: none; padding: 12px 14px; border-radius: var(--radius-md); background: var(--color-danger-bg);
   color: var(--color-danger); font-size: 14px; line-height: 20px; font-weight: 500;
@@ -532,14 +550,15 @@ main { position: relative; }
       <div class="hero">
         <div class="hero-copy">
           <p class="overline">Peer shoutouts</p>
-          <h1 class="display view-title" id="ballot-title" tabindex="-1">The <span class="tre">Tre</span>‑mentions</h1>
+          <h1 class="display view-title" id="ballot-title" tabindex="-1">The <span class="tre">TRE</span>‑mentions</h1>
           <p class="hero-lede">Big appreciation for the little things.</p>
           <p class="hero-body">Some moments deserve a shoutout. Pick an award, nominate a teammate, and celebrate the people making this offsite memorable.</p>
           <div class="hero-meta">
             <p class="pill counter" id="counter-pill" aria-live="polite"></p>
-            <p class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Anonymous by design</p>
+            <button type="button" class="pill pill-btn" aria-expanded="false" aria-controls="anon-ballot" data-disclosure><svg class="lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Anonymous by design<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></button>
             <p class="pill" id="timing-pill" hidden></p>
           </div>
+          <div class="anon-panel" id="anon-ballot" hidden><p><strong>Your name stays out of it.</strong> We never ask for your name or email, and nothing you send is linked to you. Organizers only see the award, who you picked and your story. You have the option to include your name in the story if you so choose. The person you nominate isn’t notified.</p></div>
         </div>
         <aside class="how" aria-label="How it works">
           <p class="overline">How it works</p>
@@ -558,7 +577,7 @@ main { position: relative; }
       <ul class="awards" id="awards"></ul>
 
       <div class="ballot-foot">
-        <p class="note"><span aria-hidden="true" data-icon="stage"></span><span><strong>See you at the Tremmes.</strong> A handful of Tre‑mentions, around six to eight, get their moment on stage on Thursday evening. Organizers read every nomination and choose together.</span></p>
+        <p class="note"><span aria-hidden="true" data-icon="stage"></span><span><strong>See you at The Tremmys.</strong> A handful of TRE‑mentions get their moment on stage at The Tremmys on Thursday evening. Organizers read every nomination and choose together.</span></p>
         <p class="note"><span aria-hidden="true" data-icon="device"></span><span><strong>This is a prototype.</strong> Nominations are saved in this browser only. They aren’t shared with organizers or other devices, and clearing your browser data erases them.</span></p>
       </div>
     </div>
@@ -585,7 +604,8 @@ main { position: relative; }
               <span>Send the shoutout</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5 20 4l-5.5 16-3-6.5z"/><path d="M11.5 13.5 20 4"/></svg>
             </button>
-            <p class="fineprint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Anonymous. We never ask who you are.</p>
+            <button type="button" class="fineprint" aria-expanded="false" aria-controls="anon-form" data-disclosure><svg class="lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Anonymous. We never ask who you are.<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg></button>
+            <div class="anon-panel in-form" id="anon-form" hidden><p><strong>Your name stays out of it.</strong> We never ask for your name or email, and nothing you send is linked to you. Organizers only see the award, who you picked and your story. You have the option to include your name in the story if you so choose. The person you nominate isn’t notified.</p></div>
           </div>
         </form>
       </div>
@@ -606,7 +626,7 @@ main { position: relative; }
         <p class="overline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Shoutout sent</p>
         <h1 class="h1 view-title" id="done-title" tabindex="-1"></h1>
         <div class="receipt" id="receipt"></div>
-        <p class="after">Saved on this device. Organizers review nominations before the Tremmes, so not every one makes it to the stage, but every one counts.</p>
+        <p class="after">Saved on this device. Organizers review nominations before The Tremmys, so not every one makes it to the stage, but every one counts.</p>
         <div class="actions">
           <a class="btn" href="#" id="again-btn">
             <span>Nominate someone else</span>
@@ -621,7 +641,7 @@ main { position: relative; }
 
 <footer class="site-foot">
   <div class="wrap">
-    <span>Tre-mentions · Little moments. Big shoutouts.</span>
+    <span>TRE‑mentions · Little moments. Big shoutouts.</span>
     <span>Prototype · saved in this browser only</span>
   </div>
 </footer>
@@ -742,18 +762,22 @@ const ICONS = {
       <path d="M21.2 24 Q21.6 19 24 21.2 Q26.4 19 26.8 24"/>
       <path d="M5.5 11 L8.5 12.5"/><path d="M42.5 11 L39.5 12.5"/><path d="M24 1.8 V3.6"/>
     </g>`,
-  // 5 · two faces, one unexpected overlap — raspberry splash on the newcomer
-  duo: () => { const id = "mDuo" + (++maskSeq); return `
-    <defs><mask id="${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48"><rect width="48" height="48" fill="#fff"/><circle cx="30" cy="26" r="10" fill="#000" stroke="#000" stroke-width="5"/></mask></defs>
-    <g filter="url(#splash)"><circle cx="32.5" cy="28.5" r="9.5" fill="#DE486C"/></g>
+  // 5 · two mugs clinking — raspberry splash on the newcomer's mug
+  duo: () => `
+    <g filter="url(#splash)"><rect x="28.5" y="17.5" width="14" height="17" rx="2" fill="#DE486C" transform="rotate(-12 34 28)"/></g>
     <g filter="url(#wobble2)" ${INK}>
-      <g mask="url(#${id})"><circle cx="17" cy="21" r="10"/></g>
-      <path d="M38.66 21 A10 10 0 1 1 35.74 17.8"/>
-      <path d="M12.5 18.5 h.1 M17 18.5 h.1 M27.5 23.5 h.1 M32.5 23.5 h.1" stroke-width="2.6"/>
-      <path d="M11.5 23.5 Q14 26 17 24"/>
-      <path d="M26.5 28.5 Q30 31.8 33.8 28.5"/>
-      <path d="M40.5 8.5 L42.5 6.5"/><path d="M42 13 H44.5"/>
-    </g>`; },
+      <g transform="rotate(12 14 28)">
+        <path d="M21.5 17 V32.5 Q21.5 37.5 16.5 37.5 H13 Q8 37.5 8 32.5 V17 H18.5"/>
+        <path d="M8 21 H5.8 Q3 21 3 24.5 Q3 28 5.8 28 H8"/>
+        <path d="M11 21.5 H15"/>
+      </g>
+      <g transform="rotate(-12 34 28)">
+        <path d="M26.5 17 V32.5 Q26.5 37.5 31.5 37.5 H35 Q40 37.5 40 32.5 V17 H29.5"/>
+        <path d="M40 21 H42.2 Q45 21 45 24.5 Q45 28 42.2 28 H40"/>
+        <path d="M33 21.5 H37"/>
+      </g>
+      <path d="M24 6 V9.5"/><path d="M18.8 8.2 L20.6 10.8"/><path d="M29.2 8.2 L27.4 10.8"/>
+    </g>`,
   // 6 · trophy with a blank plaque + sparkle — yellow splash on the cup
   custom: () => `
     <g filter="url(#splash)"><path d="M12.5 5.5 H30.5 V14.5 Q30.5 24.5 21.5 24.5 Q12.5 24.5 12.5 14.5 Z" fill="#F0C048"/></g>
@@ -812,18 +836,18 @@ const AWARDS = [
     blurb: "For the small, kind thing that quietly made someone’s day.",
     prompt: "What little thing did they do that made a big difference?" },
   { id: "welcoming", icon: "welcome", title: "Most welcoming to a new face",
-    blurb: "For the person who turned a stranger into a familiar face.",
+    blurb: "For the person who made a newcomer feel right at home.",
     prompt: "How did they make someone feel welcome?" },
   { id: "takes-charge", icon: "charge", title: "Most likely to take charge before anyone asks",
-    blurb: "For the one who’d already started before the meeting ended.",
+    blurb: "For the one who’s always ready to take the lead.",
     prompt: "What did they jump in and make happen?" },
   { id: "fun-fact", icon: "fact", title: "Most interesting fun fact",
-    blurb: "For the fact you’ve now told three other people about.",
+    blurb: "For the fact you can’t stop thinking about.",
     prompt: "What did you learn about them that surprised you?" },
   { id: "unexpected-friendship", icon: "duo", title: "Most unexpected new friendship", type: "duo",
     blurb: "For the duo nobody saw coming. Nominate both halves.",
     prompt: "What makes this friendship such a great plot twist?" },
-  { id: "make-your-own", icon: "custom", title: "Make your own Tre\u2011mention", type: "custom",
+  { id: "make-your-own", icon: "custom", title: "Make your own TRE\u2011mention", type: "custom",
     blurb: "Most ______. You name the award, you pick the person.",
     prompt: "What did they do to earn it?" },
 ];
@@ -853,7 +877,7 @@ const NominationStore = (() => {
       const raw = localStorage.getItem(CONFIG.storageKey);
       const data = raw ? JSON.parse(raw) : [];
       return Array.isArray(data) ? data : [];
-    } catch (e) { console.warn("[Tre-mentions] Couldn't read saved nominations:", e); return []; }
+    } catch (e) { console.warn("[TRE-mentions] Couldn't read saved nominations:", e); return []; }
   }
   function write(list) {
     if (!persistent) { memory = list; return; }
@@ -883,7 +907,7 @@ const NominationStore = (() => {
 //   treMentions.clearDemo() → erase them from this browser
 window.treMentions = {
   list: async () => { const l = await NominationStore.list(); console.table(l.map(n => ({ award: n.awardTitle, nominee: n.nomineeName, second: n.secondNomineeName || "", at: n.submittedAt }))); return l; },
-  clearDemo: async () => { await NominationStore.clear(); refreshCounter(); console.info("[Tre-mentions] Demo nominations cleared from this browser."); },
+  clearDemo: async () => { await NominationStore.clear(); refreshCounter(); console.info("[TRE-mentions] Demo nominations cleared from this browser."); },
   config: CONFIG,
 };
 
@@ -1093,7 +1117,7 @@ function route() {
   if (h === "sent" && lastSubmission) { show("done"); return; }
   if (h) history.replaceState(null, "", location.pathname + location.search);
   refreshCounter();
-  document.title = "Tre-mentions · Tremendous offsite";
+  document.title = "TRE-mentions · Tremendous offsite";
   show("ballot", { focus: current !== null });
 }
 window.addEventListener("hashchange", route);
@@ -1149,7 +1173,7 @@ function openForm(award) {
   $("#form-title").textContent = award.title;
   const sub = $("#form-sub");
   sub.textContent = award.blurb; sub.classList.remove("live");
-  document.title = award.title + " · Tre-mentions";
+  document.title = award.title.replace("\u2011", "-") + " · TRE-mentions";
   setError($("#form-alert"), ""); $("#form-alert").classList.remove("show");
   const btn = $("#submit-btn"); btn.disabled = false; btn.querySelector("span").textContent = "Send the shoutout";
 
@@ -1387,6 +1411,14 @@ function confetti() {
     requestAnimationFrame(frame);
   })(t0);
 }
+
+/* ---------- Disclosures ("Anonymous by design") ---------- */
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-disclosure]"); if (!t) return;
+  const panel = document.getElementById(t.getAttribute("aria-controls"));
+  const open = t.getAttribute("aria-expanded") !== "true";
+  t.setAttribute("aria-expanded", String(open)); panel.hidden = !open;
+});
 
 /* =========================================================
    13. BOOT
