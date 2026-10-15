@@ -1,0 +1,1403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tre-mentions · Tremendous offsite</title>
+<meta name="description" content="Little moments. Big shoutouts. Nominate a teammate for a Tre-mention at the Tremendous offsite.">
+<meta name="theme-color" content="#FAF8F5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   Tokens — from the Tremendous Visual Style Guide
+   ========================================================= */
+:root {
+  --color-ink: #27272A;
+  --color-ink-line: #1D1C1D;
+  --color-ink-muted: #6B6863;
+  --color-canvas: #FAF8F5;
+  --color-panel: #F6F3EE;
+  --color-surface: #FFFFFF;
+  --color-border: #E7E3DC;
+  --color-border-strong: #D6D0C5;
+
+  --color-blue: #006BED;
+  --color-blue-hover: #0057C2;
+  --color-blue-tint: #E8F1FE;
+
+  --splash-blue: #2A66E4;
+  --splash-coral: #E46042;
+  --splash-raspberry: #DE486C;
+  --splash-yellow: #F0C048;
+
+  --tint-blue: #E8F1FE;
+  --tint-yellow: #FFF4D6;
+  --tint-coral: #FDECE8;
+  --tint-raspberry: #FBE8ED;
+
+  --color-success: #1E7F4F;
+  --color-danger: #D93A20;
+  --color-danger-bg: #FDECE8;
+
+  --font-display: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-text: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --shadow-pop: 0 8px 24px rgba(39, 39, 42, 0.10);
+
+  --gutter: 16px;
+  --ease-out: cubic-bezier(.2, .8, .2, 1);
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+}
+@media (min-width: 640px) { :root { --gutter: 32px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font: 400 16px/24px var(--font-text);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+h1, h2, h3, p { margin: 0; }
+button, input, textarea { font: inherit; color: inherit; }
+a { color: var(--color-blue); }
+img { max-width: 100%; display: block; }
+[hidden] { display: none !important; }
+
+:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 2px; border-radius: 4px; }
+
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: 12px; top: -48px; z-index: 50;
+  background: var(--color-ink); color: #fff; padding: 10px 14px; border-radius: var(--radius-md);
+  text-decoration: none; font-weight: 600; font-size: 14px;
+}
+.skip-link:focus { top: 12px; }
+
+.wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
+
+/* ---------- Type ---------- */
+.overline {
+  font: 600 12px/16px var(--font-text);
+  letter-spacing: .08em; text-transform: uppercase; color: var(--color-ink-muted);
+}
+.display {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(40px, 11vw, 64px); line-height: 1.02; letter-spacing: -.03em;
+}
+.h1 { font-family: var(--font-display); font-weight: 700; font-size: 30px; line-height: 36px; letter-spacing: -.02em; }
+.h2 { font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 28px; letter-spacing: -.01em; }
+.muted { color: var(--color-ink-muted); }
+@media (min-width: 960px) { .h1 { font-size: 36px; line-height: 42px; } }
+
+/* ---------- Header ---------- */
+.site-header { padding: 18px 0 0; }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 44px; }
+.logo { display: inline-flex; color: var(--color-blue); text-decoration: none; padding: 6px 0; }
+.logo svg { height: 16px; width: auto; display: block; }
+@media (min-width: 640px) { .logo svg { height: 19px; } }
+.header-tag {
+  font: 500 13px/16px var(--font-text); color: var(--color-ink-muted);
+  display: inline-flex; align-items: center; gap: 8px; text-align: right;
+}
+.header-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--splash-yellow); flex: none; }
+
+/* ---------- Views & transitions ---------- */
+main { position: relative; }
+.view { display: none; }
+.view.is-active { display: block; animation: view-in .42s var(--ease-out) both; }
+@keyframes view-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.view-title:focus { outline: none; }
+
+/* =========================================================
+   Ballot (home)
+   ========================================================= */
+.hero { padding: 36px 0 28px; display: grid; gap: 28px; }
+.hero-copy { max-width: 620px; }
+.hero .overline { margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.hero .overline::before { content: ""; width: 22px; height: 2px; background: var(--color-ink-line); border-radius: 2px; }
+.hero .display .tre { color: var(--color-blue); }
+.hero-lede {
+  margin-top: 14px; font-family: var(--font-display); font-weight: 700;
+  font-size: 20px; line-height: 28px; letter-spacing: -.01em;
+}
+.hero-body { margin-top: 12px; color: var(--color-ink-muted); max-width: 52ch; }
+.hero-meta { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  min-height: 32px; padding: 6px 12px 6px 8px; border-radius: var(--radius-pill);
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  font: 500 13px/16px var(--font-text); color: var(--color-ink);
+}
+.pill svg { width: 18px; height: 18px; flex: none; }
+.pill .num { font-variant-numeric: tabular-nums; font-weight: 600; }
+.pill.counter { padding-left: 6px; }
+.pill.counter .badge {
+  min-width: 22px; height: 22px; padding: 0 6px; border-radius: 11px;
+  background: var(--color-blue); color: #fff; display: inline-grid; place-items: center;
+  font: 600 12px/1 var(--font-text); font-variant-numeric: tabular-nums;
+}
+.pill.counter.bump .badge { animation: bump .5s var(--ease-spring); }
+@keyframes bump { 0% { transform: scale(1); } 40% { transform: scale(1.35); } 100% { transform: scale(1); } }
+
+/* How it works (tablet/desktop only) */
+.how { display: none; }
+@media (min-width: 960px) {
+  .hero { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: end; padding: 56px 0 40px; gap: 48px; }
+  .how {
+    display: block; background: var(--color-panel); border-radius: var(--radius-lg);
+    padding: 24px 24px 20px; position: relative;
+  }
+  .how ol { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 14px; }
+  .how li { display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: start; }
+  .how .n {
+    width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--color-ink-line);
+    display: grid; place-items: center; font: 700 13px/1 var(--font-display); background: var(--color-surface);
+  }
+  .how strong { font-weight: 600; display: block; font-size: 15px; line-height: 22px; }
+  .how span.t { font-size: 14px; line-height: 20px; color: var(--color-ink-muted); }
+}
+
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+
+/* ---------- Award cards ---------- */
+.awards { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.awards > li { display: flex; }
+.award-card { flex: 1; }
+.award-card {
+  position: relative; display: grid; grid-template-columns: 76px minmax(0, 1fr) 28px;
+  align-items: center; gap: 14px;
+  padding: 14px 14px 14px 12px; min-height: 104px;
+  background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+  text-decoration: none; color: inherit;
+  transition: transform .25s var(--ease-out), box-shadow .25s var(--ease-out), border-color .2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.award-card .art {
+  width: 76px; height: 76px; border-radius: 12px; background: var(--color-panel);
+  display: grid; place-items: center; transition: background .2s;
+}
+.award-card .art svg { width: 64px; height: 64px; transition: transform .45s var(--ease-spring); }
+.award-card .no { font: 600 11px/14px var(--font-text); letter-spacing: .08em; color: var(--color-ink-muted); text-transform: uppercase; }
+.award-card h3 {
+  font-family: var(--font-display); font-weight: 700; font-size: 17px; line-height: 22px;
+  letter-spacing: -.01em; margin-top: 3px;
+}
+.award-card p { font-size: 14px; line-height: 20px; color: var(--color-ink-muted); margin-top: 4px; }
+.award-card .go {
+  width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  color: var(--color-ink); transition: background .2s, color .2s, transform .25s var(--ease-out);
+}
+.award-card .go svg { width: 18px; height: 18px; }
+.award-card .go-label { display: none; }
+@media (hover: hover) {
+  .award-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-pop); border-color: var(--color-border-strong); }
+  .award-card:hover .art svg { transform: rotate(-6deg) scale(1.06); }
+  .award-card:hover .go { background: var(--color-blue); color: #fff; transform: translateX(2px); }
+}
+.award-card:active { transform: scale(.985); border-color: var(--color-ink-line); transition-duration: .08s; }
+.award-card:active .art svg { transform: rotate(-6deg) scale(1.04); }
+.award-card:focus-visible { outline-offset: 3px; border-radius: var(--radius-lg); }
+
+@media (min-width: 640px) {
+  .awards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+}
+@media (min-width: 960px) {
+  .awards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .award-card {
+    display: flex; flex-direction: column; gap: 0; padding: 20px; min-height: 300px;
+  }
+  .award-card .txt { display: block; }
+  .award-card .art { width: 100%; height: 132px; margin-bottom: 18px; }
+  .award-card .art svg { width: 104px; height: 104px; }
+  .award-card .no { position: absolute; top: 30px; right: 32px; }
+  .award-card h3 { font-size: 20px; line-height: 26px; margin-top: 0; }
+  .award-card p { font-size: 15px; line-height: 22px; margin-top: 6px; }
+  .award-card .go {
+    width: auto; height: auto; border-radius: 0; margin-top: auto; padding-top: 16px;
+    justify-content: start; align-self: flex-start; display: inline-flex; gap: 6px; color: var(--color-blue);
+    font: 600 14px/20px var(--font-text);
+  }
+  .award-card .go-label { display: inline; }
+  .award-card:hover .go { background: none; color: var(--color-blue-hover); }
+}
+
+.ballot-foot {
+  margin: 28px 0 0; padding: 20px 0 40px; border-top: 1px solid var(--color-border);
+  display: grid; gap: 14px;
+}
+.ballot-foot .note { display: grid; grid-template-columns: 36px 1fr; gap: 12px; align-items: start; font-size: 14px; line-height: 20px; color: var(--color-ink-muted); }
+.ballot-foot .note svg { width: 36px; height: 36px; }
+.ballot-foot .note strong { color: var(--color-ink); font-weight: 600; }
+@media (min-width: 960px) { .ballot-foot { grid-template-columns: 1fr 1fr; gap: 32px; } }
+
+/* =========================================================
+   Nomination form
+   ========================================================= */
+.form-shell { max-width: 640px; margin: 0 auto; padding: 16px 0 48px; }
+.back {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 12px 0 6px; margin-left: -6px;
+  border-radius: var(--radius-md); color: var(--color-ink); text-decoration: none; font-weight: 500; font-size: 15px;
+  transition: background .2s;
+}
+.back svg { width: 18px; height: 18px; transition: transform .2s var(--ease-out); }
+.back:hover { background: var(--color-panel); }
+.back:hover svg { transform: translateX(-2px); }
+
+.award-head { display: grid; grid-template-columns: 84px 1fr; gap: 16px; align-items: center; margin: 12px 0 24px; }
+.award-head .art {
+  width: 84px; height: 84px; border-radius: 14px; background: var(--color-panel); display: grid; place-items: center;
+}
+.award-head .art svg { width: 72px; height: 72px; animation: art-in .6s var(--ease-spring) both .05s; }
+@keyframes art-in { from { transform: scale(.6) rotate(-10deg); opacity: 0; } to { transform: none; opacity: 1; } }
+.award-head .h1 { margin-top: 4px; }
+.award-head .sub { margin-top: 6px; color: var(--color-ink-muted); font-size: 15px; line-height: 22px; }
+.award-head .sub.live { color: var(--color-blue); font-weight: 600; font-family: var(--font-display); }
+@media (min-width: 640px) {
+  .award-head { grid-template-columns: 112px 1fr; gap: 22px; margin: 16px 0 32px; }
+  .award-head .art { width: 112px; height: 112px; border-radius: var(--radius-lg); }
+  .award-head .art svg { width: 96px; height: 96px; }
+}
+
+.card-form {
+  background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+  padding: 20px 16px; display: grid; gap: 24px;
+}
+@media (min-width: 640px) { .card-form { padding: 28px; gap: 28px; } }
+
+.field { display: grid; gap: 6px; scroll-margin-top: 12px; }
+.label { font: 600 15px/20px var(--font-text); color: var(--color-ink); display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.label .opt { font-weight: 500; font-size: 13px; color: var(--color-ink-muted); }
+.help { font-size: 14px; line-height: 20px; color: var(--color-ink-muted); }
+
+.input, .textarea {
+  width: 100%; min-height: 52px; padding: 13px 14px;
+  background: var(--color-surface); border: 1px solid var(--color-border-strong); border-radius: var(--radius-md);
+  font-size: 16px; line-height: 24px; /* 16px stops iOS zoom */
+  transition: border-color .15s, box-shadow .15s;
+  -webkit-appearance: none; appearance: none;
+}
+.input::placeholder, .textarea::placeholder { color: #9A958D; }
+.input:hover, .textarea:hover { border-color: #BDB6AA; }
+.input:focus, .textarea:focus { outline: none; border-color: var(--color-blue); box-shadow: 0 0 0 3px rgba(0, 107, 237, .18); }
+.textarea { min-height: 128px; resize: vertical; display: block; }
+[aria-invalid="true"].input, [aria-invalid="true"].textarea, .combo[data-invalid="true"] .input { border-color: var(--color-danger); }
+
+.error {
+  display: none; align-items: start; gap: 8px; font-size: 14px; line-height: 20px; color: var(--color-danger); font-weight: 500;
+}
+.error.show { display: flex; animation: nudge .35s var(--ease-out); }
+.error svg { width: 18px; height: 18px; flex: none; margin-top: 1px; }
+@keyframes nudge { 0% { transform: translateX(0); } 30% { transform: translateX(-4px); } 60% { transform: translateX(3px); } 100% { transform: none; } }
+
+.counter-text { font-size: 13px; color: var(--color-ink-muted); text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ---------- Custom award title ---------- */
+.most {
+  display: flex; align-items: stretch; border: 1px solid var(--color-border-strong); border-radius: var(--radius-md);
+  background: var(--color-surface); transition: border-color .15s, box-shadow .15s; overflow: hidden;
+}
+.most:focus-within { border-color: var(--color-blue); box-shadow: 0 0 0 3px rgba(0, 107, 237, .18); }
+.most[data-invalid="true"] { border-color: var(--color-danger); }
+.most .prefix {
+  display: grid; place-items: center; padding: 0 12px 0 14px; background: var(--color-panel);
+  font: 800 17px/1 var(--font-display); letter-spacing: -.01em; border-right: 1px solid var(--color-border);
+}
+.most .input { border: 0; border-radius: 0; box-shadow: none !important; min-width: 0; }
+.ideas { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.idea {
+  min-height: 36px; padding: 6px 12px; border-radius: var(--radius-pill); border: 1px dashed var(--color-border-strong);
+  background: transparent; font-size: 14px; line-height: 20px; color: var(--color-ink); cursor: pointer;
+  transition: background .15s, border-color .15s, transform .15s;
+}
+.idea:hover { background: var(--color-panel); border-style: solid; }
+.idea:active { transform: scale(.96); }
+
+/* ---------- Picker (autocomplete) ---------- */
+.picker { position: relative; }
+.combo { position: relative; }
+.combo .input { padding-left: 44px; }
+.combo .search { position: absolute; left: 14px; top: 50%; width: 20px; height: 20px; margin-top: -10px; color: var(--color-ink-muted); pointer-events: none; }
+.listbox {
+  list-style: none; margin: 6px 0 0; padding: 6px; max-height: 296px; overflow-y: auto; overscroll-behavior: contain;
+  background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md);
+  box-shadow: var(--shadow-pop);
+}
+.listbox[hidden] { display: none; }
+.option {
+  display: flex; align-items: center; gap: 12px; min-height: 48px; padding: 6px 10px; border-radius: 8px; cursor: pointer;
+  font-size: 16px; line-height: 22px; -webkit-tap-highlight-color: transparent;
+}
+.option mark { background: var(--tint-yellow); color: inherit; border-radius: 3px; padding: 0 1px; box-shadow: inset 0 -2px 0 var(--splash-yellow); }
+.option[aria-selected="true"], .option.is-active { background: var(--color-blue-tint); }
+.option.is-active { box-shadow: inset 3px 0 0 var(--color-blue); }
+.option .kbd { margin-left: auto; font-size: 12px; color: var(--color-ink-muted); display: none; }
+@media (hover: hover) { .option.is-active .kbd { display: inline; } }
+.avatar {
+  width: 32px; height: 32px; border-radius: 50%; flex: none; display: grid; place-items: center;
+  font: 700 12px/1 var(--font-display); letter-spacing: .02em; color: var(--color-ink);
+  border: 1.5px solid var(--color-ink-line);
+}
+.avatar.c0 { background: var(--tint-blue); } .avatar.c1 { background: var(--tint-yellow); }
+.avatar.c2 { background: var(--tint-coral); } .avatar.c3 { background: var(--tint-raspberry); }
+.empty {
+  margin-top: 6px; padding: 14px; border: 1px dashed var(--color-border-strong); border-radius: var(--radius-md);
+  font-size: 14px; line-height: 20px; color: var(--color-ink-muted); background: var(--color-panel);
+}
+.empty strong { color: var(--color-ink); }
+.empty[hidden] { display: none; }
+
+.chosen {
+  display: flex; align-items: center; gap: 12px; min-height: 60px; padding: 10px 10px 10px 12px;
+  border: 1.5px solid var(--color-ink-line); border-radius: var(--radius-md); background: var(--color-surface);
+  animation: chosen-in .35s var(--ease-spring);
+}
+.chosen[hidden] { display: none; }
+@keyframes chosen-in { from { transform: scale(.96); opacity: .4; } to { transform: none; opacity: 1; } }
+.chosen .avatar { width: 38px; height: 38px; font-size: 14px; }
+.chosen .who { flex: 1; min-width: 0; }
+.chosen .who strong { display: block; font-weight: 600; font-size: 16px; line-height: 22px; overflow-wrap: anywhere; }
+.chosen .who span { font-size: 13px; line-height: 18px; color: var(--color-success); display: inline-flex; align-items: center; gap: 4px; }
+.chosen .who span svg { width: 14px; height: 14px; }
+.btn-ghost {
+  min-height: 40px; padding: 0 12px; border-radius: var(--radius-md); border: 1px solid var(--color-border);
+  background: var(--color-surface); font-size: 14px; font-weight: 500; cursor: pointer; transition: background .15s;
+}
+.btn-ghost:hover { background: var(--color-panel); }
+
+.duo-link {
+  display: flex; align-items: center; gap: 10px; margin: -8px 0; color: var(--color-ink-muted); font-size: 13px;
+}
+.duo-link::before, .duo-link::after { content: ""; flex: 1; height: 0; border-top: 1.5px dashed var(--color-border-strong); }
+.duo-link svg { width: 26px; height: 26px; }
+
+/* ---------- Photo ---------- */
+.photo-drop {
+  position: relative; display: flex; align-items: center; gap: 14px; min-height: 76px; padding: 12px 14px;
+  border: 1.5px dashed var(--color-border-strong); border-radius: var(--radius-md); background: var(--color-panel);
+  cursor: pointer; transition: border-color .15s, background .15s;
+}
+.photo-drop:hover { border-color: var(--color-ink-muted); }
+.photo-drop:focus-within { outline: 2px solid var(--color-blue); outline-offset: 2px; }
+.photo-drop input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; }
+.photo-drop svg { width: 44px; height: 44px; flex: none; }
+.photo-drop strong { display: block; font-weight: 600; font-size: 15px; line-height: 20px; }
+.photo-drop span { font-size: 13px; line-height: 18px; color: var(--color-ink-muted); }
+.photo-preview { display: grid; grid-template-columns: 96px 1fr; gap: 14px; align-items: center; }
+.photo-preview[hidden] { display: none; }
+.photo-preview .frame {
+  width: 96px; height: 96px; border-radius: 10px; overflow: hidden; background: var(--color-panel);
+  border: 1.5px solid var(--color-ink-line); transform: rotate(-3deg); box-shadow: 4px 4px 0 var(--splash-raspberry);
+}
+.photo-preview img { width: 100%; height: 100%; object-fit: cover; }
+.photo-preview p { font-size: 13px; line-height: 18px; color: var(--color-ink-muted); margin-bottom: 8px; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
+  min-height: 54px; padding: 0 22px; border: 0; border-radius: var(--radius-md);
+  background: var(--color-blue); color: #fff; font: 600 16px/20px var(--font-text); text-decoration: none; cursor: pointer;
+  transition: background .15s, transform .12s var(--ease-out), box-shadow .15s;
+  box-shadow: 0 2px 0 var(--color-blue-hover);
+  -webkit-tap-highlight-color: transparent;
+}
+.btn svg { width: 20px; height: 20px; transition: transform .25s var(--ease-out); }
+.btn:hover { background: var(--color-blue-hover); }
+.btn:hover svg { transform: translateX(3px) rotate(-8deg); }
+.btn:active { transform: translateY(2px); box-shadow: 0 0 0 var(--color-blue-hover); }
+.btn[disabled] { opacity: .7; cursor: progress; }
+@media (min-width: 640px) { .btn.auto { width: auto; } }
+.submit-row { display: grid; gap: 12px; }
+.fineprint { font-size: 13px; line-height: 18px; color: var(--color-ink-muted); text-align: center; display: flex; justify-content: center; gap: 6px; align-items: center; }
+.fineprint svg { width: 14px; height: 14px; flex: none; }
+.form-alert {
+  display: none; padding: 12px 14px; border-radius: var(--radius-md); background: var(--color-danger-bg);
+  color: var(--color-danger); font-size: 14px; line-height: 20px; font-weight: 500;
+}
+.form-alert.show { display: block; }
+.storage-note {
+  margin-top: 14px; padding: 12px 14px; border-radius: var(--radius-md); background: var(--tint-yellow);
+  font-size: 14px; line-height: 20px;
+}
+.storage-note[hidden] { display: none; }
+
+/* =========================================================
+   Celebration
+   ========================================================= */
+.celebrate { max-width: 560px; margin: 0 auto; padding: 28px 0 56px; text-align: center; }
+.trophy-stage { position: relative; width: 200px; height: 200px; margin: 8px auto 18px; display: grid; place-items: center; }
+.trophy-stage .burst { position: absolute; inset: 0; width: 100%; height: 100%; }
+.trophy-stage .burst path { stroke-dasharray: 12; stroke-dashoffset: 12; animation: ray .5s var(--ease-out) forwards .35s; }
+.trophy-stage .burst path:nth-child(2n) { animation-delay: .42s; }
+@keyframes ray { to { stroke-dashoffset: 0; } }
+.trophy-stage .medal {
+  width: 136px; height: 136px; border-radius: 50%; background: var(--color-surface); border: 1px solid var(--color-border);
+  display: grid; place-items: center; animation: medal-in .7s var(--ease-spring) both;
+}
+.trophy-stage .medal svg { width: 112px; height: 112px; }
+@keyframes medal-in { 0% { transform: scale(.3) rotate(-25deg); opacity: 0; } 70% { opacity: 1; } 100% { transform: none; opacity: 1; } }
+.celebrate .overline { color: var(--color-success); display: inline-flex; align-items: center; gap: 6px; }
+.celebrate .overline svg { width: 16px; height: 16px; }
+.celebrate .h1 { margin: 10px auto 0; max-width: 18ch; text-wrap: balance; }
+.receipt {
+  margin: 26px auto 0; text-align: left; background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.receipt .top { padding: 16px 18px 14px; border-bottom: 1.5px dashed var(--color-border-strong); position: relative; }
+.receipt .top::before, .receipt .top::after {
+  content: ""; position: absolute; bottom: -9px; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--color-canvas); border: 1px solid var(--color-border);
+}
+.receipt .top::before { left: -9px; } .receipt .top::after { right: -9px; }
+.receipt .award-name { font: 700 18px/24px var(--font-display); letter-spacing: -.01em; margin-top: 4px; overflow-wrap: anywhere; }
+.receipt .bottom { padding: 14px 18px 16px; display: grid; gap: 10px; }
+.receipt .nominee { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.receipt .story { font-size: 14px; line-height: 20px; color: var(--color-ink-muted); font-style: italic; overflow-wrap: anywhere; }
+.celebrate .after { margin-top: 14px; font-size: 14px; line-height: 20px; color: var(--color-ink-muted); }
+.celebrate .actions { margin-top: 28px; display: grid; gap: 10px; justify-items: center; }
+.celebrate .btn { max-width: 360px; }
+.celebrate .count-line { font-size: 13px; color: var(--color-ink-muted); }
+
+#confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 40; }
+
+/* ---------- Footer ---------- */
+.site-foot { padding: 0 0 32px; }
+.site-foot .wrap { display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: space-between; font-size: 13px; color: var(--color-ink-muted); }
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-delay: 0s !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  .trophy-stage .burst path { stroke-dashoffset: 0; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- =========================================================
+     Shared SVG filters — hand-drawn ink + grainy splash
+     (from sheet.html; three wobble seeds so icons don't share one wobble)
+     ========================================================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <filter id="wobble" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="4"/>
+    <feDisplacementMap in="SourceGraphic" scale="1.1" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="wobble2" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="7"/>
+    <feDisplacementMap in="SourceGraphic" scale="1.1" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="wobble3" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="13"/>
+    <feDisplacementMap in="SourceGraphic" scale="1.1" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="splash" x="-15%" y="-15%" width="130%" height="130%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.12" numOctaves="2" seed="9" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="2.2" xChannelSelector="R" yChannelSelector="G" result="d"/>
+    <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="1" seed="2" result="g"/>
+    <feColorMatrix in="g" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 -1.6 1.75" result="ga"/>
+    <feComposite in="d" in2="ga" operator="in"/>
+  </filter>
+</defs></svg>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Tremendous, back to all awards">
+      <!-- LOGO SLOT: traced from the public Tremendous wordmark. To use an official SVG,
+           replace this <svg> and keep fill="currentColor" so CSS controls the color. -->
+      <svg aria-hidden="true" focusable="false" viewBox="0 0 373.00 36.50" fill="currentColor"><path fill-rule="evenodd" d="M278.88 36.23C278.19 36.10 277.40 35.96 277.12 35.92C276.60 35.84 275.40 35.36 274.75 34.97C274.54 34.85 274.09 34.62 273.75 34.47C273.41 34.32 272.96 34.09 272.75 33.97C270.07 32.34 269.89 32.19 268.26 30.38C268.01 30.10 267.49 29.38 267.09 28.78C266.70 28.17 266.07 27.22 265.69 26.65C265.32 26.09 265.01 25.34 265.00 25.00C265.00 24.65 264.79 23.98 264.54 23.50C263.95 22.38 263.69 18.57 264.03 16.00C264.17 14.97 264.30 13.84 264.33 13.50C264.40 12.60 266.16 9.09 267.28 7.62C269.02 5.33 269.86 4.46 271.17 3.61C271.88 3.14 272.54 2.64 272.62 2.50C272.71 2.36 272.98 2.25 273.23 2.25C273.47 2.25 273.88 2.03 274.12 1.75C274.37 1.48 274.87 1.25 275.23 1.25C275.59 1.25 276.29 1.03 276.79 0.77C277.96 0.14 282.43 -0.16 284.75 0.24C285.64 0.39 286.60 0.55 286.88 0.59C287.39 0.66 288.59 1.13 289.25 1.53C289.46 1.65 289.91 1.88 290.25 2.03C290.59 2.18 291.04 2.41 291.25 2.53C291.46 2.66 291.91 2.90 292.26 3.07C293.19 3.52 294.78 4.95 296.77 7.12C297.51 7.94 299.25 11.45 299.25 12.14C299.25 12.48 299.41 13.02 299.61 13.32C300.25 14.30 300.53 18.56 300.13 21.13C299.72 23.72 298.78 26.54 298.05 27.33C297.77 27.63 297.38 28.27 297.18 28.75C296.98 29.23 296.10 30.28 295.22 31.08C294.34 31.89 293.40 32.75 293.12 33.01C292.33 33.75 288.81 35.50 288.11 35.50C287.77 35.50 287.23 35.67 286.92 35.87C286.22 36.33 280.69 36.58 278.88 36.23ZM318.62 36.29C317.80 36.19 316.48 35.80 315.68 35.42C314.89 35.04 314.12 34.80 313.98 34.89C313.84 34.97 313.29 34.64 312.74 34.15C312.19 33.65 311.62 33.25 311.46 33.25C311.10 33.25 310.08 32.34 308.24 30.37C307.60 29.69 305.00 24.55 305.00 23.96C305.00 23.70 304.77 22.85 304.50 22.06L304.00 20.64L304.00 10.84C304.00 3.45 304.07 0.98 304.30 0.84C304.47 0.74 306.23 0.67 308.22 0.69C310.93 0.72 311.92 0.81 312.18 1.07C312.46 1.35 312.54 2.97 312.59 9.15C312.67 17.99 313.00 21.39 313.91 22.75C315.02 24.41 315.38 24.88 315.61 24.97C315.73 25.03 316.32 25.52 316.92 26.07C317.65 26.74 318.38 27.15 319.19 27.33C321.60 27.86 324.77 27.48 326.39 26.45C327.49 25.75 329.00 24.16 329.00 23.69C329.00 23.53 329.29 22.98 329.64 22.47C330.64 21.04 330.82 19.29 330.92 9.88C330.98 4.83 331.12 1.03 331.26 0.89C331.65 0.50 338.77 0.66 339.17 1.07C339.68 1.57 339.62 17.94 339.10 21.25C338.90 22.56 338.70 23.85 338.66 24.12C338.51 25.13 336.64 28.66 335.71 29.68C335.18 30.26 334.75 30.84 334.75 30.96C334.75 31.30 331.10 34.25 330.68 34.25C330.48 34.25 330.03 34.48 329.68 34.75C329.33 35.02 328.84 35.25 328.58 35.25C328.33 35.25 327.70 35.47 327.19 35.75C326.46 36.14 325.64 36.26 323.20 36.35C321.51 36.41 319.45 36.38 318.62 36.29ZM354.50 36.25C353.61 36.14 352.43 35.87 351.88 35.66C351.32 35.45 350.64 35.27 350.34 35.26C350.05 35.25 349.67 35.09 349.51 34.88C349.34 34.68 348.96 34.44 348.66 34.35C348.07 34.17 348.02 34.13 345.82 32.11C344.96 31.33 344.19 30.45 344.10 30.16C344.01 29.86 343.75 29.40 343.50 29.12C343.07 28.63 342.72 27.29 342.66 25.88L342.62 25.12L346.72 25.06C350.08 25.00 350.92 25.06 351.41 25.37C351.73 25.59 352.00 25.90 352.00 26.07C352.00 26.62 353.25 28.25 353.68 28.25C353.90 28.25 354.27 28.42 354.50 28.63C355.07 29.15 357.32 29.70 357.90 29.47C358.16 29.37 358.84 29.28 359.42 29.27C360.59 29.25 362.61 28.33 363.41 27.45C363.70 27.14 363.99 26.48 364.06 26.01C364.20 25.03 363.85 23.50 363.49 23.50C363.36 23.50 362.81 23.10 362.26 22.60C361.71 22.11 361.15 21.78 361.00 21.88C360.85 21.97 360.56 21.91 360.36 21.74C359.86 21.33 357.06 20.71 353.62 20.27C351.86 20.04 349.44 19.30 348.21 18.62C347.85 18.42 347.39 18.25 347.20 18.25C346.76 18.25 344.24 15.64 343.52 14.44C343.03 13.61 342.98 13.26 343.09 11.32C343.28 7.81 343.36 7.53 344.62 5.78C345.92 3.98 348.68 1.92 350.60 1.32C351.14 1.15 351.76 0.84 352.00 0.63C352.60 0.08 359.53 -0.19 361.62 0.25C362.45 0.42 363.40 0.56 363.74 0.56C364.08 0.55 364.58 0.70 364.86 0.90C365.14 1.09 365.52 1.25 365.70 1.25C365.89 1.25 366.33 1.47 366.68 1.75C367.03 2.02 367.51 2.25 367.75 2.25C368.11 2.25 369.31 3.41 370.56 4.98C371.26 5.85 371.79 7.22 371.83 8.25L371.88 9.38L367.96 9.44L364.05 9.51L363.34 8.93C361.66 7.55 360.66 7.25 357.80 7.25C354.52 7.25 353.72 7.59 352.72 9.40C351.88 10.91 351.85 11.25 352.54 12.12C353.41 13.22 354.45 13.55 359.25 14.25C363.53 14.87 364.60 15.15 366.48 16.09C367.18 16.44 367.90 16.68 368.07 16.61C368.50 16.45 371.51 19.43 372.33 20.82L373.00 21.96L373.00 24.94L373.00 27.92L372.26 29.40C371.85 30.21 370.98 31.40 370.32 32.04C369.07 33.27 366.05 34.99 363.80 35.77C362.24 36.31 357.04 36.58 354.50 36.25ZM13.22 35.44C13.08 35.18 12.99 29.57 13.01 21.84C13.02 14.61 12.94 8.59 12.82 8.47C12.70 8.35 9.80 8.23 6.37 8.19L0.12 8.12L0.06 4.64C0.02 2.73 0.08 1.07 0.20 0.95C0.32 0.83 8.11 0.73 17.50 0.73C31.15 0.73 34.63 0.80 34.79 1.05C35.02 1.42 35.08 7.26 34.85 7.85C34.72 8.20 33.93 8.25 28.58 8.25C24.90 8.25 22.28 8.35 21.99 8.51L21.51 8.76L21.51 21.93C21.51 32.65 21.45 35.16 21.18 35.43C20.93 35.68 19.85 35.78 17.14 35.82C13.85 35.87 13.42 35.83 13.22 35.44ZM40.23 35.45C40.10 35.22 40.00 27.80 40.00 18.42L40.00 1.81L40.44 1.27L40.88 0.73L49.39 0.73C54.69 0.73 58.17 0.83 58.60 0.99C58.97 1.13 59.59 1.25 59.96 1.25C60.33 1.25 61.05 1.47 61.57 1.75C62.08 2.02 62.64 2.25 62.82 2.25C63.00 2.25 63.98 3.08 65.01 4.09C67.92 6.95 69.33 10.15 69.58 14.50C69.61 14.98 69.42 16.11 69.17 17.00C68.91 17.89 68.66 18.92 68.62 19.28C68.56 19.86 68.14 20.68 67.38 21.72C67.05 22.16 66.06 23.15 64.78 24.31C64.21 24.82 63.75 25.35 63.75 25.48C63.75 25.61 64.01 26.03 64.32 26.42C64.64 26.81 65.11 27.46 65.37 27.88C65.63 28.29 66.35 29.25 66.98 30.02C68.02 31.30 68.53 32.05 70.17 34.72C70.48 35.21 70.68 35.65 70.63 35.70C70.58 35.75 68.26 35.79 65.47 35.80L60.39 35.81L60.10 35.34C59.62 34.58 58.44 32.77 57.50 31.37C57.02 30.65 56.20 29.43 55.69 28.66L54.76 27.25L52.02 27.25C50.14 27.25 49.22 27.35 49.09 27.55C48.99 27.72 48.93 29.39 48.97 31.25C49.03 34.23 48.98 34.71 48.58 35.21L48.12 35.77L44.29 35.82C40.91 35.87 40.42 35.82 40.23 35.45ZM77.24 35.64C76.91 35.31 76.92 1.08 77.25 0.88C77.64 0.64 102.55 0.70 102.80 0.95C102.92 1.07 102.98 2.73 102.94 4.64L102.88 8.12L94.12 8.26C89.31 8.33 85.34 8.42 85.30 8.45C85.27 8.48 85.27 9.77 85.30 11.31L85.38 14.12L91.98 14.19C96.34 14.24 98.70 14.35 98.92 14.53C99.39 14.93 99.39 21.57 98.92 21.97C98.70 22.15 96.34 22.26 91.98 22.31L85.38 22.38L85.30 25.19C85.27 26.73 85.27 28.02 85.30 28.05C85.34 28.08 89.31 28.17 94.12 28.24L102.88 28.38L102.94 31.86C102.98 33.77 102.92 35.43 102.80 35.55C102.49 35.86 77.54 35.94 77.24 35.64ZM109.24 35.64C108.86 35.26 108.92 1.08 109.30 0.84C109.64 0.64 116.89 0.65 117.23 0.86C117.35 0.93 119.50 5.11 122.01 10.13C124.52 15.16 126.77 19.37 127.00 19.50C127.56 19.80 128.59 18.88 128.42 18.24C128.35 17.97 128.55 17.56 128.90 17.22C129.23 16.92 129.50 16.42 129.50 16.12C129.50 15.82 129.72 15.37 130.00 15.13C130.28 14.88 130.50 14.43 130.50 14.13C130.50 13.82 130.72 13.37 131.00 13.13C131.28 12.88 131.50 12.43 131.50 12.13C131.50 11.82 131.72 11.37 132.00 11.13C132.28 10.88 132.50 10.45 132.50 10.17C132.50 9.89 132.70 9.45 132.94 9.18C133.40 8.68 133.50 8.49 135.83 3.89C136.78 2.02 137.46 0.97 137.79 0.86C138.07 0.77 139.93 0.69 141.92 0.68C144.79 0.67 145.59 0.74 145.77 1.02C145.89 1.22 145.99 8.63 146.00 18.03L146.00 34.69L145.56 35.23L145.12 35.77L141.29 35.81C138.21 35.84 137.42 35.78 137.22 35.49C137.08 35.27 137.01 32.13 137.04 27.74C137.07 23.68 137.01 20.21 136.90 20.04C136.67 19.67 136.00 20.10 136.00 20.61C136.00 20.77 135.44 22.03 134.75 23.39C134.05 24.76 133.54 26.06 133.59 26.30C133.65 26.53 133.43 26.97 133.10 27.28C132.77 27.58 132.50 28.06 132.50 28.32C132.50 29.05 129.61 34.81 128.95 35.41C128.49 35.82 128.07 35.93 126.89 35.90L125.40 35.88L125.09 34.88C124.93 34.33 123.94 32.20 122.90 30.14C121.85 28.09 121.00 26.26 121.00 26.08C121.00 25.90 120.78 25.33 120.50 24.82C120.22 24.30 120.00 23.76 120.00 23.61C120.00 23.45 119.66 22.65 119.24 21.81C118.52 20.38 117.99 19.84 117.64 20.19C117.55 20.28 117.50 23.66 117.51 27.71C117.54 33.72 117.48 35.13 117.19 35.42C116.77 35.83 109.63 36.03 109.24 35.64ZM153.24 35.64C152.91 35.31 152.92 1.08 153.25 0.88C153.64 0.64 178.55 0.70 178.80 0.95C178.92 1.07 178.98 2.73 178.94 4.64L178.88 8.12L170.12 8.26C165.31 8.33 161.34 8.42 161.30 8.45C161.27 8.48 161.27 9.77 161.30 11.31L161.38 14.12L167.98 14.19C172.34 14.24 174.70 14.35 174.92 14.53C175.16 14.74 175.25 15.69 175.25 18.25C175.25 20.81 175.16 21.76 174.92 21.97C174.70 22.15 172.34 22.26 167.98 22.31L161.38 22.38L161.30 25.19C161.27 26.73 161.27 28.02 161.30 28.05C161.34 28.08 165.31 28.17 170.12 28.24L178.88 28.38L178.94 31.86C178.98 33.77 178.92 35.43 178.80 35.55C178.49 35.86 153.54 35.94 153.24 35.64ZM186.26 35.71C186.01 35.61 185.73 35.42 185.65 35.28C185.56 35.14 185.49 27.46 185.49 18.22C185.49 4.42 185.55 1.34 185.83 1.07C186.08 0.82 187.13 0.72 189.87 0.69L193.57 0.66L194.35 1.54C195.18 2.48 195.70 3.12 197.89 5.88C198.65 6.84 199.55 7.96 199.89 8.38C200.22 8.79 201.12 9.91 201.89 10.88C202.65 11.84 203.55 12.96 203.89 13.38C204.22 13.79 205.12 14.91 205.87 15.88C206.63 16.84 207.41 17.79 207.60 18.00C208.14 18.58 209.98 21.07 210.07 21.35C210.12 21.48 210.35 21.52 210.58 21.43L211.00 21.27L211.00 11.15C211.00 3.52 211.07 0.98 211.30 0.84C211.47 0.74 213.23 0.67 215.22 0.69C217.89 0.72 218.92 0.82 219.17 1.07C219.67 1.57 219.67 34.93 219.17 35.43C218.92 35.68 217.87 35.78 215.14 35.81L211.44 35.84L210.07 34.36C208.33 32.47 207.99 32.07 207.20 31.00C206.66 30.26 204.97 28.26 203.29 26.38C203.05 26.10 202.56 25.48 202.20 25.00C201.85 24.52 200.96 23.44 200.22 22.59C199.48 21.75 198.57 20.68 198.20 20.22C197.22 19.01 195.56 16.98 194.98 16.28C194.64 15.87 194.39 15.76 194.22 15.93C194.06 16.09 193.97 19.48 193.99 25.43L194.02 34.67L193.57 35.23L193.12 35.78L189.92 35.83C188.16 35.85 186.51 35.80 186.26 35.71ZM227.26 35.71C227.01 35.61 226.73 35.42 226.65 35.28C226.56 35.14 226.49 27.46 226.49 18.22C226.49 4.50 226.55 1.34 226.82 1.07C227.09 0.80 228.74 0.74 234.89 0.76C243.45 0.78 246.66 1.01 248.81 1.75C249.60 2.03 250.46 2.25 250.70 2.25C250.95 2.25 251.48 2.58 251.87 2.99C252.26 3.40 252.95 3.86 253.40 4.01C253.84 4.15 254.68 4.80 255.24 5.45C255.81 6.10 256.49 6.85 256.76 7.13C257.02 7.40 257.86 8.85 258.62 10.35L260.00 13.07L260.15 16.22C260.23 18.13 260.18 20.02 260.01 21.00C259.85 21.89 259.69 22.85 259.66 23.12C259.53 24.05 257.68 27.62 256.84 28.56C256.38 29.08 256.00 29.66 256.00 29.85C256.00 30.04 255.69 30.39 255.31 30.64C254.93 30.88 254.06 31.55 253.38 32.13C251.70 33.53 249.98 34.50 249.16 34.50C248.79 34.50 248.23 34.67 247.92 34.87C247.60 35.08 246.29 35.35 244.99 35.48C242.16 35.77 227.92 35.95 227.26 35.71ZM286.64 27.36C288.27 26.57 289.11 25.85 290.52 24.07C291.44 22.90 292.33 20.24 292.30 18.75C292.28 17.72 291.65 14.79 291.30 14.12C289.39 10.45 285.86 8.21 281.99 8.21C280.20 8.21 277.76 8.93 276.90 9.72C276.61 9.98 276.12 10.27 275.81 10.36C275.50 10.46 275.25 10.64 275.25 10.77C275.25 10.90 274.81 11.49 274.27 12.07C273.35 13.07 272.40 14.90 272.54 15.40C272.58 15.52 272.46 15.90 272.27 16.23C271.86 16.97 272.08 20.30 272.65 21.97C272.96 22.91 273.76 24.16 274.44 24.80C276.39 26.62 277.61 27.37 279.75 28.09C279.96 28.15 281.18 28.22 282.47 28.23L284.81 28.25L286.64 27.36ZM247.12 26.14C249.33 24.96 249.50 24.82 249.94 23.75C250.13 23.27 250.55 22.59 250.87 22.25C251.55 21.50 251.85 20.00 251.81 17.62C251.78 16.14 251.64 15.61 250.87 14.12C250.37 13.16 249.61 12.00 249.17 11.53C248.34 10.66 246.37 9.64 245.98 9.89C245.85 9.97 245.50 9.85 245.19 9.64C244.74 9.32 243.79 9.25 239.96 9.25C237.13 9.25 235.22 9.35 235.13 9.50C234.91 9.84 234.93 26.69 235.14 27.03C235.26 27.22 236.83 27.27 240.34 27.19L245.38 27.08L247.12 26.14ZM57.88 18.72C59.16 18.05 60.53 16.75 60.46 16.26C60.44 16.05 60.57 15.56 60.75 15.18C61.05 14.57 61.02 14.32 60.51 13.06C59.29 10.04 58.50 9.68 53.12 9.65L49.12 9.62L49.00 14.12C48.93 16.60 48.97 18.77 49.09 18.94C49.25 19.16 50.35 19.25 53.10 19.25C56.46 19.25 56.99 19.19 57.88 18.72Z"/></svg>
+    </a>
+    <p class="header-tag"><span class="dot" aria-hidden="true"></span><span>Offsite edition</span></p>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ================= BALLOT ================= -->
+  <section class="view" id="view-ballot" aria-labelledby="ballot-title">
+    <div class="wrap">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="overline">Peer shoutouts</p>
+          <h1 class="display view-title" id="ballot-title" tabindex="-1">The <span class="tre">Tre</span>‑mentions</h1>
+          <p class="hero-lede">Big appreciation for the little things.</p>
+          <p class="hero-body">Some moments deserve a shoutout. Pick an award, nominate a teammate, and celebrate the people making this offsite memorable.</p>
+          <div class="hero-meta">
+            <p class="pill counter" id="counter-pill" aria-live="polite"></p>
+            <p class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Anonymous by design</p>
+            <p class="pill" id="timing-pill" hidden></p>
+          </div>
+        </div>
+        <aside class="how" aria-label="How it works">
+          <p class="overline">How it works</p>
+          <ol>
+            <li><span class="n">1</span><div><strong>Pick an award</strong><span class="t">Six to choose from, including one you name yourself.</span></div></li>
+            <li><span class="n">2</span><div><strong>Name a teammate</strong><span class="t">Start typing and choose them from the list.</span></div></li>
+            <li><span class="n">3</span><div><strong>Tell the story</strong><span class="t">Optional, but it’s what makes a good shoutout great.</span></div></li>
+          </ol>
+        </aside>
+      </div>
+
+      <div class="section-head">
+        <h2 class="h2">Pick an award</h2>
+        <span class="muted" style="font-size:14px">Nominate as often as you like</span>
+      </div>
+      <ul class="awards" id="awards"></ul>
+
+      <div class="ballot-foot">
+        <p class="note"><span aria-hidden="true" data-icon="stage"></span><span><strong>See you at the Tremmes.</strong> A handful of Tre‑mentions, around six to eight, get their moment on stage on Thursday evening. Organizers read every nomination and choose together.</span></p>
+        <p class="note"><span aria-hidden="true" data-icon="device"></span><span><strong>This is a prototype.</strong> Nominations are saved in this browser only. They aren’t shared with organizers or other devices, and clearing your browser data erases them.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NOMINATION FORM ================= -->
+  <section class="view" id="view-form" aria-labelledby="form-title">
+    <div class="wrap">
+      <div class="form-shell">
+        <a class="back" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>All awards</a>
+        <div class="award-head">
+          <div class="art" id="form-art" aria-hidden="true"></div>
+          <div>
+            <p class="overline" id="form-no"></p>
+            <h1 class="h1 view-title" id="form-title" tabindex="-1"></h1>
+            <p class="sub" id="form-sub"></p>
+          </div>
+        </div>
+        <form class="card-form" id="nomination-form" novalidate>
+          <div id="form-fields" style="display:grid;gap:inherit"></div>
+          <div class="form-alert" id="form-alert" role="alert"></div>
+          <div class="submit-row">
+            <button class="btn" type="submit" id="submit-btn">
+              <span>Send the shoutout</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11.5 20 4l-5.5 16-3-6.5z"/><path d="M11.5 13.5 20 4"/></svg>
+            </button>
+            <p class="fineprint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Anonymous. We never ask who you are.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CELEBRATION ================= -->
+  <section class="view" id="view-done" aria-labelledby="done-title">
+    <div class="wrap">
+      <div class="celebrate">
+        <div class="trophy-stage" aria-hidden="true">
+          <svg class="burst" viewBox="0 0 200 200" fill="none" stroke="#1D1C1D" stroke-width="2.4" stroke-linecap="round">
+            <path d="M100 8v12"/><path d="M165 35l-8.5 8.5"/><path d="M192 100h-12"/><path d="M165 165l-8.5-8.5"/>
+            <path d="M100 192v-12"/><path d="M35 165l8.5-8.5"/><path d="M8 100h12"/><path d="M35 35l8.5 8.5"/>
+          </svg>
+          <div class="medal" id="done-art"></div>
+        </div>
+        <p class="overline"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Shoutout sent</p>
+        <h1 class="h1 view-title" id="done-title" tabindex="-1"></h1>
+        <div class="receipt" id="receipt"></div>
+        <p class="after">Saved on this device. Organizers review nominations before the Tremmes, so not every one makes it to the stage, but every one counts.</p>
+        <div class="actions">
+          <a class="btn" href="#" id="again-btn">
+            <span>Nominate someone else</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+          </a>
+          <p class="count-line" id="done-count"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <span>Tre-mentions · Little moments. Big shoutouts.</span>
+    <span>Prototype · saved in this browser only</span>
+  </div>
+</footer>
+
+<div class="sr-only" aria-live="polite" id="announcer"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<script>
+/* =========================================================
+   1. CONFIG
+   ---------------------------------------------------------
+   Event timing is display-only. Fill in real values to show
+   the closing time on the ballot; leave null to hide it.
+   NOTE: a browser can't enforce deadlines (clocks can be
+   changed, storage edited). Production enforcement of the
+   Monday open / Thursday-noon close must happen on a trusted
+   backend that rejects late submissions.
+   ========================================================= */
+const CONFIG = {
+  event: {
+    opensAt: null,   // e.g. "2026-11-02T09:00:00-05:00"
+    closesAt: null,  // e.g. "2026-11-05T12:00:00-05:00"  (Thursday, noon local)
+    timeZone: null,  // e.g. "America/New_York" — IANA name for the event location
+  },
+  storageKey: "tre-mentions:v1:nominations",
+  explanationMax: 500,
+  customTitleMax: 60,
+};
+
+/* =========================================================
+   2. ATTENDEES
+   ---------------------------------------------------------
+   Replace with the real offsite list. Keep `id` stable and
+   unique. Set `eligible: false` for anyone who opted out —
+   they disappear from search results.
+   ========================================================= */
+const ATTENDEES = [
+  { id: "p01", name: "Alex Morgan", eligible: true },
+  { id: "p02", name: "Alex Rivera", eligible: true },
+  { id: "p03", name: "Alexandra Chen", eligible: true },
+  { id: "p04", name: "Jordan Lee", eligible: true },
+  { id: "p05", name: "Jordan Patel", eligible: true },
+  { id: "p06", name: "Taylor Brooks", eligible: true },
+  { id: "p07", name: "Taylor Kim", eligible: true },
+  { id: "p08", name: "Sam Rodriguez", eligible: true },
+  { id: "p09", name: "Samantha Wilson", eligible: true },
+  { id: "p10", name: "Jamie Park", eligible: true },
+  { id: "p11", name: "Jamie Thompson", eligible: true },
+  { id: "p12", name: "Morgan Davis", eligible: true },
+  { id: "p13", name: "Casey Nguyen", eligible: true },
+  { id: "p14", name: "Riley Johnson", eligible: true },
+  { id: "p15", name: "Avery Martinez", eligible: true },
+  { id: "p16", name: "Cameron Foster", eligible: true },
+  { id: "p17", name: "Drew Anderson", eligible: true },
+  { id: "p18", name: "Quinn Bennett", eligible: true },
+  { id: "p19", name: "Reese Sullivan", eligible: true },
+  { id: "p20", name: "Charlie Evans", eligible: true },
+  { id: "p21", name: "Sydney Clarke", eligible: true },
+  { id: "p22", name: "Parker Williams", eligible: true },
+  { id: "p23", name: "Blake Turner", eligible: true },
+  { id: "p24", name: "Devon Mitchell", eligible: true },
+  { id: "p25", name: "Robin Garcia", eligible: true },
+  { id: "p26", name: "Harper Collins", eligible: true },
+  { id: "p27", name: "Elliot Murphy", eligible: true },
+  { id: "p28", name: "Bailey Scott", eligible: true },
+  { id: "p29", name: "Frankie Lopez", eligible: true },
+  { id: "p30", name: "Dakota Reed", eligible: true },
+  { id: "p31", name: "Jordan Kim", eligible: true },
+  { id: "p32", name: "Morgan Ellis", eligible: false }, // demo: opted out, never appears in search
+];
+
+/* =========================================================
+   3. ICONS — Tremendous spot-icon system
+   48×48 grid · ink #1D1C1D at 1.8px, round caps/joins,
+   wobble filter · ONE grainy splash, offset out of register.
+   Splash colors rotate so no two neighbors match.
+   ========================================================= */
+const INK = 'fill="none" stroke="#1D1C1D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"';
+let maskSeq = 0;
+const ICONS = {
+  // 1 · heart held in cupped hands — raspberry splash on the heart
+  gesture: () => `
+    <g filter="url(#splash)"><path d="M21.5 25 C13.5 19.5 10.5 15 13 11.3 Q16.2 7.6 21.5 11.8 Q26.8 7.6 30 11.3 C32.5 15 29.5 19.5 21.5 25 Z" fill="#DE486C"/></g>
+    <g filter="url(#wobble)" ${INK}>
+      <path d="M24 27.5 C16.2 22 13.2 17.4 15.6 13.6 Q18.7 9.8 24 14 Q29.3 9.8 32.4 13.6 C34.8 17.4 31.8 22 26 26.3"/>
+      <path d="M5 24.5 Q5 32 12.5 35.2 L22.4 38.6"/>
+      <path d="M43 24.5 Q43 32 35.5 35.2 L25.8 38.6"/>
+      <path d="M12.5 35.2 Q12.3 30.4 16.4 30.8 L20.5 31.8"/>
+      <path d="M35.5 35.2 Q35.7 30.4 31.6 30.8 L27.5 31.8"/>
+      <path d="M38.5 7.5 L40.5 5.5"/><path d="M41 11.5 H43.5"/>
+    </g>`,
+  // 2 · a big friendly wave — yellow splash on the waving hand
+  welcome: () => `
+    <g filter="url(#splash)"><circle cx="33.5" cy="13.5" r="8" fill="#F0C048"/></g>
+    <g filter="url(#wobble2)" ${INK}>
+      <circle cx="17" cy="18" r="6"/>
+      <path d="M6 40 Q6 28.5 17 28.5 Q21.5 28.5 24.5 30.5"/>
+      <path d="M24.8 30.6 L31 23.8"/>
+      <path d="M31.5 16.5 V11.2 Q31.5 9.6 33 9.6 Q34.5 9.6 34.5 11.2 V15 M34.5 14.6 V8.8 Q34.5 7.2 36 7.2 Q37.5 7.2 37.5 8.8 V14.6 M37.5 14.8 V10.6 Q37.5 9 39 9 Q40.5 9 40.5 10.6 V17.5 Q40.5 23 35.4 23 Q31.2 23 29.6 19.6 L28.2 16.6 Q27.6 15 29 14.9 Q30.4 14.9 31.5 17"/>
+      <path d="M26.2 9.5 L24.4 7.6"/><path d="M27.6 4.6 L27 2.6"/><path d="M43.6 19.6 L45.8 20.6"/>
+    </g>`,
+  // 3 · flag planted, lightning inside — blue splash on the flag
+  charge: () => `
+    <g filter="url(#splash)"><path d="M15 12 Q21 9.5 27 12 T40 12 V28 Q34 25.5 27 28 T15 28 Z" fill="#2A66E4"/></g>
+    <g filter="url(#wobble3)" ${INK}>
+      <path d="M12 42 V9.5"/>
+      <path d="M12 8.5 Q18.5 5.5 25 8.5 T38 8.5 V24.5 Q31.5 21.5 25 24.5 T12.5 24.5"/>
+      <path d="M27 11 L22.5 17 H27.5 L23.5 22"/>
+      <path d="M6 42.5 H19"/>
+      <path d="M41.5 31 L43.5 33"/><path d="M38 34.5 L39.5 37"/>
+    </g>`,
+  // 4 · lightbulb moment — coral splash on the bulb
+  fact: () => `
+    <g filter="url(#splash)"><circle cx="21.5" cy="15.5" r="9.5" fill="#E46042"/></g>
+    <g filter="url(#wobble)" ${INK}>
+      <path d="M18 31 V27.5 Q11.5 23 12.2 15.8 Q13.6 7.4 24 7.4 Q34.4 7.4 35.8 15.8 Q36.5 23 30 27.5 V31 H20.5"/>
+      <path d="M19 35 H29"/><path d="M21 39.2 H27"/>
+      <path d="M21.2 24 Q21.6 19 24 21.2 Q26.4 19 26.8 24"/>
+      <path d="M5.5 11 L8.5 12.5"/><path d="M42.5 11 L39.5 12.5"/><path d="M24 1.8 V3.6"/>
+    </g>`,
+  // 5 · two faces, one unexpected overlap — raspberry splash on the newcomer
+  duo: () => { const id = "mDuo" + (++maskSeq); return `
+    <defs><mask id="${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48"><rect width="48" height="48" fill="#fff"/><circle cx="30" cy="26" r="10" fill="#000" stroke="#000" stroke-width="5"/></mask></defs>
+    <g filter="url(#splash)"><circle cx="32.5" cy="28.5" r="9.5" fill="#DE486C"/></g>
+    <g filter="url(#wobble2)" ${INK}>
+      <g mask="url(#${id})"><circle cx="17" cy="21" r="10"/></g>
+      <path d="M38.66 21 A10 10 0 1 1 35.74 17.8"/>
+      <path d="M12.5 18.5 h.1 M17 18.5 h.1 M27.5 23.5 h.1 M32.5 23.5 h.1" stroke-width="2.6"/>
+      <path d="M11.5 23.5 Q14 26 17 24"/>
+      <path d="M26.5 28.5 Q30 31.8 33.8 28.5"/>
+      <path d="M40.5 8.5 L42.5 6.5"/><path d="M42 13 H44.5"/>
+    </g>`; },
+  // 6 · trophy with a blank plaque + sparkle — yellow splash on the cup
+  custom: () => `
+    <g filter="url(#splash)"><path d="M12.5 5.5 H30.5 V14.5 Q30.5 24.5 21.5 24.5 Q12.5 24.5 12.5 14.5 Z" fill="#F0C048"/></g>
+    <g filter="url(#wobble3)" ${INK}>
+      <path d="M15 11.5 V8 H33 V17 Q33 27 24 27 Q15 27 15 17 V14.5"/>
+      <path d="M15 11.5 H11.5 Q9 11.5 9 14.5 Q9 19 15.4 20.6"/>
+      <path d="M33 11.5 H36.5 Q39 11.5 39 14.5 Q39 19 32.6 20.6"/>
+      <path d="M24 27 V32.5"/>
+      <path d="M17 39.5 V35 Q17 33 19 33 H29 Q31 33 31 35 V39.5 H19.5"/>
+      <path d="M21.5 36.5 H26.5" stroke-dasharray="1.2 1.6"/>
+      <path d="M41 2.5 V7.5 M38.5 5 H43.5"/>
+    </g>`,
+  // small: stage spotlight (footer)
+  stage: () => `
+    <g filter="url(#splash)"><path d="M20 20 L36 20 L40 38 L14 38 Z" fill="#F0C048"/></g>
+    <g filter="url(#wobble)" ${INK}>
+      <path d="M17 9 H31 L28.5 16 H19.5 Z"/>
+      <path d="M24 3.5 V9"/>
+      <path d="M19.5 16 L12 38"/><path d="M28.5 16 L36 38"/>
+      <path d="M6 41 H42"/>
+    </g>`,
+  // small: phone (footer, local-only note)
+  device: () => `
+    <g filter="url(#splash)"><rect x="12" y="8" width="16" height="17" rx="1.5" fill="#2A66E4"/></g>
+    <g filter="url(#wobble2)" ${INK}>
+      <path d="M17 6 H31 Q34 6 34 9 V39 Q34 42 31 42 H17 Q14 42 14 39 V10"/>
+      <path d="M21.5 37.5 H26.5"/>
+      <path d="M20 13.5 H28 M20 18 H25"/>
+    </g>`,
+  // small: link between the duo pickers
+  link: () => `
+    <g filter="url(#wobble)" ${INK}>
+      <path d="M20 28 L28 20"/>
+      <path d="M22.5 17.5 L25.5 14.5 Q29.5 10.5 33.5 14.5 Q37.5 18.5 33.5 22.5 L30.5 25.5"/>
+      <path d="M25.5 30.5 L22.5 33.5 Q18.5 37.5 14.5 33.5 Q10.5 29.5 14.5 25.5 L17.5 22.5"/>
+    </g>`,
+  // small: photo
+  photo: () => `
+    <g filter="url(#splash)"><circle cx="31" cy="17" r="6" fill="#DE486C"/></g>
+    <g filter="url(#wobble3)" ${INK}>
+      <path d="M9 12 H39 Q42 12 42 15 V35 Q42 38 39 38 H9 Q6 38 6 35 V16"/>
+      <path d="M8 33 L18 23 L26 31 L31 26 L40 35"/>
+      <circle cx="31" cy="18" r="3.5"/>
+    </g>`,
+};
+function iconSVG(key, size, label) {
+  const a = label ? `role="img" aria-label="${esc(label)}"` : 'aria-hidden="true" focusable="false"';
+  return `<svg viewBox="0 0 48 48" width="${size}" height="${size}" ${a}>${ICONS[key]()}</svg>`;
+}
+
+/* =========================================================
+   4. AWARDS
+   ========================================================= */
+const AWARDS = [
+  { id: "thoughtful-gesture", icon: "gesture", title: "Most thoughtful small gesture",
+    blurb: "For the small, kind thing that quietly made someone’s day.",
+    prompt: "What little thing did they do that made a big difference?" },
+  { id: "welcoming", icon: "welcome", title: "Most welcoming to a new face",
+    blurb: "For the person who turned a stranger into a familiar face.",
+    prompt: "How did they make someone feel welcome?" },
+  { id: "takes-charge", icon: "charge", title: "Most likely to take charge before anyone asks",
+    blurb: "For the one who’d already started before the meeting ended.",
+    prompt: "What did they jump in and make happen?" },
+  { id: "fun-fact", icon: "fact", title: "Most interesting fun fact",
+    blurb: "For the fact you’ve now told three other people about.",
+    prompt: "What did you learn about them that surprised you?" },
+  { id: "unexpected-friendship", icon: "duo", title: "Most unexpected new friendship", type: "duo",
+    blurb: "For the duo nobody saw coming. Nominate both halves.",
+    prompt: "What makes this friendship such a great plot twist?" },
+  { id: "make-your-own", icon: "custom", title: "Make your own Tre\u2011mention", type: "custom",
+    blurb: "Most ______. You name the award, you pick the person.",
+    prompt: "What did they do to earn it?" },
+];
+
+const MESSAGES = [
+  "Good people. Good moments. Worth celebrating.",
+  "A little recognition goes a long way.",
+  "That’s one more moment worth remembering.",
+  "The good stuff deserves a shoutout.",
+  "Consider that appreciation officially submitted.",
+];
+const IDEAS = ["contagious laugh", "likely to start a dance-off", "impressive dance-floor entrance", "likely to organize an impromptu adventure"];
+
+/* =========================================================
+   5. STORAGE — swap this object for an API client later.
+   Every method is async so a network backend drops straight in.
+   ========================================================= */
+const NominationStore = (() => {
+  let memory = [];
+  let persistent = true;
+  try { const k = "__tm_test"; localStorage.setItem(k, "1"); localStorage.removeItem(k); }
+  catch (e) { persistent = false; }
+
+  function read() {
+    if (!persistent) return memory.slice();
+    try {
+      const raw = localStorage.getItem(CONFIG.storageKey);
+      const data = raw ? JSON.parse(raw) : [];
+      return Array.isArray(data) ? data : [];
+    } catch (e) { console.warn("[Tre-mentions] Couldn't read saved nominations:", e); return []; }
+  }
+  function write(list) {
+    if (!persistent) { memory = list; return; }
+    localStorage.setItem(CONFIG.storageKey, JSON.stringify(list)); // may throw (quota, private mode)
+  }
+  return {
+    get persistent() { return persistent; },
+    async list() { return read(); },
+    async count() { return read().length; },
+    async add(record) {
+      const list = read();
+      list.push(record);
+      try { write(list); }
+      catch (e) {
+        // Fall back to memory so the attendee still gets confirmation, and tell them it won't persist.
+        persistent = false; memory = list;
+        const err = new Error("not-persisted"); err.cause = e; throw err;
+      }
+      return record;
+    },
+    async clear() { memory = []; try { localStorage.removeItem(CONFIG.storageKey); } catch (e) {} },
+  };
+})();
+
+// Dev helpers — open the browser console and run:
+//   treMentions.list()      → see saved nominations
+//   treMentions.clearDemo() → erase them from this browser
+window.treMentions = {
+  list: async () => { const l = await NominationStore.list(); console.table(l.map(n => ({ award: n.awardTitle, nominee: n.nomineeName, second: n.secondNomineeName || "", at: n.submittedAt }))); return l; },
+  clearDemo: async () => { await NominationStore.clear(); refreshCounter(); console.info("[Tre-mentions] Demo nominations cleared from this browser."); },
+  config: CONFIG,
+};
+
+/* =========================================================
+   6. HELPERS
+   ========================================================= */
+const $ = (s, r = document) => r.querySelector(s);
+const prefersReduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+function initials(name) { const p = name.trim().split(/\s+/); return ((p[0] || "")[0] + ((p.length > 1 ? p[p.length - 1] : "")[0] || "")).toUpperCase(); }
+function tint(id) { let h = 0; for (const c of id) h = (h * 31 + c.charCodeAt(0)) >>> 0; return "c" + (h % 4); }
+function uid() { return (crypto.randomUUID && crypto.randomUUID()) || ("n-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10)); }
+function announce(msg) { const a = $("#announcer"); a.textContent = ""; setTimeout(() => { a.textContent = msg; }, 60); }
+const ICON_ALERT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5"/><path d="M12 16.5h.01"/></svg>';
+const ICON_CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+const ICON_SEARCH = '<svg class="search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4 4"/></svg>';
+const ICON_ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>';
+
+function setError(el, msg) {
+  if (!el) return;
+  if (msg) { el.innerHTML = ICON_ALERT + "<span>" + esc(msg) + "</span>"; el.classList.add("show"); }
+  else { el.textContent = ""; el.classList.remove("show"); }
+}
+
+/* =========================================================
+   7. SEARCH
+   Matches first names and surnames, any case, partial.
+   Rank: full name starts with query → a word starts with it →
+   contains it anywhere. Ties sort alphabetically.
+   ========================================================= */
+function norm(s) { return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase(); }
+function searchAttendees(query, excludeIds = []) {
+  const q = norm(query.trim()).replace(/\s+/g, " ");
+  if (!q) return [];
+  const out = [];
+  for (const p of ATTENDEES) {
+    if (p.eligible === false || excludeIds.includes(p.id)) continue;
+    const n = norm(p.name);
+    let rank = -1;
+    if (n.startsWith(q)) rank = 0;
+    else if (n.split(" ").some(w => w.startsWith(q))) rank = 1;
+    else if (n.includes(q)) rank = 2;
+    if (rank >= 0) out.push({ p, rank, at: rank === 0 ? 0 : rank === 1 ? n.indexOf(" " + q) + 1 : n.indexOf(q), len: q.length });
+  }
+  out.sort((a, b) => a.rank - b.rank || a.p.name.localeCompare(b.p.name));
+  return out;
+}
+function highlight(name, at, len) {
+  // indices come from the normalized string; names here are plain ASCII-length-safe
+  if (at < 0) return esc(name);
+  return esc(name.slice(0, at)) + "<mark>" + esc(name.slice(at, at + len)) + "</mark>" + esc(name.slice(at + len));
+}
+
+/* =========================================================
+   8. PICKER — accessible combobox (ARIA 1.2 pattern)
+   ========================================================= */
+function createPicker({ key, label, help, getExcluded, onChange }) {
+  const id = "pk-" + key;
+  const root = document.createElement("div");
+  root.className = "field picker";
+  root.innerHTML = `
+    <label class="label" for="${id}-input">${esc(label)}</label>
+    <p class="help" id="${id}-help">${esc(help)}</p>
+    <div class="chosen" id="${id}-chosen" hidden></div>
+    <div class="combo" id="${id}-combo">
+      ${ICON_SEARCH}
+      <input class="input" id="${id}-input" type="text" role="combobox" aria-autocomplete="list"
+        aria-expanded="false" aria-controls="${id}-list" aria-describedby="${id}-help ${id}-err"
+        autocomplete="off" autocapitalize="words" autocorrect="off" spellcheck="false" enterkeyhint="done"
+        placeholder="Type a name…">
+      <ul class="listbox" id="${id}-list" role="listbox" aria-label="Matching teammates" hidden></ul>
+      <p class="empty" id="${id}-empty" hidden></p>
+    </div>
+    <p class="error" id="${id}-err" aria-live="polite"></p>`;
+
+  const input = root.querySelector("input");
+  const list = root.querySelector(".listbox");
+  const empty = root.querySelector(".empty");
+  const combo = root.querySelector(".combo");
+  const chosen = root.querySelector(".chosen");
+  const err = root.querySelector(".error");
+  let results = [];
+  let active = -1;
+  let selected = null;
+
+  function close() {
+    list.hidden = true; empty.hidden = true; input.setAttribute("aria-expanded", "false");
+    input.removeAttribute("aria-activedescendant"); active = -1;
+  }
+  function render() {
+    const q = input.value;
+    results = searchAttendees(q, getExcluded());
+    if (!q.trim()) { close(); return; }
+    if (!results.length) {
+      list.hidden = true; input.setAttribute("aria-expanded", "false");
+      empty.hidden = false;
+      empty.innerHTML = `<strong>No one called “${esc(q.trim())}” on the list.</strong><br>Check the spelling, or try their surname instead.`;
+      announce("No matches");
+      return;
+    }
+    empty.hidden = true;
+    list.innerHTML = results.slice(0, 8).map((r, i) =>
+      `<li class="option" role="option" id="${id}-opt-${i}" aria-selected="false" data-i="${i}">
+         <span class="avatar ${tint(r.p.id)}" aria-hidden="true">${initials(r.p.name)}</span>
+         <span>${highlight(r.p.name, r.at, r.len)}</span><span class="kbd" aria-hidden="true">Enter ↵</span></li>`).join("");
+    list.hidden = false; input.setAttribute("aria-expanded", "true");
+    setActive(0);
+    announce(`${Math.min(results.length, 8)} ${results.length === 1 ? "match" : "matches"}. Use up and down arrows to choose.`);
+  }
+  function setActive(i) {
+    const opts = list.querySelectorAll(".option");
+    if (!opts.length) return;
+    active = (i + opts.length) % opts.length;
+    opts.forEach((o, j) => { o.classList.toggle("is-active", j === active); o.setAttribute("aria-selected", j === active ? "true" : "false"); });
+    input.setAttribute("aria-activedescendant", opts[active].id);
+    opts[active].scrollIntoView({ block: "nearest" });
+  }
+  function choose(i) {
+    const r = results[i]; if (!r) return;
+    selected = r.p;
+    close();
+    combo.hidden = true;
+    chosen.hidden = false;
+    chosen.innerHTML = `
+      <span class="avatar ${tint(selected.id)}" aria-hidden="true">${initials(selected.name)}</span>
+      <span class="who"><strong>${esc(selected.name)}</strong><span>${ICON_CHECK}Selected</span></span>
+      <button type="button" class="btn-ghost" aria-label="Change selection, currently ${esc(selected.name)}">Change</button>`;
+    chosen.querySelector("button").addEventListener("click", clear);
+    setError(err, ""); combo.dataset.invalid = "false"; input.removeAttribute("aria-invalid");
+    announce(`${selected.name} selected.`);
+    onChange && onChange(selected);
+    // Move focus somewhere sensible so the keyboard can keep flowing.
+    chosen.querySelector("button").focus({ preventScroll: true });
+  }
+  function clear() {
+    selected = null; chosen.hidden = true; chosen.innerHTML = ""; combo.hidden = false;
+    input.value = ""; input.focus();
+    onChange && onChange(null);
+  }
+
+  input.addEventListener("input", render);
+  input.addEventListener("focus", () => {
+    if (input.value.trim()) render();
+    // On phones, lift the field to the top so suggestions sit above the keyboard.
+    if (window.matchMedia("(max-width: 639px)").matches) {
+      setTimeout(() => root.scrollIntoView({ block: "start", behavior: prefersReduced() ? "auto" : "smooth" }), 250);
+    }
+  });
+  input.addEventListener("keydown", e => {
+    const open = !list.hidden;
+    if (e.key === "ArrowDown") { e.preventDefault(); if (!open) render(); else setActive(active + 1); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); if (open) setActive(active - 1); }
+    else if (e.key === "Enter") {
+      if (open && active >= 0) { e.preventDefault(); choose(active); }
+      else if (input.value.trim()) { e.preventDefault(); validate(); }
+    }
+    else if (e.key === "Escape") { if (open || !empty.hidden) { e.preventDefault(); close(); } else if (input.value) { input.value = ""; } }
+    else if (e.key === "Tab") { close(); }
+  });
+  input.addEventListener("blur", () => setTimeout(() => { if (!root.contains(document.activeElement)) close(); }, 120));
+  list.addEventListener("pointerdown", e => e.preventDefault()); // keep focus in the input
+  list.addEventListener("click", e => { const o = e.target.closest(".option"); if (o) choose(+o.dataset.i); });
+  list.addEventListener("mousemove", e => { const o = e.target.closest(".option"); if (o && +o.dataset.i !== active) setActive(+o.dataset.i); });
+
+  function validate(extraMsg) {
+    let msg = "";
+    if (!selected) {
+      msg = input.value.trim()
+        ? `“${input.value.trim()}” isn’t on the list yet. Choose a name from the suggestions.`
+        : "Pick someone from the list so we know who to celebrate.";
+    } else if (extraMsg) msg = extraMsg;
+    setError(err, msg);
+    combo.dataset.invalid = msg ? "true" : "false";
+    if (msg) input.setAttribute("aria-invalid", "true"); else input.removeAttribute("aria-invalid");
+    return !msg;
+  }
+  return {
+    el: root,
+    get value() { return selected; },
+    validate,
+    focus() { (selected ? chosen.querySelector("button") : input).focus(); },
+    reset() { selected = null; chosen.hidden = true; chosen.innerHTML = ""; combo.hidden = false; input.value = ""; close(); setError(err, ""); },
+  };
+}
+
+/* =========================================================
+   9. VIEWS & ROUTING (hash-based → works from file:// and
+      under any sub-path such as /tremendous)
+   ========================================================= */
+const views = { ballot: $("#view-ballot"), form: $("#view-form"), done: $("#view-done") };
+let current = null;
+let lastSubmission = null;
+
+function show(name, { focus = true } = {}) {
+  Object.entries(views).forEach(([k, el]) => el.classList.toggle("is-active", k === name));
+  current = name;
+  window.scrollTo({ top: 0, behavior: "auto" });
+  if (focus) { const t = views[name].querySelector(".view-title"); t && t.focus({ preventScroll: true }); }
+}
+function route() {
+  const h = decodeURIComponent(location.hash.replace(/^#\/?/, ""));
+  const m = h.match(/^nominate\/(.+)$/);
+  if (m) {
+    const award = AWARDS.find(a => a.id === m[1]);
+    if (award) { openForm(award); return; }
+  }
+  if (h === "sent" && lastSubmission) { show("done"); return; }
+  if (h) history.replaceState(null, "", location.pathname + location.search);
+  refreshCounter();
+  document.title = "Tre-mentions · Tremendous offsite";
+  show("ballot", { focus: current !== null });
+}
+window.addEventListener("hashchange", route);
+
+/* =========================================================
+   10. BALLOT
+   ========================================================= */
+function renderBallot() {
+  $("#awards").innerHTML = AWARDS.map((a, i) => `
+    <li><a class="award-card" href="#nominate/${a.id}" aria-describedby="aw-${a.id}-d">
+      <span class="art">${iconSVG(a.icon, 64)}</span>
+      <span class="txt">
+        <span class="no">No. 0${i + 1}</span>
+        <h3>${esc(a.title)}</h3>
+        <p id="aw-${a.id}-d">${esc(a.blurb)}</p>
+      </span>
+      <span class="go" aria-hidden="true"><span class="go-label">Nominate</span>${ICON_ARROW}</span>
+    </a></li>`).join("");
+  document.querySelectorAll("[data-icon]").forEach(el => { el.outerHTML = iconSVG(el.dataset.icon, 36); });
+
+  // Event timing copy — only when real dates are configured.
+  const ev = CONFIG.event;
+  if (ev.closesAt && ev.timeZone) {
+    try {
+      const d = new Date(ev.closesAt);
+      const txt = new Intl.DateTimeFormat("en-US", { weekday: "long", hour: "numeric", minute: "2-digit", timeZone: ev.timeZone, timeZoneName: "short" }).format(d);
+      const pill = $("#timing-pill");
+      pill.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Nominations close ${esc(txt)}`;
+      pill.hidden = false;
+    } catch (e) { /* bad config: stay silent rather than show a wrong time */ }
+  }
+}
+async function refreshCounter(bump = false) {
+  const n = await NominationStore.count();
+  const pill = $("#counter-pill");
+  pill.innerHTML = n === 0
+    ? `<span class="badge">0</span>Your first shoutout is waiting`
+    : `<span class="badge">${n}</span>${n === 1 ? "shoutout" : "shoutouts"} and counting<span class="sr-only">,</span><span class="muted">&nbsp;· this device</span>`;
+  if (bump) { pill.classList.remove("bump"); void pill.offsetWidth; pill.classList.add("bump"); }
+  return n;
+}
+
+/* =========================================================
+   11. NOMINATION FORM
+   ========================================================= */
+let formState = null; // { award, pickers, customInput, textarea, photoURL }
+
+function openForm(award) {
+  cleanupPhoto();
+  const idx = AWARDS.indexOf(award);
+  $("#form-art").innerHTML = iconSVG(award.icon, 96);
+  $("#form-no").textContent = `Award No. 0${idx + 1}`;
+  $("#form-title").textContent = award.title;
+  const sub = $("#form-sub");
+  sub.textContent = award.blurb; sub.classList.remove("live");
+  document.title = award.title + " · Tre-mentions";
+  setError($("#form-alert"), ""); $("#form-alert").classList.remove("show");
+  const btn = $("#submit-btn"); btn.disabled = false; btn.querySelector("span").textContent = "Send the shoutout";
+
+  const fields = $("#form-fields");
+  fields.innerHTML = "";
+  const st = { award, pickers: [], customInput: null, textarea: null, photoURL: null };
+
+  // Custom award title ("Most ______")
+  if (award.type === "custom") {
+    const f = document.createElement("div");
+    f.className = "field";
+    f.innerHTML = `
+      <label class="label" for="custom-title">Name your award</label>
+      <p class="help" id="custom-help">Finish the sentence. Silly and sincere both count.</p>
+      <div class="most" id="custom-wrap"><span class="prefix" aria-hidden="true">Most</span>
+        <input class="input" id="custom-title" type="text" maxlength="${CONFIG.customTitleMax}" autocomplete="off" autocapitalize="off"
+          placeholder="contagious laugh" aria-describedby="custom-help custom-err" enterkeyhint="next"></div>
+      <div class="ideas" role="group" aria-label="Ideas to get you started">
+        ${IDEAS.map(t => `<button type="button" class="idea">Most ${esc(t)}</button>`).join("")}
+      </div>
+      <p class="error" id="custom-err" aria-live="polite"></p>`;
+    fields.appendChild(f);
+    st.customInput = f.querySelector("#custom-title");
+    const updatePreview = () => {
+      const v = st.customInput.value.trim();
+      if (v) { sub.textContent = "Most " + v; sub.classList.add("live"); }
+      else { sub.textContent = award.blurb; sub.classList.remove("live"); }
+      if (v) { setError($("#custom-err"), ""); $("#custom-wrap").dataset.invalid = "false"; st.customInput.removeAttribute("aria-invalid"); }
+    };
+    st.customInput.addEventListener("input", updatePreview);
+    st.customInput.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); st.pickers[0] && st.pickers[0].focus(); } });
+    f.querySelectorAll(".idea").forEach(b => b.addEventListener("click", () => {
+      st.customInput.value = b.textContent.replace(/^Most\s+/, ""); updatePreview(); st.customInput.focus();
+    }));
+  }
+
+  // People
+  if (award.type === "duo") {
+    const a = createPicker({ key: "a", label: "First half of the unexpected duo", help: "Start typing a first name or surname.",
+      getExcluded: () => (b && b.value ? [b.value.id] : []) });
+    const b = createPicker({ key: "b", label: "Other half of the unexpected duo", help: "Someone different from the first pick.",
+      getExcluded: () => (a.value ? [a.value.id] : []) });
+    st.pickers.push(a, b);
+    fields.appendChild(a.el);
+    const link = document.createElement("div");
+    link.className = "duo-link"; link.setAttribute("aria-hidden", "true");
+    link.innerHTML = iconSVG("link", 26);
+    fields.appendChild(link);
+    fields.appendChild(b.el);
+  } else {
+    const p = createPicker({ key: "a", label: award.type === "custom" ? "Who earned it?" : "Who’s getting a shoutout?",
+      help: "Start typing a first name or surname.", getExcluded: () => [] });
+    st.pickers.push(p);
+    fields.appendChild(p.el);
+  }
+
+  // Story (optional)
+  const s = document.createElement("div");
+  s.className = "field";
+  s.innerHTML = `
+    <label class="label" for="story">Tell us the story <span class="opt">Optional</span></label>
+    <textarea class="textarea" id="story" maxlength="${CONFIG.explanationMax}" placeholder="${esc(award.prompt)}" aria-describedby="story-count"></textarea>
+    <p class="counter-text" id="story-count" aria-live="off">0 / ${CONFIG.explanationMax}</p>`;
+  fields.appendChild(s);
+  st.textarea = s.querySelector("textarea");
+  st.textarea.addEventListener("input", () => { $("#story-count").textContent = `${st.textarea.value.length} / ${CONFIG.explanationMax}`; });
+
+  // Photo (duo only) — preview stays in memory, never uploaded or stored
+  if (award.type === "duo") {
+    const ph = document.createElement("div");
+    ph.className = "field";
+    ph.innerHTML = `
+      <span class="label" id="photo-label">A photo of the duo <span class="opt">Optional</span></span>
+      <label class="photo-drop" id="photo-drop">
+        ${iconSVG("photo", 44)}
+        <span><strong>Add a photo</strong><span>Preview only. It stays on this screen and isn’t uploaded or saved.</span></span>
+        <input type="file" id="photo-input" accept="image/*" aria-labelledby="photo-label">
+      </label>
+      <div class="photo-preview" id="photo-preview" hidden>
+        <div class="frame"><img id="photo-img" alt="Your photo of the duo"></div>
+        <div><p>Looking good. This preview disappears when you send or leave, nothing is uploaded.</p>
+        <button type="button" class="btn-ghost" id="photo-remove">Remove photo</button></div>
+      </div>`;
+    fields.appendChild(ph);
+    const inp = ph.querySelector("#photo-input");
+    inp.addEventListener("change", () => {
+      const file = inp.files && inp.files[0];
+      if (!file || !file.type.startsWith("image/")) return;
+      cleanupPhoto();
+      st.photoURL = URL.createObjectURL(file);
+      $("#photo-img").src = st.photoURL;
+      $("#photo-drop").hidden = true; $("#photo-preview").hidden = false;
+      announce("Photo added for preview.");
+    });
+    ph.querySelector("#photo-remove").addEventListener("click", () => {
+      cleanupPhoto(); inp.value = ""; $("#photo-drop").hidden = false; $("#photo-preview").hidden = true;
+      inp.focus();
+    });
+  }
+
+  formState = st;
+  show("form");
+}
+function cleanupPhoto() { if (formState && formState.photoURL) { URL.revokeObjectURL(formState.photoURL); formState.photoURL = null; } }
+
+$("#nomination-form").addEventListener("submit", async e => {
+  e.preventDefault();
+  const st = formState; if (!st) return;
+  const invalid = [];
+
+  if (st.customInput) {
+    const v = st.customInput.value.trim();
+    const ok = v.length >= 2;
+    setError($("#custom-err"), ok ? "" : "Give your award a name. “Most ______” needs its blank filled.");
+    $("#custom-wrap").dataset.invalid = ok ? "false" : "true";
+    if (!ok) { st.customInput.setAttribute("aria-invalid", "true"); invalid.push(() => st.customInput.focus()); }
+  }
+  st.pickers.forEach(p => { if (!p.validate()) invalid.push(() => p.focus()); });
+  if (st.pickers.length === 2 && st.pickers[0].value && st.pickers[1].value && st.pickers[0].value.id === st.pickers[1].value.id) {
+    st.pickers[1].validate("A duo needs two different people. Pick someone else for the other half.");
+    invalid.push(() => st.pickers[1].focus());
+  }
+  if (invalid.length) {
+    invalid[0]();
+    announce("A couple of things need a look before this can be sent.");
+    return;
+  }
+
+  const [p1, p2] = st.pickers.map(p => p.value);
+  const record = {
+    id: uid(),
+    schemaVersion: 1,
+    awardId: st.award.id,
+    awardTitle: st.customInput ? "Most " + st.customInput.value.trim() : st.award.title,
+    customAwardTitle: st.customInput ? st.customInput.value.trim() : null,
+    nomineeId: p1.id,
+    nomineeName: p1.name,
+    secondNomineeId: p2 ? p2.id : null,
+    secondNomineeName: p2 ? p2.name : null,
+    explanation: st.textarea.value.trim() || null,
+    submittedAt: new Date().toISOString(),
+    status: "prototype-local", // a backend would set e.g. "submitted" → "shortlisted" after human review
+  };
+
+  const btn = $("#submit-btn");
+  btn.disabled = true; btn.querySelector("span").textContent = "Sending…";
+  let persisted = true;
+  try { await NominationStore.add(record); }
+  catch (err) {
+    if (err.message === "not-persisted") persisted = false;
+    else {
+      btn.disabled = false; btn.querySelector("span").textContent = "Send the shoutout";
+      const al = $("#form-alert"); al.textContent = "Something went wrong saving that. Give it another try."; al.classList.add("show");
+      return;
+    }
+  }
+  cleanupPhoto();
+  lastSubmission = { record, persisted };
+  await renderDone();
+  location.replace("#sent"); // replace: Back from the celebration returns to the ballot, not a stale form
+});
+
+/* =========================================================
+   12. CELEBRATION
+   ========================================================= */
+let lastMsg = -1;
+async function renderDone() {
+  const { record, persisted } = lastSubmission;
+  const award = AWARDS.find(a => a.id === record.awardId);
+  let i; do { i = Math.floor(Math.random() * MESSAGES.length); } while (i === lastMsg && MESSAGES.length > 1);
+  lastMsg = i;
+  $("#done-title").textContent = MESSAGES[i];
+  const art = $("#done-art"); art.innerHTML = iconSVG(award.icon, 112);
+  // Restart CSS animations on repeat submissions
+  const stage = $(".trophy-stage"); const clone = stage.cloneNode(true); stage.replaceWith(clone);
+
+  const people = [record.nomineeName, record.secondNomineeName].filter(Boolean);
+  const ids = [record.nomineeId, record.secondNomineeId].filter(Boolean);
+  $("#receipt").innerHTML = `
+    <div class="top"><p class="overline">${record.secondNomineeName ? "The unexpected duo" : "Nominated for"}</p>
+      <p class="award-name">${esc(record.awardTitle)}</p></div>
+    <div class="bottom">
+      ${people.map((n, k) => `<p class="nominee"><span class="avatar ${tint(ids[k])}" aria-hidden="true">${initials(n)}</span>${esc(n)}</p>`).join("")}
+      ${record.explanation ? `<p class="story">“${esc(record.explanation.length > 160 ? record.explanation.slice(0, 157) + "…" : record.explanation)}”</p>` : ""}
+    </div>
+    ${persisted ? "" : `<p class="storage-note" style="margin:0 18px 16px">Your browser is blocking storage, so this one won’t survive a refresh. It still counts in spirit.</p>`}`;
+  const n = await refreshCounter(true);
+  $("#done-count").textContent = n === 1 ? "That’s your first shoutout from this device." : `That’s ${n} shoutouts from this device so far.`;
+  announce(`Shoutout sent. ${people.join(" and ")} nominated for ${record.awardTitle}.`);
+}
+// Fire confetti once the celebration view is actually on screen
+const doneObserver = new MutationObserver(() => { if (views.done.classList.contains("is-active")) setTimeout(confetti, 180); });
+doneObserver.observe(views.done, { attributes: true, attributeFilter: ["class"] });
+
+$("#again-btn").addEventListener("click", e => {
+  e.preventDefault();
+  lastSubmission = null; formState = null;
+  location.replace("#");
+  route();
+});
+
+/* ---------- Confetti: splash colors, paper-ish shapes, ~1.6s ---------- */
+function confetti() {
+  if (prefersReduced()) return;
+  const cvs = $("#confetti"); const ctx = cvs.getContext("2d");
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const W = cvs.width = innerWidth * dpr, H = cvs.height = innerHeight * dpr;
+  const colors = ["#2A66E4", "#E46042", "#DE486C", "#F0C048", "#F0C048", "#1D1C1D"];
+  const medal = $("#done-art").getBoundingClientRect();
+  const ox = (medal.left + medal.width / 2) * dpr, oy = (medal.top + medal.height / 2) * dpr;
+  const pieces = Array.from({ length: Math.min(110, Math.round(innerWidth / 4)) }, () => {
+    const ang = -Math.PI / 2 + (Math.random() - .5) * Math.PI * 1.25;
+    const sp = (6 + Math.random() * 9) * dpr;
+    return {
+      x: ox, y: oy, vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp,
+      r: (3 + Math.random() * 4) * dpr, rot: Math.random() * 6.28, vr: (Math.random() - .5) * .35,
+      c: colors[Math.floor(Math.random() * colors.length)], s: Math.floor(Math.random() * 3), wob: Math.random() * 6.28,
+    };
+  });
+  const t0 = performance.now(), D = 1700;
+  (function frame(t) {
+    const k = (t - t0) / D;
+    ctx.clearRect(0, 0, W, H);
+    if (k >= 1) return;
+    ctx.globalAlpha = k > .7 ? 1 - (k - .7) / .3 : 1;
+    for (const p of pieces) {
+      p.vy += .32 * dpr; p.vx *= .985; p.vy *= .985;
+      p.x += p.vx + Math.sin(p.wob += .12) * .6 * dpr; p.y += p.vy; p.rot += p.vr;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+      if (p.s === 0) { ctx.fillStyle = p.c; ctx.fillRect(-p.r, -p.r * .6, p.r * 2, p.r * 1.2); }
+      else if (p.s === 1) { ctx.fillStyle = p.c; ctx.beginPath(); ctx.arc(0, 0, p.r * .75, 0, 6.28); ctx.fill(); }
+      else { ctx.strokeStyle = p.c; ctx.lineWidth = 1.8 * dpr; ctx.lineCap = "round"; ctx.beginPath(); ctx.moveTo(-p.r * 1.3, 0); ctx.quadraticCurveTo(0, -p.r, p.r * 1.3, 0); ctx.stroke(); }
+      ctx.restore();
+    }
+    requestAnimationFrame(frame);
+  })(t0);
+}
+
+/* =========================================================
+   13. BOOT
+   ========================================================= */
+renderBallot();
+if (!NominationStore.persistent) {
+  const n = document.createElement("p"); n.className = "storage-note";
+  n.textContent = "Heads up: your browser is blocking storage, so nominations will only last until you close this tab.";
+  $(".hero-copy").appendChild(n);
+}
+route();
+</script>
+</body>
+</html>
