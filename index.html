@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reyna Godoy — Experience Design & Production</title>
+<title>Reyna Godoy | Experience Design & Program Leadership</title>
+<meta name="description" content="Experience design, events and program leadership for teams, communities and brands">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
 <style>
@@ -74,6 +75,14 @@
   .who-card { background: var(--ink); padding: 48px 40px; border: 0.5px solid rgba(250,247,242,0.08); }
   .who-card-num { font-family: var(--serif); font-size: 44px; font-weight: 500; font-style: italic; color: #C4A882; opacity: 1; margin-bottom: 20px; line-height: 1; }
   .who-card-title { font-family: var(--serif); font-size: 24px; font-weight: 400; letter-spacing: 0; text-transform: none; color: #FAF7F2; margin-bottom: 16px; line-height: 1.2; }
+  .who-card-lead { font-weight: 500; color: #FAF7F2; }
+  .who-card-shared { font-style: normal; font-weight: 400; color: #C4A882; }
+  .who-card-kw { color: #C4A882; font-weight: 400; }
+  @media (min-width: 901px) { .who-card-title { white-space: nowrap; } }
+  @media (min-width: 901px) and (max-width: 1180px) {
+    .who-card { padding: 44px 28px; }
+    .who-card-title { font-size: clamp(18px, 1.95vw, 24px); }
+  }
   .who-card-text { font-size: 15px; line-height: 1.75; color: rgba(250,247,242,0.55); font-weight: 300; max-width: 28ch; }
 
   /* INTERLUDE */
@@ -85,6 +94,7 @@
   /* HOW IT WORKS / THE PROCESS */
   .how-inner { max-width: 1200px; }
   .how-headline { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 42px); font-weight: 400; color: var(--ink); margin-bottom: 20px; }
+  .how-intro { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.6; color: var(--ink-muted); margin: -8px 0 16px; }
   .how-squiggle { display: block; margin-bottom: 0; opacity: 0.8; }
   .how-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; margin-top: 0; }
   .how-step { padding-top: 28px; }
@@ -105,6 +115,18 @@
   .stagger-photo { overflow: hidden; aspect-ratio: 4/3; background: #2a2620; }
   .stagger-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
   .stagger-photo:hover img { transform: scale(1.03); }
+  /* CASE STUDY SLIDER (Chivas) */
+  .cs-slider { position: relative; width: 100%; height: 100%; outline: none; }
+  .stagger-photo .cs-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease, transform 0.6s ease; }
+  .stagger-photo .cs-slide.is-active { opacity: 1; }
+  .cs-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; width: 40px; height: 40px; border: 0; border-radius: 50%; background: rgba(250,247,242,0.88); color: var(--ink); font-family: var(--serif); font-size: 26px; line-height: 38px; text-align: center; cursor: pointer; opacity: 0; transition: opacity 0.3s ease; }
+  .cs-prev { left: 16px; }
+  .cs-next { right: 16px; }
+  .cs-slider:hover .cs-arrow, .cs-slider:focus-within .cs-arrow { opacity: 1; }
+  .cs-dots { position: absolute; bottom: 16px; left: 0; right: 0; z-index: 2; display: flex; justify-content: center; gap: 8px; }
+  .cs-dot { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: rgba(250,247,242,0.5); cursor: pointer; transition: background 0.3s ease, transform 0.3s ease; }
+  .cs-dot.is-active { background: #FAF7F2; transform: scale(1.3); }
+  @media (hover: none) { .cs-arrow { opacity: 1; } }
   .client-roster { margin-top: 56px; padding-top: 32px; border-top: 0.5px solid var(--border); max-width: 1200px; }
   .client-roster-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--tan); margin-bottom: 14px; }
   .client-roster-names { font-size: 14px; line-height: 1.8; color: var(--ink-soft); font-weight: 300; }
@@ -163,6 +185,10 @@
   .contact-headline { font-family: var(--serif); font-size: clamp(28px, 4vw, 52px); font-weight: 400; color: #FAF7F2; line-height: 1.2; margin-bottom: 20px; max-width: 700px; margin-left: auto; margin-right: auto; }
   .contact-sub { font-size: 15px; color: rgba(250,247,242,0.5); font-weight: 300; margin-bottom: 40px; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.7; }
   .contact-email { display: inline-block; font-size: 13px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tan-light); text-decoration: none; border-bottom: 0.5px solid var(--tan-light); padding-bottom: 3px; transition: color 0.2s, border-color 0.2s; }
+  .contact-doors { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; max-width: 900px; margin: 48px auto 0; }
+  .contact-door { border-top: 0.5px solid rgba(250,247,242,0.15); padding-top: 32px; }
+  .contact-door-title { font-family: var(--serif); font-size: 24px; font-weight: 400; color: #FAF7F2; margin-bottom: 16px; line-height: 1.2; }
+  .contact-door .contact-sub { margin-bottom: 28px; }
   .contact-email:hover { color: #FAF7F2; border-color: #FAF7F2; }
 
   /* FOOTER */
@@ -177,6 +203,11 @@
   .reveal-delay-2 { transition-delay: 0.2s; }
   .reveal-delay-3 { transition-delay: 0.3s; }
   .mobile-teaser-gallery { display: none; }
+  .m-copy { display: none; }
+  .m-br { display: none; }
+  .work-text p.d-copy { margin-bottom: 0; }
+  #bioMine p.d-copy:nth-last-child(5) { margin-bottom: 0; }
+  .mobile-testimonial-section { display: none; }
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
@@ -193,7 +224,8 @@
     .work-grid { grid-template-columns: 1fr; gap: 40px; }
     .work-img { aspect-ratio: 16/9; }
     .who-grid { grid-template-columns: 1fr; }
-    .who-card-title { font-size: 18px; }
+    .who-card-title { font-size: 22px; }
+    .who-card-shared { display: block; }
     .hero-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
     .about-hello { font-size: 30px; margin-bottom: 20px; }
     .how-steps { grid-template-columns: 1fr 1fr; gap: 28px; }
@@ -208,6 +240,8 @@
     .stagger-text.alt .stagger-title { color: #1A1814; font-weight: 500; }
     .stagger-text.alt .stagger-desc { color: #3D3830; }
     .testimonials-grid { grid-template-columns: 1fr; }
+    .contact-section { padding: 72px 24px; }
+    .contact-doors { grid-template-columns: 1fr; gap: 40px; }
     /* GALLERY — no spacers on mobile */
     .gallery-title-wrap { padding: 40px 16px 16px; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 8px; grid-auto-flow: dense; }
@@ -219,6 +253,33 @@
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .about-img { aspect-ratio: 3/2; object-position: center 25%; }
     footer { flex-direction: column; gap: 8px; text-align: center; }
+    /* MOBILE COPY SWAPS */
+    .d-copy { display: none; }
+    .m-copy { display: block; }
+    .work-text p.m-copy { margin-bottom: 0; }
+    .who-card-text.m-copy { max-width: none; white-space: nowrap; font-size: clamp(11px, 3.3vw, 15px); }
+    .who-card { padding: 40px 24px; }
+    .m-br { display: inline; }
+    .d-sep { display: none; }
+    .hero-open { white-space: nowrap; font-size: clamp(11px, 3.2vw, 13px); }
+    /* MOBILE ORDER: proof before process */
+    body { display: flex; flex-direction: column; }
+    .hero { order: 1; }
+    #the-work { order: 2; }
+    #what-i-design { order: 3; }
+    .mobile-teaser-gallery { order: 4; }
+    #portfolio { order: 5; }
+    .testimonials-section.mobile-testimonial-section { order: 6; display: block; padding-top: 0; background: var(--cream); }
+    #how-we-work { order: 7; }
+    #about { order: 8; }
+    .gallery-section { order: 9; }
+    .testimonials-section { order: 10; }
+    .testimonial.m-dup { display: none; }
+    .contact-section { order: 11; }
+    footer { order: 12; }
+  }
+  @media (max-width: 600px) {
+    .how-steps { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -232,7 +293,7 @@
     <a href="#how-we-work" class="nav-link">How I Work</a>
     <a href="#portfolio" class="nav-link">Selected Work</a>
     <a href="#about" class="nav-link">About</a>
-    <a href="mailto:studio@reynagodoy.com" class="nav-cta">Let's Talk</a>
+    <a href="#contact" class="nav-cta">Let's Talk</a>
   </div>
   <button class="nav-hamburger" onclick="openMenu()" aria-label="Open menu">
     <span></span><span></span><span></span>
@@ -246,7 +307,7 @@
   <a href="#how-we-work" class="nav-mobile-link" onclick="closeMenu()">How I Work</a>
   <a href="#portfolio" class="nav-mobile-link" onclick="closeMenu()">Selected Work</a>
   <a href="#about" class="nav-mobile-link" onclick="closeMenu()">About</a>
-  <a href="mailto:studio@reynagodoy.com" class="nav-mobile-link" onclick="closeMenu()">Let's Talk</a>
+  <a href="#contact" class="nav-mobile-link" onclick="closeMenu()">Let's Talk</a>
 </div>
 
 <!-- HERO -->
@@ -255,9 +316,9 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-headline">Better Gatherings.<br>Real Outcomes.</h1>
-    <p class="hero-sub">End-to-end design and production for executive experiences, internal events, and member communities.</p>
+    <p class="hero-sub">Experience design and program leadership for teams, communities and brands.</p>
     <div class="hero-actions">
-      <a href="mailto:studio@reynagodoy.com" class="hero-btn">Let's Talk</a>
+      <a href="#contact" class="hero-btn">Let's Talk</a>
       <p class="hero-open"><span class="hero-open-dot" aria-hidden="true"></span>Open to in-house leadership roles and project work</p>
     </div>
   </div>
@@ -268,9 +329,9 @@
   <div class="work-grid">
     <div class="work-text reveal">
       <p class="section-label section-label-nowrap">Human connection has never mattered more.</p>
-      <p>The difference between a mediocre event and an exceptional one? A clear purpose, a thoughtful flow, and someone holding the thread from start to finish.</p>
-      <p>That's what I do. I partner with organizations to design and produce experiences worth showing up for, holding the big idea while managing every detail that makes it real. I become an extension of your team, with one advantage: a singular focus. I'm not juggling everything else on your plate. I set the course and keep everything moving, so you can stay focused on what only you can do.</p>
-      <p>With 15+ years of experience, I know how to create the conditions for events to have a lasting impact: deeper connection, sharper alignment, and shared moments that stay with people.</p>
+      <p>The difference between a mediocre experience and an exceptional one? A&nbsp;clear purpose, thoughtful design, and someone holding the thread from start to finish.</p>
+      <p class="d-copy">I'm Reyna, and that's what I do. For 15+ years, I've designed and led programs, events and experiences for organizations around the world, holding the vision while managing every detail that makes it real. Whether I'm leading in-house or partnering on a project, I set the standard, build the right team, and keep everything moving toward outcomes that matter: deeper connection, sharper alignment, and moments that stay with people.</p>
+      <p class="m-copy">I'm Reyna, and that's what I do. For 15+ years, I've designed and led programs, events and experiences for organizations around the world, holding the vision and every detail that makes it real.</p>
     </div>
     <div class="reveal reveal-delay-2">
       <img class="work-img" src="images/IMG_1344.JPG" alt="IMG_1344.JPG">
@@ -280,19 +341,22 @@
 
 <!-- WHAT I DESIGN -->
 <section class="who-section" id="what-i-design">
-  <h2 class="who-headline reveal">What I design and deliver.</h2>
+  <h2 class="who-headline reveal">Three areas. One approach.</h2>
   <div class="who-grid">
     <div class="who-card reveal">
-      <div class="who-card-title">Executive Experiences</div>
-      <p class="who-card-text">For senior leaders and executive teams who need space to think, align, and reconnect, whether that's a single-day off-site or a multi-year program.</p>
+      <div class="who-card-title"><span class="who-card-lead">Employee</span> <span class="who-card-shared">Experience</span></div>
+      <p class="who-card-text d-copy"><span class="who-card-kw">Off-sites</span>, <span class="who-card-kw">all-hands</span> and <span class="who-card-kw">leadership development programs</span> designed to help teams connect, align and do their best work together, from the first brief through production and delivery.</p>
+      <p class="who-card-text m-copy">Off-sites · All-hands · Leadership programs</p>
     </div>
     <div class="who-card reveal reveal-delay-1">
-      <div class="who-card-title">Internal Events</div>
-      <p class="who-card-text">Strategic and social gatherings that bring a team together with purpose, not just a change of scenery.</p>
+      <div class="who-card-title"><span class="who-card-lead">Community</span> <span class="who-card-shared">Experience</span></div>
+      <p class="who-card-text d-copy"><span class="who-card-kw">Fellowships</span>, <span class="who-card-kw">accelerators</span> and <span class="who-card-kw">founder networks</span> that bring entrepreneurs, investors and institutions together, forging relationships that outlast the program and become the foundation for impact to scale.</p>
+      <p class="who-card-text m-copy">Fellowships · Accelerators · Founder networks</p>
     </div>
     <div class="who-card reveal reveal-delay-2">
-      <div class="who-card-title">Member Communities</div>
-      <p class="who-card-text">For founder networks, impact accelerators, and communities where relationships build the foundation for impact to scale.</p>
+      <div class="who-card-title"><span class="who-card-lead">Brand</span> <span class="who-card-shared">Experience</span></div>
+      <p class="who-card-text d-copy"><span class="who-card-kw">Activations</span>, <span class="who-card-kw">branded spaces</span> and <span class="who-card-kw">partner events</span> that build brand equity and resonance, so every gathering feels like the brand behind it. Directing creative and production teams for consistency throughout.</p>
+      <p class="who-card-text m-copy">Activations · Branded spaces · Partner events</p>
     </div>
   </div>
 </section>
@@ -300,7 +364,8 @@
 <!-- THE PROCESS -->
 <section id="how-we-work">
   <div class="how-inner">
-    <h2 class="how-headline reveal">The Process.</h2>
+    <h2 class="how-headline reveal">How I Work.</h2>
+    <p class="how-intro reveal">The same four steps, whether it's a three-day off-site or a seven-year program.</p>
     <svg class="how-squiggle reveal" width="100%" viewBox="0 0 880 36" preserveAspectRatio="none">
       <defs>
         <marker id="arr-sq" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
@@ -322,23 +387,23 @@
     <div class="how-steps">
       <div class="how-step reveal">
         <div class="who-card-num" style="font-size:44px;font-weight:500;font-style:italic;color:#C4A882;line-height:1;margin-bottom:20px;">01</div>
-        <div class="how-step-title">Groundwork</div>
-        <p class="how-step-text">We start with what matters: your goals, your people, and what this moment needs to accomplish. I ask the questions that surface what's already known — and what's still waiting to be asked.</p>
+        <div class="how-step-title">Define the ambition</div>
+        <p class="how-step-text">Purpose, goals and what success looks like, agreed up front and measurable. I ask the questions that get past what's already known to what sits a few layers deep.</p>
       </div>
       <div class="how-step reveal reveal-delay-1">
         <div class="who-card-num" style="font-size:44px;font-weight:500;font-style:italic;color:#C4A882;line-height:1;margin-bottom:20px;">02</div>
-        <div class="how-step-title">Design, Planning and Production</div>
-        <p class="how-step-text">I handle everything: project plan, venue sourcing, vendor coordination, budget tracking, event flow, and creative details. You stay informed, not overwhelmed.</p>
+        <div class="how-step-title">Design the experience</div>
+        <p class="how-step-text">Strategy, flow and every touchpoint, designed around how we want people to feel and what they should leave with. Budget, venues, vendors and the thousand details in between.</p>
       </div>
       <div class="how-step reveal reveal-delay-2">
         <div class="who-card-num" style="font-size:44px;font-weight:500;font-style:italic;color:#C4A882;line-height:1;margin-bottom:20px;">03</div>
-        <div class="how-step-title">Delivery on the Day</div>
-        <p class="how-step-text">I own the day. Every detail is managed so that you and your team can be fully present and enjoy what you worked to create.</p>
+        <div class="how-step-title">Lead end-to-end</div>
+        <p class="how-step-text">From the first brief to the final goodbye, I own the day and everything leading to it: creative, logistics and every guest moment. Stakeholders stay informed, not overwhelmed, and the investment pays off.</p>
       </div>
       <div class="how-step reveal reveal-delay-3">
         <div class="who-card-num" style="font-size:44px;font-weight:500;font-style:italic;color:#C4A882;line-height:1;margin-bottom:20px;">04</div>
-        <div class="how-step-title">Reflect and Measure</div>
-        <p class="how-step-text">Good events deserve a proper close. After the experience wraps, we run a structured retrospective, assess outcomes against the original goals, and document what worked, so every future gathering builds on a stronger one.</p>
+        <div class="how-step-title">Learn + evolve</div>
+        <p class="how-step-text">Outcomes assessed against the original goals, a structured retrospective, and lessons carried forward so every program builds on the last.</p>
       </div>
     </div>
   </div>
@@ -346,12 +411,12 @@
 
 <!-- MOBILE TEASER GALLERY -->
 <div class="mobile-teaser-gallery">
-  <img src="images/UK22_84-5K.jpeg" alt="">
+  <img src="images/1107_unreasonable_35.png" alt="">
   <img src="images/HOSTING_IanMatteson_0155.jpeg" alt="">
   <img src="images/UNReasonable_2885.jpeg" alt="">
+  <img src="images/UK22_84-5K.jpeg" alt="">
   <img src="images/120318_unreasonable_07.jpeg" alt="">
-  <img src="images/1107_unreasonable_35.png" alt="">
-  <img src="images/1108_unreasonable_06.jpeg" alt="">
+  <img src="images/ChivasTheVenture-219_copy.jpg" alt="" style="object-position: center bottom;">
 </div>
 
 <!-- PORTFOLIO / CLIENTS -->
@@ -362,10 +427,11 @@
 
     <!-- ROW 1: text left / photo right -->
     <div class="stagger-text reveal">
-      <span class="stagger-tag">Global Impact Accelerator · 30+ programs</span>
+      <span class="stagger-tag">Community &amp; Brand Experience<span class="d-sep"> ·</span><br class="m-br"> 30+ programs</span>
       <h3 class="stagger-title">Unreasonable × Barclays, Accenture &amp; Pearson</h3>
-      <p class="stagger-desc">Over seven years, I designed and delivered the in-person and community experience for one of the world's most ambitious impact accelerator programs — built from the ground up. A curated fellowship of entrepreneurs, institutions, and investors who gathered in extraordinary locations around the world to scale solutions to the most pressing global challenges.</p>
-      <p class="stagger-desc" style="margin-top:16px;">A private island in Malaysia. A manor house in the English countryside. A farm in upstate New York. Thirty-plus programs across four continents with an NPS of 88.</p>
+      <p class="stagger-desc d-copy">Over seven years, I built and led the in-person and community experience for one of the world's most ambitious impact accelerator programs, convening entrepreneurs, investors and institutions to scale solutions to global challenges.</p>
+      <p class="stagger-desc d-copy" style="margin-top:16px;">I managed an eight-figure annual budget and a team of full-time staff and consultants, directing vendors across 6 countries. I created the playbook that kept 30+ programs on four continents consistent, from a manor house in England to a farm in upstate New York. NPS: 88.</p>
+      <p class="stagger-desc m-copy">Built and led the in-person, virtual and community experience for a global impact accelerator over seven years. 30+ programs on four continents, an eight-figure annual budget, a team of staff and consultants, and vendors in six countries. Guest NPS: 88.</p>
     </div>
     <div class="stagger-photo reveal reveal-delay-1">
       <img src="images/1107_unreasonable_35.png" alt="1107_unreasonable_35.png">
@@ -373,54 +439,75 @@
 
     <!-- ROW 2: photo left / text right -->
     <div class="stagger-photo reveal">
-      <img src="images/UK22_84-5K.jpeg" alt="UK22_84-5K.jpeg">
+      <img src="images/UNReasonable_2885.jpeg" alt="UNReasonable_2885.jpeg">
     </div>
     <div class="stagger-text alt reveal reveal-delay-1">
-      <span class="stagger-tag">Company Off-Site · 2026</span>
-      <h3 class="stagger-title">ADC Group</h3>
-      <p class="stagger-desc">End-to-end design and production of a company off-site for ADC Group, bringing a distributed team together from 3 international offices for a 3-day experience designed to deepen relationships, sharpen strategy, and strengthen culture.</p>
+      <span class="stagger-tag">Employee Experience · Multi-year<span class="d-sep"> ·</span><br class="m-br"> US and Europe</span>
+      <h3 class="stagger-title">Global Pharmaceutical Company × IDEO</h3>
+      <p class="stagger-desc d-copy">Partnered with IDEO to design a scalable senior leadership program activated across the US and Europe, a multi-year engagement bringing C-suite leaders together at a global scale.</p>
+      <p class="stagger-desc m-copy">Partnered with IDEO to design a scalable senior leadership program activated across the US and Europe, bringing C-suite leaders together at a global scale.</p>
     </div>
 
     <!-- ROW 3: text left / photo right -->
     <div class="stagger-text reveal">
-      <span class="stagger-tag">Community Experience</span>
-      <h3 class="stagger-title">Summit Outside</h3>
-      <p class="stagger-desc">Designed and produced an immersive multi-day gathering at Powder Mountain, Utah for Summit Series, bringing together entrepreneurs, artists, and thought leaders for talks, outdoor activities, and communal experiences — most notably a quarter-mile-long shared dinner table set against the mountain landscape.</p>
+      <span class="stagger-tag">Employee Experience · 3 offices · 3 days</span>
+      <h3 class="stagger-title">ADC Group</h3>
+      <p class="stagger-desc d-copy">End-to-end design and production of a company off-site for ADC Group, bringing a distributed team together from 3 international offices for a 3-day experience designed to deepen relationships, sharpen strategy, and strengthen culture.</p>
+      <p class="stagger-desc m-copy">Led end-to-end design and production of a 3-day off-site uniting a team from 3 international offices to strengthen relationships, strategy and culture.</p>
     </div>
     <div class="stagger-photo reveal reveal-delay-1">
-      <img src="images/HOSTING_IanMatteson_0155.jpeg" alt="HOSTING_IanMatteson_0155.jpeg">
+      <img src="images/UK22_84-5K.jpeg" alt="UK22_84-5K.jpeg">
     </div>
 
     <!-- ROW 4: photo left / text right -->
     <div class="stagger-photo reveal">
-      <img src="images/UNReasonable_2885.jpeg" alt="UNReasonable_2885.jpeg">
+      <img src="images/HOSTING_IanMatteson_0155.jpeg" alt="HOSTING_IanMatteson_0155.jpeg">
     </div>
     <div class="stagger-text alt reveal reveal-delay-1">
-      <span class="stagger-tag">C-Suite Leadership Program · Multi-year</span>
-      <h3 class="stagger-title">Global Pharmaceutical Company × IDEO</h3>
-      <p class="stagger-desc">Partnered with IDEO to design a scalable senior leadership program activated across the US and Europe, a multi-year engagement bringing C-suite leaders together at a global scale.</p>
+      <span class="stagger-tag">Community Experience · Multi-day</span>
+      <h3 class="stagger-title">Summit Outside</h3>
+      <p class="stagger-desc d-copy">Designed and produced an immersive multi-day gathering at Powder Mountain, Utah for Summit Series, bringing together entrepreneurs, artists, and thought leaders for talks, outdoor activities, and communal experiences, most notably a quarter-mile-long shared dinner table set against the mountain landscape.</p>
+      <p class="stagger-desc m-copy">Designed and produced an immersive multi-day gathering at Powder Mountain, Utah for Summit Series, anchored by a quarter-mile-long shared dinner table on the mountain.</p>
     </div>
 
     <!-- ROW 5: text left / photo right -->
     <div class="stagger-text reveal">
-      <span class="stagger-tag">Annual Gathering · 5 Consecutive Years</span>
+      <span class="stagger-tag">Employee Experience · 1,400+ educators · 5 years</span>
       <h3 class="stagger-title">Alliance College-Ready Public Schools</h3>
-      <p class="stagger-desc">For five consecutive years, designed and delivered the annual gathering for 1,400+ education professionals across 26 schools in Los Angeles, in both in-person and virtual formats.</p>
+      <p class="stagger-desc d-copy">For five consecutive years, designed and delivered the annual gathering for 1,400+ education professionals across 26 schools in Los Angeles, in both in-person and virtual formats.</p>
+      <p class="stagger-desc m-copy">Designed and delivered the annual gathering for 1,400+ educators across 26 Los Angeles schools for five consecutive years, in person and virtual.</p>
     </div>
     <div class="stagger-photo reveal reveal-delay-1">
       <img src="images/120318_unreasonable_07.jpeg" alt="120318_unreasonable_07.jpeg">
     </div>
 
-    <!-- ROW 6: photo left / text right — cream -->
+    <!-- ROW 6: photo left / text right -->
     <div class="stagger-photo reveal">
-      <img src="images/1108_unreasonable_06.jpeg" alt="1108_unreasonable_06.jpeg" style="object-position: center 60%;">
+      <div class="cs-slider" aria-roledescription="carousel" aria-label="Chivas The Venture photos" tabindex="0">
+        <img class="cs-slide is-active" src="images/ChivasTheVenture-219_copy.jpg" alt="Guests exploring the finalist exhibition at Chivas The Venture">
+        <img class="cs-slide" src="images/ChivasTheVenture-23_copy.jpeg" alt="Four-sided pitch stage with tiered seating">
+        <img class="cs-slide" src="images/ChivasTheVenture-324_copy.jpg" alt="Lounge and concert stage for the closing performance">
+        <img class="cs-slide" src="images/Herbst_Pavilion.jpg" alt="Herbst Pavilion empty before the buildout">
+        <button class="cs-arrow cs-prev" type="button" aria-label="Previous photo">&#8249;</button>
+        <button class="cs-arrow cs-next" type="button" aria-label="Next photo">&#8250;</button>
+        <div class="cs-dots"></div>
+      </div>
     </div>
     <div class="stagger-text alt reveal reveal-delay-1">
-      <span class="stagger-tag">Team Off-Site · 3 Days</span>
-      <h3 class="stagger-title">UpTogether</h3>
-      <p class="stagger-desc">End-to-end delivery of a 3-day off-site for a distributed nonprofit team. The experience shifted relationships from, in their words, "transactional to transformational."</p>
+      <span class="stagger-tag">Brand Experience · Global Final · 400 guests</span>
+      <h3 class="stagger-title">Chivas The Venture</h3>
+      <p class="stagger-desc d-copy">I oversaw the global final of Chivas Regal's $1M search for social entrepreneurs, in the competition's inaugural year. I managed a $1.2M buildout that turned an empty 30,000 sq ft pier warehouse into three branded spaces: an exhibition of 16 global finalists, a four-sided stage where five pitched live to judges including Pernod Ricard CEO Alexandre Ricard, and a lounge for Aloe Blacc's closing set. Hosted by James Corden, the night brought the campaign's "Win the Right Way" message to life. Produced with The Projects*.</p>
+      <p class="stagger-desc m-copy">Oversaw the global final of Chivas Regal's $1M search for social entrepreneurs. Led a $1.2M buildout that turned an empty 30,000 sq ft pier into three branded spaces for 400 guests, hosted by James Corden.</p>
     </div>
 
+  </div>
+</section>
+
+<!-- MOBILE-ONLY TESTIMONIAL (after proof) -->
+<section class="testimonials-section mobile-testimonial-section">
+  <div class="testimonial">
+    <p class="testimonial-text">"Reyna is one of those unique people who has incredible creative and design vision and can also ensure that every detail of her vision is executed flawlessly. Her superpower is making a space, event, or program turn into an unforgettable and impactful experience for all involved."</p>
+    <span class="testimonial-attr">- Trish Kennelly, former <strong>Chief Operating Officer</strong>, <strong>On Deck</strong></span>
   </div>
 </section>
 
@@ -434,10 +521,15 @@
       <h2 class="about-hello">Hi, I'm Reyna</h2>
       <div class="bio-viewport" id="bioViewport">
         <div class="bio-panel" id="bioMine">
-        <p>I've always been a host, fascinated by what makes experiences great and obsessed with the details.</p>
-        <p>I deepened my love of hospitality in New York's top restaurants and nightclubs, where excellence was the baseline. I built an eco-tourism company in Mexico, designing tours you couldn't find anywhere else. And I've gathered founders and investors from around the world on a private island in Malaysia to take on pressing global challenges. The ingredients have always been the same: care about people, nail the details and make it memorable.</p>
-        <p>My background spans program leadership, employee experience design, brand and creative direction, space design and production. The through-line across all of it is the same: a belief that great experiences are never the product of one big gesture. They're the accumulation of many small, deliberate ones, and that accumulation is what I'm here to build.</p>
-        <p>Let's build something together.</p>
+        <p class="d-copy">I've always been a host, fascinated by what makes experiences great and obsessed with the details.</p>
+        <p class="d-copy">I deepened my love of hospitality in New York's top restaurants and nightclubs, where excellence was the baseline. I built an eco-tourism company in Mexico, designing tours you couldn't find anywhere else. And I've gathered founders and investors from around the world on a private island in Malaysia to take on pressing global challenges. The ingredients have always been the same: care about people, nail the details and make it memorable.</p>
+        <p class="d-copy">My background spans program leadership, employee experience design, brand and creative direction, space design and end-to-end production. I've set the direction for programs across four continents and been on the ground delivering them, balancing a program's identity with global partners like Barclays, Accenture and Pearson. I think of myself equally as a creative and a doer, and this work sits exactly at that intersection.</p>
+        <p class="d-copy">The through-line across all of it is the same: a belief that great experiences are never the product of one big gesture. They're the accumulation of many small, deliberate ones, and that accumulation is what I'm here to build.</p>
+        <p class="d-copy">Let's build something together.</p>
+        <p class="m-copy">I've always been a host, fascinated by what makes experiences great and obsessed with the details.</p>
+        <p class="m-copy">From New York's top restaurants and nightclubs to an eco-tourism company I built in Mexico and a gathering of founders and investors on a private island in Malaysia, the ingredients have always been the same: care about people, nail the details and make it memorable.</p>
+        <p class="m-copy">My background spans program leadership, employee experience design, brand and creative direction, space design and end-to-end production. I've set the direction for programs across four continents and been on the ground delivering them.</p>
+        <p class="m-copy">Great experiences are never one big gesture. They're the accumulation of many small, deliberate ones, and that's what I'm here to build.</p>
         </div>
         <div class="bio-panel off-right" id="bioMom" aria-hidden="true" inert>
         <p>My first glimpse behind a production of a memorable event was at the age of 19 when I was a PA at a Rolling Stones’ concert in Madison Square Garden in New York City.</p>
@@ -497,8 +589,8 @@
     <div class="gallery-item"><img src="images/Copy_of_UNReasonable_4053.jpeg" alt="Copy_of_UNReasonable_4053.jpeg"></div>
     <div class="gallery-item"><img src="images/20161106_UnreasonableImpact_CK2_0037.jpeg" alt="20161106_UnreasonableImpact_CK2_0037.jpeg"></div>
 
-    <!-- Row 8: theatre speaker + cream spacer col2 + UK wide -->
-    <div class="gallery-item"><img src="images/1107_unreasonable_01.jpeg" alt="1107_unreasonable_01.jpeg"></div>
+    <!-- Row 8: live band + cream spacer col2 + UK wide -->
+    <div class="gallery-item"><img src="images/ChivasTheVenture-472_copy.jpeg" alt="ChivasTheVenture-472_copy.jpeg"></div>
     <div class="gallery-item blank-cream sp5"></div>
     <div class="gallery-item wide"><img src="images/UK22_50.jpeg" alt="UK22_50.jpeg"></div>
 
@@ -513,7 +605,7 @@
 <section class="testimonials-section">
   <p class="section-label reveal">What people say</p>
   <div class="testimonials-grid">
-    <div class="testimonial reveal">
+    <div class="testimonial reveal m-dup">
       <p class="testimonial-text">"Reyna is one of those unique people who has incredible creative and design vision and can also ensure that every detail of her vision is executed flawlessly. Her superpower is making a space, event, or program turn into an unforgettable and impactful experience for all involved."</p>
       <span class="testimonial-attr">- Trish Kennelly, former <strong>Chief Operating Officer</strong>, <strong>On Deck</strong></span>
     </div>
@@ -533,10 +625,20 @@
 </section>
 
 <!-- CONTACT -->
-<section class="contact-section">
+<section class="contact-section" id="contact">
   <h2 class="contact-headline reveal">Let's build something worth showing up for.</h2>
-  <p class="contact-sub reveal reveal-delay-1">If you're planning an executive experience, internal event, or building out a member community, I'd love to hear about it.</p>
-  <a href="mailto:studio@reynagodoy.com" class="contact-email reveal reveal-delay-2">studio@reynagodoy.com</a>
+  <div class="contact-doors">
+    <div class="contact-door reveal reveal-delay-1">
+      <h3 class="contact-door-title">Hiring for a full-time role?</h3>
+      <p class="contact-sub">I'm open to in-house leadership roles across employee, community and brand experience. I'd love to hear what you're building.</p>
+      <a href="https://www.linkedin.com/in/reynagodoy/" target="_blank" rel="noopener" class="contact-email">Connect on LinkedIn</a>
+    </div>
+    <div class="contact-door reveal reveal-delay-2">
+      <h3 class="contact-door-title">Planning a project?</h3>
+      <p class="contact-sub">I become an extension of your team, with a singular focus on getting it right. Tell me about your off-site, program or community.</p>
+      <a href="mailto:studio@reynagodoy.com" class="contact-email">studio@reynagodoy.com</a>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -605,6 +707,39 @@
       }
     });
   })();
+  document.querySelectorAll('.cs-slider').forEach(function (slider) {
+    const slides = slider.querySelectorAll('.cs-slide');
+    const dotsWrap = slider.querySelector('.cs-dots');
+    let current = 0;
+    slides.forEach(function (s, i) {
+      const d = document.createElement('button');
+      d.type = 'button'; d.className = 'cs-dot';
+      d.setAttribute('aria-label', 'Photo ' + (i + 1) + ' of ' + slides.length);
+      d.addEventListener('click', function () { go(i); });
+      dotsWrap.appendChild(d);
+    });
+    const dots = dotsWrap.querySelectorAll('.cs-dot');
+    function go(i) {
+      current = (i + slides.length) % slides.length;
+      slides.forEach(function (s, n) { s.classList.toggle('is-active', n === current); });
+      dots.forEach(function (d, n) { d.classList.toggle('is-active', n === current); });
+    }
+    slider.querySelector('.cs-prev').addEventListener('click', function () { go(current - 1); });
+    slider.querySelector('.cs-next').addEventListener('click', function () { go(current + 1); });
+    slider.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') go(current - 1);
+      if (e.key === 'ArrowRight') go(current + 1);
+    });
+    let startX = null;
+    slider.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', function (e) {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(current + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+    go(0);
+  });
   const nav = document.querySelector('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
