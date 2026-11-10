@@ -103,7 +103,7 @@
 
   /* PORTFOLIO */
   .selected-work-section { padding: 32px 48px 64px; }
-  .stagger-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; max-width: 1200px; }
+  .stagger-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3px; max-width: 1200px; }
   .stagger-text { background: var(--ink); padding: 56px 52px; display: flex; flex-direction: column; justify-content: center; aspect-ratio: 4/3; }
   .stagger-text.alt { background: #E0D5C4; }
   .stagger-text.alt .stagger-tag { color: #8B6F47; font-weight: 500; }
@@ -112,7 +112,20 @@
   .stagger-tag { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--tan-light); margin-bottom: 16px; }
   .stagger-title { font-family: var(--serif); font-size: 26px; font-weight: 400; color: #FAF7F2; line-height: 1.2; margin-bottom: 20px; }
   .stagger-desc { font-size: 14px; line-height: 1.75; color: rgba(250,247,242,0.6); font-weight: 300; }
-  .stagger-photo { overflow: hidden; aspect-ratio: 4/3; background: #2a2620; }
+  /* CASE STUDY FRAMING: quieter context paragraph, stronger "what I did" paragraph */
+  .stagger-desc.stagger-context { font-style: italic; color: rgba(250,247,242,0.5); margin-bottom: 12px; }
+  .stagger-desc.stagger-me { color: rgba(250,247,242,0.82); }
+  .stagger-text.alt .stagger-desc.stagger-context { color: #7A7268; }
+  .stagger-brief { font-style: normal; font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--tan-light); margin-right: 6px; }
+  .stagger-text.alt .stagger-brief { color: #8B6F47; font-weight: 500; }
+  .stagger-arrow { display: inline-block; color: var(--tan-light); margin-right: 6px; opacity: 0; transition: translate 0.3s ease; }
+  .stagger-text.alt .stagger-arrow { color: #8B6F47; font-weight: 500; }
+  .stagger-text.visible .stagger-arrow { animation: arrowIn 0.6s ease 0.6s forwards; }
+  .stagger-text:hover .stagger-arrow { translate: 4px 0; }
+  @keyframes arrowIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .stagger-arrow { opacity: 1; animation: none !important; transition: none; } }
+  .stagger-photo { overflow: hidden; min-width: 0; background: #2a2620; }
+  .stagger-text { min-width: 0; }
   .stagger-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
   .stagger-photo:hover img { transform: scale(1.03); }
   /* CASE STUDY SLIDER (Chivas) */
@@ -425,37 +438,44 @@
 
   <div class="stagger-grid">
 
-    <!-- ROW 1: text left / photo right -->
+    <!-- ROW 1: Unreasonable · text left / photo right -->
     <div class="stagger-text reveal">
-      <span class="stagger-tag">Community &amp; Brand Experience<span class="d-sep"> ·</span><br class="m-br"> 30+ programs</span>
+      <span class="stagger-tag">Community &amp; Brand Experience<span class="d-sep"> ·</span><br class="m-br"> 4 continents · 30+ programs</span>
       <h3 class="stagger-title">Unreasonable × Barclays, Accenture &amp; Pearson</h3>
-      <p class="stagger-desc d-copy">Over seven years, I built and led the in-person and community experience for one of the world's most ambitious impact accelerator programs, convening entrepreneurs, investors and institutions to scale solutions to global challenges.</p>
-      <p class="stagger-desc d-copy" style="margin-top:16px;">I managed an eight-figure annual budget and a team of full-time staff and consultants, directing vendors across 6 countries. I created the playbook that kept 30+ programs on four continents consistent, from a manor house in England to a farm in upstate New York. NPS: 88.</p>
-      <p class="stagger-desc m-copy">Built and led the in-person, virtual and community experience for a global impact accelerator over seven years. 30+ programs on four continents, an eight-figure annual budget, a team of staff and consultants, and vendors in six countries. Guest NPS: 88.</p>
+      <p class="stagger-desc stagger-context d-copy"><span class="stagger-brief">The brief:</span>Make gatherings the engine of a global accelerator: connect growth-stage founders with the investors, mentors and partners who help their ventures grow, at one standard across every program.</p>
+      <p class="stagger-desc stagger-me d-copy"><span class="stagger-arrow" aria-hidden="true">&rarr;</span>Over seven years and three roles, from Director of Global Programs to Senior Director of Brand and Experience, I owned the vision and saw it through, setting the creative direction and leading the planning, production and delivery of 30+ programs on four continents. My role expanded to include oversight of the brand across the organization. I managed an eight-figure annual budget, a team of staff and consultants and vendors in 6 countries, and built the playbook that kept every program consistent. Guest NPS: 88.</p>
+      <p class="stagger-desc m-copy">Over seven years and three roles, owned the vision and creative direction for 30+ programs on four continents, leading planning, production and delivery with an eight-figure annual budget and vendors in six countries. Guest NPS: 88.</p>
     </div>
     <div class="stagger-photo reveal reveal-delay-1">
       <img src="images/1107_unreasonable_35.png" alt="1107_unreasonable_35.png">
     </div>
 
-    <!-- ROW 2: photo left / text right -->
+    <!-- ROW 2: ADC Group · photo left / text right -->
     <div class="stagger-photo reveal">
       <img src="images/UK22_84-5K.jpeg" alt="UK22_84-5K.jpeg">
     </div>
     <div class="stagger-text alt reveal reveal-delay-1">
-      <span class="stagger-tag">Employee Experience · 3 offices · 3 days</span>
+      <span class="stagger-tag">Employee Experience<span class="d-sep"> ·</span><br class="m-br"> Amsterdam · 185 guests</span>
       <h3 class="stagger-title">ADC Group</h3>
-      <p class="stagger-desc d-copy">End-to-end design and production of a company off-site for ADC Group, bringing a distributed team together from 3 international offices for a 3-day experience designed to deepen relationships, sharpen strategy, and strengthen culture.</p>
-      <p class="stagger-desc m-copy">Led end-to-end design and production of a 3-day off-site uniting a team from 3 international offices to strengthen relationships, strategy and culture.</p>
+      <p class="stagger-desc stagger-context d-copy"><span class="stagger-brief">The brief:</span>Unite ADC Group's newly combined data, AI and design teams as a new CEO steps in: deepen relationships, foster a shared culture and sharpen strategy for what's next.</p>
+      <p class="stagger-desc stagger-me d-copy"><span class="stagger-arrow" aria-hidden="true">&rarr;</span>As experience design and production partner, I turned the vision into 3 seamless days built to pull people out of their everyday ways of working, across six spaces each shaped around its content, from a hackathon to a forest drop to life-sized client archetypes. Between the work, moments crafted for celebrating and connecting kept the energy high, and the team left with new ways of working and a refreshed identity. "As professional an event as I've seen in my career."</p>
+      <p class="stagger-desc m-copy">Experience design and production partner for a 3-day off-site uniting a team from 3 international offices to strengthen relationships, strategy and culture.</p>
     </div>
 
-    <!-- ROW 3: text left / photo right -->
+    <!-- ROW 3: UpTogether · text left / photo right -->
     <div class="stagger-text reveal">
-      <span class="stagger-tag">Brand Experience · Global Final · 400 guests</span>
-      <h3 class="stagger-title">Chivas The Venture</h3>
-      <p class="stagger-desc d-copy">I oversaw the global final of Chivas Regal's $1M search for social entrepreneurs, in the competition's inaugural year. I managed a $1.2M buildout that turned an empty 30,000 sq ft pier warehouse into three branded spaces: an exhibition of 16 global finalists, a four-sided stage where five pitched live to judges including Pernod Ricard CEO Alexandre Ricard, and a lounge for Aloe Blacc's closing set. Hosted by James Corden, the night brought the campaign's "Win the Right Way" message to life. Produced with The Projects*.</p>
-      <p class="stagger-desc m-copy">Oversaw the global final of Chivas Regal's $1M search for social entrepreneurs. Led a $1.2M buildout that turned an empty 30,000 sq ft pier into three branded spaces for 400 guests, hosted by James Corden.</p>
+      <span class="stagger-tag">Employee Experience<span class="d-sep"> ·</span><br class="m-br"> Austin · 85 guests</span>
+      <h3 class="stagger-title">UpTogether</h3>
+      <p class="stagger-desc stagger-context d-copy"><span class="stagger-brief">The brief:</span>Bring together a distributed team that had doubled in size and hadn't gathered in years: build real relationships and reconnect everyone to their shared mission of helping people experiencing hardship achieve financial freedom.</p>
+      <p class="stagger-desc stagger-me d-copy"><span class="stagger-arrow" aria-hidden="true">&rarr;</span>I led the experience design, production and planning process alongside their internal committee, defining roles and decision points, finding a location that worked for the whole team and balancing cost against impact. Each day centered on intentional moments of connection, and by the closing session, the team said their relationships had gone from "transactional to transformational."</p>
+      <p class="stagger-desc m-copy">Led experience design and production for a 3-day off-site for UpTogether's distributed team of 85, which had doubled in size and hadn't gathered in years.</p>
     </div>
     <div class="stagger-photo reveal reveal-delay-1">
+      <img src="images/UNReasonable_2885.jpeg" alt="UNReasonable_2885.jpeg">
+    </div>
+
+    <!-- ROW 4: Chivas · photo left / text right -->
+    <div class="stagger-photo reveal">
       <div class="cs-slider" aria-roledescription="carousel" aria-label="Chivas The Venture photos" tabindex="0">
         <img class="cs-slide is-active" src="images/ChivasTheVenture-219_copy.jpg" alt="Guests exploring the finalist exhibition at Chivas The Venture">
         <img class="cs-slide" src="images/ChivasTheVenture-23_copy.jpeg" alt="Four-sided pitch stage with tiered seating">
@@ -466,27 +486,36 @@
         <div class="cs-dots"></div>
       </div>
     </div>
-
-    <!-- ROW 4: photo left / text right -->
-    <div class="stagger-photo reveal">
-      <img src="images/120318_unreasonable_07.jpeg" alt="120318_unreasonable_07.jpeg">
-    </div>
     <div class="stagger-text alt reveal reveal-delay-1">
-      <span class="stagger-tag">Employee Experience · 1,400+ educators · 5 years</span>
-      <h3 class="stagger-title">Alliance College-Ready Public Schools</h3>
-      <p class="stagger-desc d-copy">For five consecutive years, designed and delivered the annual gathering for 1,400+ education professionals across 26 schools in Los Angeles, in both in-person and virtual formats.</p>
-      <p class="stagger-desc m-copy">Designed and delivered the annual gathering for 1,400+ educators across 26 Los Angeles schools for five consecutive years, in person and virtual.</p>
+      <span class="stagger-tag">Brand Experience<span class="d-sep"> ·</span><br class="m-br"> San Francisco · 400 guests</span>
+      <h3 class="stagger-title">Chivas The Venture</h3>
+      <p class="stagger-desc stagger-context d-copy"><span class="stagger-brief">The brief:</span>Conceptualize and deliver an immersive global finale for Chivas Regal's $1M search for social entrepreneurs: honor the finalists' work, build to a climactic live showcase and close with a celebration worthy of the prize.</p>
+      <p class="stagger-desc stagger-me d-copy"><span class="stagger-arrow" aria-hidden="true">&rarr;</span>As account director at The Projects*, I oversaw a $1.2M buildout that turned an empty 30,000 sq ft pier warehouse into a journey in three acts: an exhibition of 16 finalists, a four-sided stage for five live pitches before judges including Pernod Ricard CEO Alexandre Ricard, and a closing set by Aloe Blacc. Hosted by James Corden for 400 VIP guests.</p>
+      <p class="stagger-desc m-copy">Oversaw the global final of Chivas Regal's $1M search for social entrepreneurs. Led a $1.2M buildout that turned an empty 30,000 sq ft pier into three branded spaces for 400 guests, hosted by James Corden.</p>
     </div>
 
-    <!-- ROW 5: text left / photo right -->
+    <!-- ROW 5: Alliance · text left / photo right -->
     <div class="stagger-text reveal">
-      <span class="stagger-tag">Community Experience · Multi-day</span>
-      <h3 class="stagger-title">Summit Outside</h3>
-      <p class="stagger-desc d-copy">Designed and produced an immersive multi-day gathering at Powder Mountain, Utah for Summit Series, bringing together entrepreneurs, artists, and thought leaders for talks, outdoor activities, and communal experiences, most notably a quarter-mile-long shared dinner table set against the mountain landscape.</p>
-      <p class="stagger-desc m-copy">Designed and produced an immersive multi-day gathering at Powder Mountain, Utah for Summit Series, anchored by a quarter-mile-long shared dinner table on the mountain.</p>
+      <span class="stagger-tag">Employee Experience<span class="d-sep"> ·</span><br class="m-br"> Los Angeles · 1,400+ guests</span>
+      <h3 class="stagger-title">Alliance College-Ready Public Schools</h3>
+      <p class="stagger-desc stagger-context d-copy"><span class="stagger-brief">The brief:</span>Reimagine the annual all-staff gathering, the only time the staff of 26 Los Angeles charter schools and the home office are under one roof: a unifying kickoff to align on strategy, celebrate progress and start the year on a high note.</p>
+      <p class="stagger-desc stagger-me d-copy"><span class="stagger-arrow" aria-hidden="true">&rarr;</span>For five years, I co-designed a fresh purpose-centered approach from the ground up and produced it end to end for 1,400+ attendees, from securing talent and shaping the show to calling it live and running every production detail behind it, in person and, through the pandemic, virtually.</p>
+      <p class="stagger-desc m-copy">Designed and delivered the annual gathering for 1,400+ employees across 26 Los Angeles charter schools for five consecutive years, in person and virtual.</p>
     </div>
     <div class="stagger-photo reveal reveal-delay-1">
+      <img src="images/120318_unreasonable_07.jpeg" alt="120318_unreasonable_07.jpeg">
+    </div>
+
+    <!-- ROW 6: Summit Outside · photo left / text right -->
+    <div class="stagger-photo reveal">
       <img src="images/HOSTING_IanMatteson_0155.jpeg" alt="HOSTING_IanMatteson_0155.jpeg">
+    </div>
+    <div class="stagger-text alt reveal reveal-delay-1">
+      <span class="stagger-tag">Community Experience<span class="d-sep"> ·</span><br class="m-br"> Utah · 1,000 guests</span>
+      <h3 class="stagger-title">Summit Outside</h3>
+      <p class="stagger-desc stagger-context d-copy"><span class="stagger-brief">The brief:</span>Create a world-class culinary experience for 1,000 entrepreneurs, artists and thought leaders in a remote location with zero infrastructure, 6 weeks from concept to kickoff.</p>
+      <p class="stagger-desc stagger-me d-copy"><span class="stagger-arrow" aria-hidden="true">&rarr;</span>I designed and delivered a culinary journey that made food the heart of the gathering. Behind every meal was an operation built from scratch: tents, refrigeration, sourcing and staff. Three meals a day gave way to a noodle bus, a speakeasy and late-night bars tucked into an electric forest. Its centerpiece became the event's most memorable moment: a quarter-mile-long table seating all 1,000 guests for one shared dinner against the mountain.</p>
+      <p class="stagger-desc m-copy">Led the culinary program for 1,000 guests at Powder Mountain, Utah, with zero infrastructure, including a quarter-mile-long table seating every guest for one shared dinner.</p>
     </div>
 
   </div>
